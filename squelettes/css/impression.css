@@ -1,0 +1,74 @@
+/***************************************
+
+---------------------------
+styles impression
+---------------------------
+
+****************************************/
+
+html {
+	font-size: 12px;
+}
+
+body {
+	background: white;
+	color: #000;
+}
+
+/* structure */
+
+#enveloppe {
+	margin: 0 5%;
+	text-align: left;
+	width: auto;
+}
+
+#entete {
+	margin: 40px 0 0 0;
+}
+
+#corps {
+	margin: 40px 5% 0 200px;
+}
+
+#corps #texte p, #corp #texte li {
+	text-align: justify;
+}
+
+#corps p.datePublication {
+	margin: 10px 0;
+} 
+
+/* liens */
+
+a:link, a:visited {
+  color: #000;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*#corps a:link:after, #corps a:visited:after {
+  content: " [" attr(href) "] ";
+  font-size: 90%;
+  color: #666;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: normal;
+}
+
+#corps a[href^="spip.php"]:after {
+  content: " [http://www.cns.sante.fr/" attr(href) "] ";
+}*/
+
+a img {
+	border: none;
+}
+
+/* elements masques */
+
+#menuPrincipal, #menuSecondaire, #pied, #outil_sommaire {
+	display: none;
+}
+
+
+

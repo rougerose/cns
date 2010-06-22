@@ -1,0 +1,46 @@
+<BOUCLE_p(SITES){id_syndic}>[(#REM) squelette pour les sites,  depend de l'annuaire de liens  rubrique-5 ]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+
+    [(#SET{initiale_site,[(#NOM_SITE|supprimer_numero|initiale)]})]
+    <BOUCLE_titre_rubrique5(RUBRIQUES){id_rubrique}>
+    [(#SET{titre_rubrique,[(#TITRE|supprimer_numero)]})]
+    </BOUCLE_titre_rubrique5>
+
+    <title>
+        [(#GET{titre_rubrique}) > ]<:index_alpha:>[ > (#GET{initiale_site})][ > (#NOM_SITE|supprimer_numero|textebrut)][ / (#NOM_SITE_SPIP|textebrut)]
+    </title>
+    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+    <INCLURE{fond=inc-head}>
+</head>
+
+<body id="rubrique" class="annuaireLiens">
+    <div id="enveloppe">
+        <div id="entete" class="clearfix">
+            [(#INCLURE{fond=inc-logo})]
+
+            <INCLURE{fond=inc-menuPrincipal}{lang}{id_secteur}{skel=#SQUELETTE}>
+
+            <INCLURE{fond=inc-menuSecondaire}{lang}>
+
+        </div><!-- fin div entete -->
+        <div id="corps">
+            <div id="colonnePrincipale" class="clearfix">
+                <div id="titre" class="blocContenu">
+                    <h1>
+                        [(#GET{titre_rubrique})]
+                    </h1>
+                </div>
+                [(#INCLURE{fond=inc-indexSite}{lang}{id_rubrique}{self=#SELF}{id_syndic}{initiale_site=#GET{initiale_site}})]
+                
+
+            </div><!-- fin div colonnePrincipale -->
+        </div><!-- fin div corps -->
+        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+    </div><!-- fin div enveloppe -->
+    
+</body>
+</html>
+</BOUCLE_p>

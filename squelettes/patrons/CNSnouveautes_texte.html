@@ -1,0 +1,36 @@
+#CACHE{0}
+[
+--------------------------------------------------------
+<:spiplistes:abo_1_lettre:>, [(#DATE|affdate)]
+--------------------------------------------------------
+
+<:spiplistes:nouveaute_intro:> #NOM_SITE_SPIP (#URL_SITE_SPIP) [(#ENV{date}|date_depuis)]
+
+#ENV{message}
+
+(#DATE_MODIF_SITE|strtotime|>{[(#ENV{date}|strtotime)]}|?{' ',''})
+]
+
+<B_articles_cp>
+==============
+<multi>[fr]Communiqués de presse[en]Press releases</multi>
+==============
+<BOUCLE_articles_cp(ARTICLES){lang}{id_rubrique=4}{id_mot ?}{age_relatif<0}{par date}{inverse}>
+[(#TITRE|supprimer_numero)]
+--------------
+[(#DESCRIPTIF|supprimer_tags)]
+<:spiplistes:article_entier:>[ (#URL_ARTICLE|url_absolue)]
+</BOUCLE_articles_cp>
+</B_articles_cp>
+
+<B_articles_rapports>
+==============
+<multi>[fr]Rapports, avis et recommandations[en]Opinions</multi>
+==============
+<BOUCLE_articles_rapports(ARTICLES){lang}{id_secteur=3}{id_mot ?}{age_relatif<0}{par date}{inverse}>
+[(#TITRE|supprimer_numero)]
+--------------
+[(#DESCRIPTIF|supprimer_tags)]
+<:spiplistes:article_entier:>[ (#URL_ARTICLE|url_absolue)]
+</BOUCLE_articles_rapports>
+</B_articles_rapports>

@@ -1,0 +1,35 @@
+/***************************************
+
+---------------------------
+liens
+---------------------------
+
+****************************************/
+
+a, a:link, #rubrique.annuaireLiens blocContenu h2 a {
+	color: #191919;
+	text-decoration: none;
+}
+
+a:visited {
+}
+
+#sommaire h2 a, #rubrique h2 a, #sommaire h2 a:visited, #rubrique h2 a {
+	color: #09f;
+}
+
+a:hover, #enveloppe .on a:hover, #enveloppe .blocContenu h2 a:hover, a:focus {
+	color: #f00;
+	text-decoration: none;
+}
+
+a:active {
+}
+
+/*image links*/
+
+a:link img, a img
+{
+  border: 0;
+}
+

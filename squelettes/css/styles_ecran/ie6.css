@@ -1,0 +1,40 @@
+#colonnePrincipale {
+	display: inline-block;
+}
+
+#contenuSecondaire {
+	padding-left: 55px;
+}
+
+#contenuPrincipal {
+	word-wrap: break-word;
+}
+
+#menuSecondaire {
+	position: absolute;
+	top:expression(eval(document.compatMode && document.compatMode=='CSS1Compat') ? documentElement.scrollTop +(documentElement.clientHeight-this.clientHeight) : document.body.scrollTop + (document.body.clientHeight-this.clientHeight));
+	left: 7px;
+	width: 152px;
+	padding-bottom: 3.5em;
+}
+
+#menuPrincipal li.on li a, #menuPrincipal li.on li.on li a {
+	color: #191919
+}
+
+#menuPrincipal li.on a, #menuPrincipal li.on li.on a, #menuPrincipal li.on li.on li.on a {
+	color: #09f;
+}
+
+#index p#abecedaire a, #index p#abecedaire strong {
+	float: none;
+}
+
+#pied ul {
+	padding-right: 53px;
+	margin: 0 0 .2em 0;
+}
+
+#hcalendar dt {
+	left: -159px;
+}

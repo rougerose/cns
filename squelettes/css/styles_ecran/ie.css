@@ -1,0 +1,31 @@
+#texteArticle blockquote.spip {
+	border: 1px solid #eee;
+	margin: 1em 0;
+	padding: 10px 10px 0;
+	text-align: left;
+}
+
+#texteArticle ol.spip {
+	list-style-type: decimal;
+}
+
+.colonneContenuRubrique strong {
+	font-weight: normal;
+}
+
+#index dl dt {
+	width: 197px;
+
+}
+
+.jquery-on #index dd {
+	margin-left: 0;
+}
+
+.jquery-on #index.chrono dd {
+	margin-left: 0;
+}
+
+table.spip th, table.spip td {
+	border: none;
+}

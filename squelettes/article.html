@@ -1,0 +1,128 @@
+<BOUCLE_p(ARTICLES){id_article}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+    <title>[(#TITRE|supprimer_numero|textebrut) / ][(#NOM_SITE_SPIP|textebrut)]</title>
+    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+    <INCLURE{fond=inc-head}>
+    <INCLURE{fond=javascript/configuration-shadowbox}{lang}>
+
+</head>
+
+<body id="article">
+    <div id="enveloppe">
+        <div id="entete" class="clearfix">
+            [(#INCLURE{fond=inc-logo})]
+
+            <INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique}{skel=#SQUELETTE}>
+
+            <INCLURE{fond=inc-menuSecondaire}{lang}{id_article}>
+
+        </div><!-- fin div entete -->
+        <div id="corps">
+            <div id="colonnePrincipale" class="clearfix">
+                #DEBUT_SURLIGNE
+                [<p id="surtitre">(#SURTITRE)</p>]
+                <h1>[(#TITRE|supprimer_numero)]</h1>
+                [<p id="soustitre">(#SOUSTITRE)</p>]
+                <p class="datePublication">
+                    [(#ID_SECTEUR|=={3}|?{[<:publie:> (#DATE|affdate)]})]
+                    [(#ID_SECTEUR|=={4}|?{[<:publie:> (#DATE|affdate)]})]
+                </p>
+                <div id="contenuPrincipal">
+                    
+                    [<div id="chapo">
+                        (#CHAPO)
+                    </div>]
+                    [<div id="haut" class="pagination">
+                        (#CS_DECOUPE)
+                    </div>]
+                    [<div id="texte">
+                        (#TEXTE|image_reduire{450,0})
+                    </div>]
+                    [<div id="notes">
+                        <h3><:ecrire:info_notes:></h3>
+                        (#NOTES)
+                    </div>]
+                    #FIN_SURLIGNE
+                    [<div id="bas" class="pagination">
+                        (#CS_DECOUPE)
+                    </div>]
+                    
+                    <BOUCLE_article_newsletter(MOTS){id_article}{titre=newsletter}{doublons}>
+                    [(#FORMULAIRE_ABONNEMENT)]
+                    </BOUCLE_article_newsletter>
+                    
+                </div><!-- fin div contenuPrincipal -->
+                <div id="contenuSecondaire">
+                    <BOUCLE_mots_techniques(MOTS){id_article}{type=gestion et affichage}{doublons}></BOUCLE_mots_techniques>
+                    #CS_SOMMAIRE
+                    
+                    <B_traductions>
+                    <h3><:traduction_disponible:></h3>
+                    <ul>
+                        <BOUCLE_traductions(ARTICLES){traduction}{exclus}>
+                        [<li>&#091;(#LANG)&#093; <a href="[(#URL_ARTICLE|parametre_url{lang,#LANG})]" rel="alternate" hreflang="#LANG">[(#TITRE|supprimer_numero)]</a></li>]
+                        </BOUCLE_traductions>
+                    </ul>
+                    </B_traductions>
+                    
+                    <BOUCLE_article_pdf(DOCUMENTS){id_article}{mode=document}{titre==0{2}}{doublons}{0,1}>
+                    <h3><:telecharger_page_pdf:></h3>
+                    <dl id="documentArticlePDF">
+                        <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+                        <dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+                    </dl>
+                    </BOUCLE_article_pdf>
+                    
+                    <BOUCLE_exclure_article_pdf(DOCUMENTS){id_article}{mode=document}{titre==0{2}}{doublons documents}></BOUCLE_exclure_article_pdf>
+                    
+                    <B_mots>
+                    <div class="contexte clearfix">
+                        <div id="themes"<BOUCLE_test_doc(DOCUMENTS){id_article}{mode=document}{0,1}{doublons}> class="uneColonne"</BOUCLE_test_doc>>
+                            <h3><:mots_clefs_maj:></h3>
+                            <ul>
+                                <BOUCLE_mots(MOTS){id_article}{par multi titre}{doublons}>
+                                <li><a href="#URL_MOT" rel="tag">[(#TITRE|supprimer_numero)]</a></li>
+                                </BOUCLE_mots>
+                            </ul>
+                        </div>
+                        
+                        <B_doc_joints>
+                        <div id="documents" class="uneColonne">
+                            <h3><:info_documents:></h3>
+                            <dl>
+                                <BOUCLE_doc_joints(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{doublons documents}>
+                                <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+                                <dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+                                </BOUCLE_doc_joints>
+                            </dl>
+                        </div>
+                        </B_doc_joints>
+                    </div><!-- fin div contexte -->
+                    </B_mots>
+                    <B_doc_joints2>
+                    <div class="contexte">
+                        <h3><:info_documents:></h3>
+                        <dl id="documents">
+                            <BOUCLE_doc_joints2(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{doublons documents}>
+                            <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+                            <dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+                            </BOUCLE_doc_joints2>
+                        </dl>
+                    </div><!-- fin div contexte -->
+                    </B_doc_joints2>
+                    <//B_mots>
+
+                </div><!-- fin div contenuSecondaire -->
+
+            </div><!-- fin div colonnePrincipale -->
+        </div><!-- fin div corps -->
+        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+    </div><!-- fin div enveloppe -->
+    
+</body>
+</html>
+</BOUCLE_p>

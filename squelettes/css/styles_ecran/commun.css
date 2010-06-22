@@ -1,0 +1,739 @@
+/***************************************
+
+---------------------------
+styles 
+---------------------------
+
+****************************************/
+
+/* structure des pages  */
+
+body {
+	text-align: center;
+}
+#enveloppe {
+	margin: 0 auto;
+	position: relative;
+	text-align: left;
+	width: 960px;
+}
+#entete {
+	margin: 0 6px 0 7px;
+	padding-top: 5em;
+}
+
+#menuSecondaire {
+	bottom: 3.5em;
+	position: fixed;
+	float: left;
+}
+
+#corps {
+	margin: 0 6px 0 7px;
+}
+#colonnePrincipale {
+	border-top: 1px solid #09f;
+	margin: 1em 0 0 212px;
+	padding-top: 1em;
+}
+
+#contenuPrincipal {
+	width: 470px;
+	float: left;
+}
+
+#article.page404 #contenuPrincipal, #article.auteur #contenuPrincipal {
+	margin-top: 3em;
+}
+
+#contenuSecondaire {
+	width: 205px;
+	float: left;
+	padding-left: 60px;
+}
+
+#pied {
+	border-bottom: 1px solid #09f;
+	margin: 0 6px 4em 219px;
+	padding: 0 0 0;
+}
+
+/* Logo */
+
+#logo {
+	float: left;
+	width: 212px;
+}
+
+/* menu Principal */
+
+#menuPrincipal {
+	position: relative;
+	margin-left: 212px;
+}
+
+#menuPrincipal ul {
+	position: absolute;
+	width: 258px;
+}
+
+#menuPrincipal ul ul {
+	left: 265px;
+	top: 0;
+}
+
+#menuPrincipal ul ul ul {
+	width: 205px;
+}
+
+#menuPrincipal ul ul ul ul {
+	display: none;
+}
+
+#menuPrincipal li {
+	line-height: 1.5;
+	text-transform: uppercase;
+}
+
+#menuPrincipal ul a {
+	font-size: 1.1em;
+}
+
+#menuPrincipal li.on > a {
+	color: #09f;
+}
+
+
+/* pied de page */
+
+#pied ul {
+	padding-top: 2em;
+	float: right;
+	margin-right: 53px;
+}
+#pied li {
+	border-right: 1px solid #09f;
+	float: left;
+	font-size: 1em;
+	line-height: 1.1em;
+	margin: 0 .4em .2em 0;
+	padding: 0 .4em 0 0;
+	text-transform: uppercase;
+}
+
+#pied a {
+	display: block;
+}
+
+/* typographie */
+
+html {
+	font-size: 100%;
+}
+
+body {
+	color: #707070;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 62.5%;
+	/*background: url(../../images/grille.jpg) repeat-y center top;*/
+}
+
+#entete, #pied, .bouton {
+	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #09f;
+	font-weight: normal;
+	line-height: 1.1;
+	margin:	0;
+}
+
+#corps h1 {
+	font-size: 2.5em;
+}
+
+#pageIndex h1 {
+	margin-bottom: 1.5em;
+}
+
+#sommaire h2, #rubrique .blocContenu h2, #recherche .blocContenu h2 {
+	font-size: 2em;
+}
+
+h2.spip {
+	font-size: 2.4em;
+	line-height: normal;
+	margin:1.5em 0 .8em;
+}
+
+h3.spip, #notes h3 {
+	font-size: 2em;
+	margin:	1.5em 0 .5em;
+}
+
+
+h3.message {
+	color: #707070;
+}
+
+#index h2 {
+	font-size: 2em;
+	line-height: 1;
+	margin-bottom: .3em;
+}
+
+h4.spip {
+	font-size: 1.8em;
+	margin:	1em 0 .25em;
+}
+
+.colonneContenuRubrique h3, #pageIndex .blocContenu h3 {
+	font-size: 1.8em;
+}
+
+h5.spip {
+	font-size: 1.4em;
+	margin: 1em 0 .25em;
+}
+
+h6.spip {
+	font-size: 1.4em;
+	font-style: italic;
+}
+
+#menuLangue, #menuSecondaire ul li {
+	font-size: 1.1em;
+}
+
+#menuLangue a {
+	text-transform: uppercase;
+}
+
+#contenuSecondaire h3 {
+	border-bottom: 1px solid #09f;
+	font-size: 1.4em;
+	margin: 0 0 .3em;
+}
+
+#corps p, #recherche dl dd, #article dl.listeMembres {
+	font-size: 1.4em;
+}
+
+/*#article dl.listeMembres dd.email, #article dl.listeMembres dd.url {
+	font-size: .85em;
+}*/
+
+#recherche #colonnePrincipale dl dt {
+	font-size: 1.7em;
+}
+
+p#soustitre, p#surtitre {
+	font-size: 1.8em;
+}
+
+p.spip strong {
+	font-weight: bold;
+	font-size: 1em;
+}
+
+/* colonne secondaire */
+
+#contenuSecondaire li, #contenuSecondaire dt, #contenuSecondaire dd {
+	font-size: 1.3em;
+}
+
+#contenuSecondaire dd li {
+	font-size: 1em;
+}
+
+#contenuSecondaire dl, #contenuSecondaire ul {
+	margin-bottom: 2em;
+}
+
+#contenuSecondaire .contexte .uneColonne {
+	float: left;
+	width: 99px;
+}
+
+#contenuSecondaire div#themes.uneColonne {
+	margin-right: 7px;
+}
+
+#outil_sommaire li span {
+	color: #808080;
+}
+
+#outil_sommaire li a:hover + span {
+	color:#f00;
+}
+
+/* listes */
+
+#article #texte ol.spip {
+	font-size: 1.4em;
+	list-style-type: decimal-leading-zero;
+	list-style-position: outside;
+	margin-left: 2em;
+	text-align: justify;
+}
+
+#article #texte ol.spip li {
+	margin-bottom: 1em;
+}
+
+#article #texte ul.spip {
+	margin-bottom: 1.5em;
+}
+
+#article #texte ul.spip ul {
+	margin-bottom: 0;
+}
+
+#article #texte ul.spip li {
+	font-size: 1.4em;
+}
+
+#article #texte ul.spip li li {
+	font-size: 1em;
+}
+
+#contenuSecondaire li, #article #texte ul.spip li {
+	background: url(../../images/iconeCarreListe.png) no-repeat 0 0;
+	padding-left: 16px;
+}
+
+ul.liste li {
+	background: url(../../images/fleche.png) no-repeat 0 .2em;
+	font-size: 1.4em;
+	padding-left: 16px;
+}
+
+#documents dt, #documentArticlePDF dt {
+	padding-left: 16px;
+	background: url(../../images/iconeDocument.png) no-repeat 0 0;
+}
+
+#documents dd, #documentArticlePDF dd {
+	font-size: .9em;
+	margin-bottom: .3em;
+	padding-left: 16px;
+}
+
+/* pages sommaire, rubrique, plan & recherche */
+
+#rubrique #titre {
+	margin-bottom: 3em;
+}
+
+#apropos div.colonneContenuRubrique {
+	float: right;
+	width: 470px;
+	margin-left: 0;
+}
+
+.blocContenu div.colonneContenuRubrique {
+	margin-left: 265px;
+	margin-bottom: 3em;
+}
+
+.agenda .blocContenu .colonneContenuRubrique {
+	margin-left: 159px;
+}
+
+.blocContenu h3, .blocContenu h2 {
+	margin:	0;
+}
+
+.blocContenu h2 {
+	margin-bottom: .2em;
+}
+
+.blocContenu p {
+	margin: .3em 0 2em;
+}
+
+.blocContenu p.descriptifRubrique {
+	margin-left: 265px;
+}
+
+.colonneContenuRubrique p span, .blocContenu p span, .descriptif span {
+	color: #f00;
+	font-weight: bold;
+}
+
+.colonneContenuRubrique strong {
+	color: #606060;
+}
+
+ul.colonneContenuRubrique {
+	float: left;
+	margin-top: .3em;
+	width: 258px;
+}
+
+#recherche .blocContenu {
+	margin-bottom: 2em;
+}
+
+#recherche dl dd.url, #index dd p.url {
+	margin-bottom: 2em;
+}
+
+#recherche dl dd.extrait-recherche {
+	margin-bottom: .5em;
+}
+
+/* page article */
+
+#article #soustitre {
+	margin-top: .5em;
+}
+
+#article #surtitre {
+	margin:	1em 0 .2em;
+}
+
+p.spip, p.spip_note  {
+	margin: 0 0 1em;
+}
+
+#article #chapo, #article #texte, #article #notes {
+	margin-bottom: 2em;
+}
+
+p.datePublication {
+	margin-left: 530px;
+	margin: 2em 0 2em 530px;
+}
+
+a.sommaire_ancre {
+	display: none;
+}
+
+#article #texte p.spip, #article #texte p.spip_note {
+	text-align: justify;
+}
+
+#article #texte blockquote.spip {
+	quotes: "\201C" "\201D";
+	padding: 0 0 0 50px;
+	text-align: left;
+}
+
+#article #texte blockquote:before {
+	content: '“'; /* pour Safari qui ne prend pas en compte open-quote */
+	content: open-quote; /* pour Firefox */
+	color: #ddd;
+	display: block;
+	font-size: 8em;
+	height: 0;
+	margin: 0 0 0 -50px;
+	width: 50px;
+}
+
+#article #texte blockquote.spip p.spip {
+	text-align: left;
+}
+
+/* page gestion abonnement spip-listes */
+
+.abonnement h1, .abonnement h2 {
+	margin-bottom: 1em;
+}
+
+
+/* index (liens et mots-clés) */
+
+#index dd p.descriptif {
+	margin-bottom: 1em;
+}
+
+#index p#abecedaire {
+	float: left;
+	font-size: 2em;
+	font-size:	1em;
+	line-height: 1;
+	width: 53px;
+}
+
+#index p#abecedaire a, #index p#abecedaire strong {
+	display: block;
+	float: left;
+	font-size: 2em;
+	margin-bottom: .3em;
+	width: 53px;
+}
+
+#index dl {
+	float: left;
+	position: relative;
+	width: 682px;
+}
+
+#index dl dt {
+	clear: left;
+	float: left;
+	font-size: 1.5em;
+	line-height: 1.2;
+	margin-bottom: .7em;
+	width: 207px;
+	padding-right: 10px;
+}
+
+#index dl dt:first-child {
+	padding-top: .3em;
+}
+
+#index.chrono dt {
+	width: 265px;
+}
+
+#index dd {
+	width: 470px;
+	float: right;
+}
+
+p#abecedaire strong, #index dt strong {
+	color: #f00;
+}
+
+/* si javascript est actif, on positionne les elements plus joliment, et jquery fait le necessaire pour adapter la hauteur de la page en fonction du contenu mis en absolu (voir /javascript/configuration.js) */
+
+.jquery-on #index dd {
+	float: none;
+	margin-left: 212px;
+	position: absolute;
+}
+
+.jquery-on #index.chrono dd {
+	margin-left: 265px;
+}
+
+
+/* squelette Mot */
+#objetsMots {
+	float: right;
+	width: 470px;
+}
+
+#objetsMots h2 {
+	font-size: 1.8em;
+	margin-bottom: .5em;
+}
+
+#objetsMots p.pagination {
+	margin-bottom: 1em;
+}
+
+/* Membres */
+
+dl.listeMembres {
+	margin-bottom: 1em;
+}
+
+.listeMembres dt {
+	background: url(../../images/iconeCarreListe.png) no-repeat left center;
+	padding-left: 16px;
+}
+
+.listeMembres dd {
+	margin-left: 16px;
+}
+
+.listeMembres dd.note {
+	font-style: italic;
+}
+
+li.spip dl.listeMembres dt {
+	background: none;
+	padding-left: 0;
+}
+
+/* Agenda */
+
+.colonneContenuRubrique h3.agenda {
+	margin-bottom: .5em;
+}
+
+#hcalendar dl {
+	margin: .5em 0 1.5em;
+	position: relative;
+}
+
+#hcalendar dt, #hcalendar dd {
+	font-size: 1.4em;
+}
+
+#hcalendar dt {
+	color: #09f;
+	position: absolute;
+	left: 0;
+	top:auto;
+	width: 159px;
+}
+
+#hcalendar dd {
+	border-left: 1px solid #c9c9c9;
+	margin: 0 0 0 159px;
+	padding: 0 0 .5em .5em;
+}
+
+#hcalendar dd.ajoutCalendrier p {
+	border: 1px solid #fff;
+	font-size: .8em;
+	float: left;
+	padding: 2px 4px 0;
+}
+
+#hcalendar dd.ajoutCalendrier p:hover {
+	border-color: #f00;
+}
+
+#hcalendar dd img {
+	vertical-align: middle;
+}
+
+#hcalendar dd span.separateur {
+	color: #09f;
+}
+
+#menuAgenda dt {
+	border-bottom: 1px solid #eee;
+	margin-bottom: .3em;
+	padding-bottom: .3em;
+}
+
+#menuAgenda strong {
+	color: #f00;
+}
+
+/* Tableaux */
+
+table.spip {
+	border: 1px solid #ddd;
+	margin: 0 auto 2em;
+	text-align: center;
+}
+
+table.spip td {
+	text-align: center;
+	border-left: 1px solid #bbb;
+}
+
+table.spip th {
+	background-color: #ddd;
+	border-left: 1px solid #bbb;
+	text-align: center;
+}
+
+table.spip td:first-child, table.spip th:first-child {
+	border-left: 0;
+}
+
+table.spip tr.row_odd td {
+	background-color: #eee;
+	border-left-color: #bbb;
+}
+
+table.spip th, table.spip td, table.spip caption {
+	font-size: 1.2em;
+	padding: .3em;
+}
+
+table.spip caption {
+	text-align: center;
+	font-style: italic;
+}
+
+table.spip th {
+	color: #444;
+}
+
+/* Documents insérés dans les articles */
+
+.spip_documents {
+	border: 1px solid #eee;
+	padding: 5px;
+	position: relative;
+}
+
+span.spip_documents {
+	display: block;
+}
+
+.spip_documents_left {
+	margin-right: 10px;
+}
+
+.spip_documents_right {
+	margin-left: 10px;
+}
+
+.spip_documents_center {
+	text-align: center;
+}
+
+#article #texte div.clearfix {
+	margin: 1em auto;
+}
+
+.spip_documents .spip_doc_titre, .spip_documents .spip_doc_descriptif {
+	font-size: 1.1em;
+}
+
+.spip_documents .spip_doc_titre {
+	font-weight: bold;
+}
+
+dd.iconeZoomImage {
+	background-color: white;
+	border: 1px solid red;
+	margin: 0 10px 0 0;
+	padding: 1px 4px 0;
+	position: absolute;
+	right: 0;
+	bottom:	10px;
+}
+
+/* Divers */
+
+p.lienTous {
+	background: url(../../images/fleche.png) no-repeat left center;
+	padding-left: 16px;
+}
+
+p.pagination {
+	margin: 0 0 2em;
+}
+
+#rubrique div.blocContenu p.pagination {
+	margin-left: 265px;
+} 
+
+#recherche p.pagination {
+	margin:	1em 0;
+}
+
+p.pagination span.on {
+	color: #f00;
+}
+
+.spip_surligne {
+	border-bottom: 2px solid #09f;
+}
+
+/* Pagination des articles decoupes avec le Couteau suisse */
+
+p.decoupe {
+	margin: 2em 0;
+	text-align: right;
+}
+
+p.decoupe span {
+	color:#f00;
+}
+
+#menuLangue span {
+	color: #09f;
+}

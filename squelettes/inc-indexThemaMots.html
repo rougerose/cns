@@ -1,0 +1,36 @@
+[(#REM) fichier inclus depuis le squelette mot.html
+        on recupere uniquement les mots lies a un article minimum ]
+
+<BOUCLE_mots_avec_articles(spip_mots_articles)>
+<BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises>
+</BOUCLE_mots_avec_articles>
+<div id="index" class="thema clearfix">
+    <p id="abecedaire">
+    <BOUCLE_mot(MOTS){par multi titre}{!doublons mots}>
+    [(#REM) un tableau des mots-cles de la forme : "initiale du mot" => "id du mot" ]
+    [(#SET{initiale[(#TITRE|supprimer_numero|initiale)],
+        [(#GET{initiale[(#TITRE|supprimer_numero|initiale)]}
+            |array_merge_{#ARRAY{#COMPTEUR_BOUCLE,#ID_MOT}}
+        )]}
+    )]
+    [(#SET{initiale_titre,[(#TITRE|supprimer_numero|initiale)]})]
+    [[(#GET{initiale_titre}|=={[(#ENV{titre})]}|?{<strong>,
+        <a href="[(#URL_PAGE{index}|parametre_url{lettre,#GET{initiale_titre}})]">})]
+        (#GET{initiale_titre}|unique)
+        [(#GET{initiale_titre}|=={[(#ENV{titre})]}|?{</strong>,</a>})]]
+    </BOUCLE_mot>
+    </p>
+
+    <dl>
+        <BOUCLE_afficher_mots(MOTS){id_mot IN #GET{initiale#ENV{titre}}}{par multi titre}{doublons a}>
+        [<dt>
+            [(#ID_MOT|=={#ENV{id_mot}}|?{<strong>,<a href="[(#URL_MOT)]">})]
+            (#TITRE|supprimer_numero)
+            [(#ID_MOT|=={#ENV{id_mot}}|?{</strong>,</a>})]
+        </dt>]
+        [(#ID_MOT|=={#ENV{id_mot}}|?{' '})
+            [(#INCLURE{fond=inc-objetsMot}{lang}{id_mot}{self=#SELF})]
+        ]
+        </BOUCLE_afficher_mots>
+    </dl>
+</div>

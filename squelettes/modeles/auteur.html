@@ -1,0 +1,9 @@
+[(#REM) modele pour les membres ]
+<BOUCLE_auteur(AUTEURS){id_auteur}{tout}>
+<dl class="listeMembres vcard">
+    <dt class="fn nickname">#NOM</dt>
+    [<dd class="note">(#BIO|PtoBR)</dd>]
+    [<dd class="url org"><:Site_web_maj:> <a href="(#URL_SITE)">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></dd>]
+    [(#EMAIL|?{' '})<dd class="email"><a href="[(#URL_AUTEUR)]"><:envoyer_message:></a></dd>]
+</dl>
+</BOUCLE_auteur>

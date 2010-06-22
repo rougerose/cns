@@ -1,0 +1,21 @@
+#CACHE{0}
+<div id="menuSecondaire">
+    
+    [(#ID_ARTICLE|?{
+        [(#INCLURE{fond=inc-menuLangueArticle}{id_article=#ENV{id_article}})]
+        ,
+        [(#INCLURE{fond=inc-menuLangueDefaut}{lang})]
+    })]
+
+    #FORMULAIRE_RECHERCHE
+
+    <ul>
+        <BOUCLE_contact(ARTICLES){titre_mot=contact}{0,1}>
+        <li><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero|majuscules)]</a></li>
+        </BOUCLE_contact>
+        <BOUCLE_newsletter(ARTICLES){titre_mot=newsletter}{0,1}>
+        <li><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero|majuscules)]</a></li>
+        </BOUCLE_newsletter>
+    </ul>
+
+</div><!-- fin div menuSecondaire -->

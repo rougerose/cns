@@ -1,0 +1,51 @@
+/***************************************
+
+---------------------------
+sparkl links module
+---------------------------
+
+version:	0.4 'Akihabara', April 2008
+author:	  DAZ
+contact:	daz4126-at-gmail.com
+
+This stylesheet styles the links as well as all the pseudo-selectors such as hover, visited and active. 
+Further info can be found at:
+http://code.google.com/p/sparkl/wiki/LinkstModule
+
+
+****************************************/
+
+a, a:link
+{
+/*internet explorer needs the colour spelling out*/
+  color: #696969;
+	text-decoration: underline;
+}
+
+a:visited
+{
+
+}
+
+a:hover, a:focus
+{
+  text-decoration: none;
+}
+
+a:active
+{
+
+}
+
+/*image links*/
+
+a:link img, a img
+{
+  border-bottom: transparent solid 3px;
+}
+
+a:hover img, a:focus img
+{
+  border-bottom: #5ae100 solid 3px;
+}
+

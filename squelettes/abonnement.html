@@ -1,0 +1,61 @@
+#CACHE{1}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+    <title><:abonnement_liste_gestion:> / [(#NOM_SITE_SPIP|textebrut)]</title>
+    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+    <INCLURE{fond=inc-head}>
+    <INCLURE{fond=javascript/configuration-shadowbox}{lang}>
+
+</head>
+
+<body id="article" class="abonnement">
+    <div id="enveloppe">
+        <div id="entete" class="clearfix">
+            [(#INCLURE{fond=inc-logo})]
+
+            <INCLURE{fond=inc-menuPrincipal}{lang}{skel=#SQUELETTE}>
+
+            <INCLURE{fond=inc-menuSecondaire}{lang}>
+
+        </div><!-- fin div entete -->
+        <div id="corps">
+            <div id="colonnePrincipale" class="clearfix">
+                <h1><:abonnement_liste_gestion:></h1>
+                
+                <div id="contenuPrincipal">
+                    
+                    <a name="spiplistes_formabo_a" id="spiplistes_formabo_a"></a>
+                    <div>
+                        [(#REM) 	####################################
+                        			SPIP-Listes : bloc formulaire abonnement
+                        			#################################### ]
+                        [(#REM)
+                            Si (d) absent dans l'url, propose l'abonnement			
+                        ][(#ENV{d}|?{'',' '})
+                                #FORMULAIRE_ABONNEMENT
+                        ]
+                        [(#REM)
+                            Si (d) present dans l'url, propose la modification de l'abonnement			
+                        ][(#ENV{d}|?{' ',''})
+                        [(#SPIP_VERSION|>={2}|?{#FORMULAIRE_MODIF_ABONNEMENT2,#FORMULAIRE_MODIF_ABONNEMENT})]
+                        ]
+                        [(#REM) 	####################################
+                        			SPIP-Listes : fin de bloc formulaire abonnement
+                        			#################################### ]
+                    </div>
+                    
+                </div><!-- fin div contenuPrincipal -->
+                <div id="contenuSecondaire">
+
+                </div><!-- fin div contenuSecondaire -->
+
+            </div><!-- fin div colonnePrincipale -->
+        </div><!-- fin div corps -->
+        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+    </div><!-- fin div enveloppe -->
+    
+</body>
+</html>

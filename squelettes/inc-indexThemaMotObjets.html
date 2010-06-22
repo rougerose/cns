@@ -1,0 +1,38 @@
+[(#REM) fichier inclus depuis inc-indexThema]
+<dd>
+    <B_articles>
+    <h2><:articles_maj:></h2>
+    #ANCRE_PAGINATION
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+    <div class="blocContenu">
+        <BOUCLE_articles(ARTICLES){id_mot=#ENV{mot}}{lang}{!par date}{pagination}>
+        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+        </BOUCLE_articles>
+    </div>
+    </B_articles>
+
+    <B_rubriques>
+    <h2><:rubriques_maj:></h2>
+    #ANCRE_PAGINATION
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+    <div class="blocContenu">
+        <BOUCLE_rubriques(RUBRIQUES){id_mot=#ENV{mot}}{par multi titre}{pagination}>
+        <h3><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>[(#DESCRIPTIF|PtoBR)]</p>
+        </BOUCLE_rubriques>
+    </div>
+    </B_rubriques>
+
+    <B_sites>
+    <h2><:sites_web_maj:></h2>
+    #ANCRE_PAGINATION
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+    <div class="blocContenu">
+        <BOUCLE_sites(SITES){id_mot}{par nom_site}{pagination}>
+        <h3><a href="#URL_SITE">[(#NOM_SITE|supprimer_numero)]</a></h3>
+        <p>[(#DESCRIPTIF|PtoBR)]</p>
+        </BOUCLE_sites>
+    </div>
+    </B_sites>
+</dd>

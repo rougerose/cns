@@ -1,0 +1,204 @@
+<BOUCLE_p(ARTICLES){id_article}>[(#REM) article de la rubrique Agenda ]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+    <title>[(#TITRE|supprimer_numero|textebrut) / ][(#NOM_SITE_SPIP|textebrut)]</title>
+    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+    <INCLURE{fond=inc-head}>
+    <INCLURE{fond=javascript/configuration-shadowbox}{lang}>
+
+</head>
+
+<body id="article">
+    <div id="enveloppe">
+        <div id="entete" class="clearfix">
+            [(#INCLURE{fond=inc-logo})]
+
+            <INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique}{skel=#SQUELETTE}>
+
+            <INCLURE{fond=inc-menuSecondaire}{lang}>
+
+        </div><!-- fin div entete -->
+        <div id="corps">
+            <div id="colonnePrincipale" class="clearfix">
+                #DEBUT_SURLIGNE
+                [<p id="surtitre">(#SURTITRE)</p>]
+                <h1>[(#TITRE|supprimer_numero)]</h1>
+                [<p id="soustitre">(#SOUSTITRE)</p>]
+                <p class="datePublication"><:publie:>[ (#DATE|affdate)]</p>
+                <div id="contenuPrincipal">
+                    [<div id="chapoArticle">
+                        (#CHAPO)
+                    </div>]
+                    [<div id="texte">
+                        (#TEXTE|image_reduire{450,0})
+                    </div>]
+
+                    [(#REM) affichage agenda proprement dit + test selon le type d'affichage souhaité : tout ou mois par mois ]
+                    [(#ENV{d}|?{#SET{d,#ENV{d}},#SET{d,#ENV{date}}})]
+                    
+                    [(#ENV{type}|?{
+                        [(#INCLURE{fond=inc-agendaTri}{id_article}{date_debut=#GET{d}})]
+                        ,
+                        [(#INCLURE{fond=inc-agenda}{id_article}{date_debut=#GET{d}})]
+                    })]
+
+                    [<div id="notes">
+                        <h3><:ecrire:info_notes:></h3>
+                        (#NOTES)
+                    </div>]
+                    #FIN_SURLIGNE
+                    
+                    <BOUCLE_article_contact(MOTS){id_article}{titre=contact}{doublons}>
+                    #FORMULAIRE_ECRIRE_AUTEUR
+                    </BOUCLE_article_contact>
+                    
+                    
+                </div><!-- fin div contenuPrincipal -->
+                <div id="contenuSecondaire">
+                    <h3><:agenda:></h3>
+                    <dl id="menuAgenda">
+                        <dt>[(#ENV{type}|=={''}|?{
+                                [(#ENV{d}|=={[(#ENV{date}|affdate{Y-m})]}|?{
+                                    '<strong>'
+                                    ,
+                                    <a href="[(#URL_ARTICLE|parametre_url{d,[(#ENV{date}|affdate{Y-m})]})]">
+                                })]
+                                ,
+                                <a href="[(#URL_ARTICLE|parametre_url{d,[(#ENV{date}|affdate{Y-m})]})]">
+                            })]
+                                <:prochains_rendezvous:>
+                            [(#ENV{type}|=={''}|?{
+                                [(#ENV{d}|=={[(#ENV{date}|affdate{Y-m})]}|?{
+                                    '</strong>'
+                                    ,
+                                    </a>
+                                })]
+                                ,
+                                </a>
+                            })]
+                        </dt>
+                        <BOUCLE_evenement_premier(EVENEMENTS){id_article}{par date_debut}{0,1}>
+                        <dt>[(#ENV{type}|=={''}|?{
+                                [(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+                                    '<strong>'
+                                    ,
+                                    <a href="[(#URL_ARTICLE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]})]">
+                                })]
+                                ,
+                                <a href="[(#URL_ARTICLE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]})]">
+                            })]
+                                <:tous_les_rendezvous:>
+                            [(#ENV{type}|=={''}|?{
+                                [(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+                                    '</strong>'
+                                    ,
+                                    </a>
+                                })]
+                                ,
+                                </a>
+                            })]
+                        </dt>
+                        </BOUCLE_evenement_premier>
+                        <B_evenements_liste>
+                        <dt><:tri_par_mois:></dt>
+                        <BOUCLE_evenements_liste(EVENEMENTS){id_article}{!par date_debut}>
+                        [<dd>
+                            [(#ENV{type}|=={'mois'}|?{
+                                [(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+                                    '<strong>'
+                                    ,
+                                    <a href="[(#URL_ARTICLE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]}|parametre_url{type,mois})]">
+                                })]
+                                ,
+                                <a href="[(#URL_ARTICLE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]}|parametre_url{type,mois})]">
+                            })]
+                            (#DATE_DEBUT|affdate_mois_annee|unique)
+                            [(#ENV{type}|=={'mois'}|?{
+                                [(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+                                    '</strong>'
+                                    ,
+                                    </a>
+                                })]
+                                ,
+                                </a>
+                            })]
+                        </dd>]
+                        </BOUCLE_evenements_liste>
+                        </B_evenements_liste>
+                    </dl>
+                    
+                    <BOUCLE_mots_techniques(MOTS){id_article}{type=gestion et affichage}{doublons}></BOUCLE_mots_techniques>
+                    #CS_SOMMAIRE
+                    
+                    <B_traductions>
+                    <h3><:traduction_disponible:></h3>
+                    <ul>
+                        <BOUCLE_traductions(ARTICLES){traduction}{exclus}>
+                        [<li>&#091;(#LANG)&#093; <a href="[(#URL_ARTICLE|parametre_url{lang,#LANG})]" rel="alternate" hreflang="#LANG">[(#TITRE|supprimer_numero)]</a></li>]
+                        </BOUCLE_traductions>
+                    </ul>
+                    </B_traductions>
+                    
+                    <BOUCLE_images(DOCUMENTS){id_article}{mode=image}>
+                    <p>#ID_DOCUMENT</p>
+                    </BOUCLE_images>
+                    <BOUCLE_article_pdf(DOCUMENTS){id_article}{mode=document}{titre==0{2}}{doublons}{0,1}>
+                    <h3><:telecharger_page_pdf:></h3>
+                    <dl id="documentArticlePDF">
+                        <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+                        <dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+                    </dl>
+                    </BOUCLE_article_pdf>
+                    
+                    <BOUCLE_exclure_article_pdf(DOCUMENTS){id_article}{mode=document}{titre==0{2}}{doublons documents}></BOUCLE_exclure_article_pdf>
+                    
+                    <B_mots>
+                    <div class="contexte clearfix">
+                        <div id="themes"<BOUCLE_test_doc(DOCUMENTS){id_article}{mode=document}{0,1}{doublons}> class="uneColonne"</BOUCLE_test_doc>>
+                            <h3><:mots_clefs_maj:></h3>
+                            <ul>
+                                <BOUCLE_mots(MOTS){id_article}{par multi titre}{doublons}>
+                                <li><a href="#URL_MOT" rel="tag">[(#TITRE|supprimer_numero)]</a></li>
+                                </BOUCLE_mots>
+                            </ul>
+                        </div>
+                        
+                        <B_doc_joints>
+                        <div id="documents" class="uneColonne">
+                            <h3><:info_documents:></h3>
+                            <dl>
+                                <BOUCLE_doc_joints(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{doublons documents}>
+                                <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+                                <dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+                                </BOUCLE_doc_joints>
+                            </dl>
+                        </div>
+                        </B_doc_joints>
+                    </div><!-- fin div contexte -->
+                    </B_mots>
+                    <B_doc_joints2>
+                    <div class="contexte">
+                        <h3><:info_documents:></h3>
+                        <dl id="documents">
+                            <BOUCLE_doc_joints2(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{doublons documents}>
+                            <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+                            <dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+                            </BOUCLE_doc_joints2>
+                        </dl>
+                    </div><!-- fin div contexte -->
+                    </B_doc_joints2>
+                    <//B_mots>
+
+                </div><!-- fin div contenuSecondaire -->
+
+            </div><!-- fin div colonnePrincipale -->
+        </div><!-- fin div corps -->
+        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+    </div><!-- fin div enveloppe -->
+    
+</body>
+</html>
+</BOUCLE_p>

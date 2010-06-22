@@ -1,0 +1,6 @@
+#CACHE{0}
+<div id="menuLangue"> 
+    <BOUCLE_langues3(ARTICLES){fusion lang}{par lang}{"<span>|</span>"}>
+    <a rel="alternate" hreflang="#LANG" href="[(#REM|sinon{spip.php?action=cookie}|parametre_url{var_lang,#LANG})]&amp;url=#SELF">[(#LANG)]</a>
+    </BOUCLE_langues3>
+</div>

@@ -1,0 +1,32 @@
+[(#REM) on récupère uniquement les mots-clés liés au moins à un site ]
+<BOUCLE_mots_avec_sites(spip_mots_syndic)>
+    <BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises>
+</BOUCLE_mots_avec_sites>
+<BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>
+[(#SET{premier_mot,[(#TITRE|supprimer_numero|initiale)]})]
+</BOUCLE_premier_mot>
+
+<div id="index" class="thema clearfix">
+    <p id="abecedaire">
+        <BOUCLE_mot(MOTS){par multi titre}{!doublons mots}>
+        [(#REM) un tableau des mots-cles de la forme : "initiale du mot" => "id du mot" ]
+        [(#SET{initiale[(#TITRE|supprimer_numero|initiale)],
+            [(#GET{initiale[(#TITRE|supprimer_numero|initiale)]}
+                |array_merge_{#ARRAY{#COMPTEUR_BOUCLE,#ID_MOT}}
+            )]}
+        )]
+        [(#SET{initiale_titre,[(#TITRE|supprimer_numero|initiale)]})]
+        [[(#GET{initiale_titre}|=={[(#ENV{lettre,#GET{premier_mot}})]}|?{<strong>,<a href="[(#URL_RUBRIQUE|parametre_url{index,t}|parametre_url{lettre,#GET{initiale_titre}})]">})](#GET{initiale_titre}|unique)[(#GET{initiale_titre}|=={[(#ENV{lettre,#GET{premier_mot}})]}|?{</strong>,</a>})]]
+        </BOUCLE_mot>
+    </p>
+    
+    <dl>
+        <BOUCLE_afficher_mots(MOTS){id_mot IN #GET{initiale#ENV{lettre,#GET{premier_mot}}}}{par multi titre}>
+        <dt>[(#ENV{mot}|?{'<strong>',<a href="[(#SELF|parametre_url{mot,#ID_MOT})]">})]
+            [(#TITRE|supprimer_numero)]
+            [(#ENV{mot}|?{'</strong>',</a>})]
+        </dt>
+        [(#INCLURE{fond=inc-indexThemaSitesListe}{id_mot}{mot=#ENV{mot}}{self=#SELF})]
+        </BOUCLE_afficher_mots>
+    </dl>
+</div>

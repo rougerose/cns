@@ -1,0 +1,87 @@
+<BOUCLE_p(RUBRIQUES){id_rubrique}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+    <title>[(#TITRE|supprimer_numero|textebrut) / ][(#NOM_SITE_SPIP|textebrut)]</title>
+    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+    <INCLURE{fond=inc-head}>
+</head>
+
+<body id="rubrique">
+    <div id="enveloppe">
+        <div id="entete" class="clearfix">
+            [(#INCLURE{fond=inc-logo})]
+
+            <INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}>
+
+            <INCLURE{fond=inc-menuSecondaire}{lang}>
+
+        </div><!-- fin div entete -->
+        <div id="corps">
+            <div id="colonnePrincipale">
+                <div id="titre" class="blocContenu">
+                    #DEBUT_SURLIGNE
+                    <h1>[(#TITRE|supprimer_numero)]</h1>
+                    [<div class="colonneContenuRubrique">
+                        (#DESCRIPTIF)
+                    </div>]
+                    #FIN_SURLIGNE
+                </div>
+
+                [(#REM) les articles de la rubrique]
+                [(#INCLURE{fond=inc-articlesRubrique3}{id_rubrique}{id_secteur}{lang}{ajax}{self=#SELF})]
+
+                <BOUCLE_sous_rubriques(RUBRIQUES){id_parent}{par num titre, titre}>
+                <div class="blocContenu">
+                    <h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+                    [<p class="descriptifRubrique">(#DESCRIPTIF|PtoBR)</p>]
+                    
+                    <B_theme_rubrique>
+                    <BOUCLE_theme_rubrique(MOTS){id_rubrique}{id_groupe=3}>
+                    <B_articles_theme>
+                    <div class="colonneContenuRubrique">
+                        <BOUCLE_articles_theme(ARTICLES){id_mot}{id_secteur}{!par date}{0,2}{lang}>
+                        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+                        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+                        </BOUCLE_articles_theme>
+                        <BOUCLE_articles_supp(ARTICLES){lang}{id_rubrique}{1,1}>
+                        <p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:articles_rubrique:></a></p>
+                        </BOUCLE_articles_supp>
+                    </div>
+                    </B_articles_theme>
+                    <div class="colonneContenuRubrique">
+                        <BOUCLE_articles_alter1(ARTICLES){id_rubrique}{!par date}{0,2}{lang}>
+                        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+                        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+                        </BOUCLE_articles_alter1>
+                        <BOUCLE_articles_supp1(ARTICLES){lang}{id_rubrique}{1,1}>
+                        <p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:articles_rubrique:></a></p>
+                        </BOUCLE_articles_supp1>
+                    </div>
+                    <//B_articles_theme>
+                    </BOUCLE_theme_rubrique>
+                    </B_theme_rubrique>
+                    <div class="colonneContenuRubrique">
+                        <BOUCLE_articles_alter(ARTICLES){id_rubrique}{!par date}{0,2}{lang}{doublons theme}>
+                        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+                        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+                        </BOUCLE_articles_alter>
+                        <BOUCLE_articles_supp2(ARTICLES){lang}{id_rubrique}{0,1}{doublons theme}>
+                        <p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:articles_rubrique:></a></p>
+                        </BOUCLE_articles_supp2>
+                    </div>
+                    <//B_theme_rubrique>
+                    
+                </div>
+                </BOUCLE_sous_rubriques>
+
+            </div><!-- fin div colonnePrincipale -->
+        </div><!-- fin div corps -->
+        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+    </div><!-- fin div enveloppe -->
+    
+</body>
+</html>
+</BOUCLE_p>

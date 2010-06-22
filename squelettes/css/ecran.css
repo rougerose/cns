@@ -1,0 +1,27 @@
+/***************************************
+
+---------------------------
+feuilles de styles ecran
+---------------------------
+
+version :	Septembre 2008 
+auteur :	christophe le drean
+site : 		Conseil National du Sida (CNS)	
+
+****************************************/
+
+/* reset */
+@import url(styles_ecran/reset.css);
+
+/* reglage des float */
+@import url(styles_ecran/float.css);
+
+/* les styles */
+@import url(styles_ecran/commun.css);
+
+/* liens */
+@import url(styles_ecran/liens.css);
+
+/* formulaires */
+
+@import url(styles_ecran/formulaires.css);

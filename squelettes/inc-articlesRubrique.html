@@ -1,0 +1,21 @@
+[(#REM) fichier inclus depuis le squelette rubrique.html]
+[(#REM) rubrique A propos exclusion des articles contact, mentions légales et newsletter ]
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{id_rubrique=1}>
+<BOUCLE_article(ARTICLES){titre_mot=contact}{doublons exclusion}></BOUCLE_article>
+<BOUCLE_mentions(ARTICLES){titre_mot=mentions legales}{doublons exclusion}></BOUCLE_mentions>
+<BOUCLE_newsletter(ARTICLES){titre_mot=newsletter}{doublons exclusion}></BOUCLE_newsletter>
+</BOUCLE_rubrique>
+
+<B_articles>
+#ANCRE_PAGINATION
+<div class="blocContenu">
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+    <BOUCLE_articles(ARTICLES){id_rubrique}{lang}{!par date}{pagination}{doublons exclusion}>
+    <div class="colonneContenuRubrique">
+        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>[(#DESCRIPTIF|PtoBR)][(#ID_SECTEUR|=={4}|?{[<span> | </span><strong><:publie:> (#DATE|affdate)</strong>]})]</p>
+    </div>
+    </BOUCLE_articles>
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+</div>
+</B_articles>

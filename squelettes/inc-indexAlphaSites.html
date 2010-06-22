@@ -1,0 +1,30 @@
+[(#REM) fichier inclus depuis le squelette Rubrique-5 ]
+<div id="index" class="alpha clearfix">
+    <p id="abecedaire">
+        <BOUCLE_sites(SITES){id_rubrique}{par nom_site}>
+        [(#REM) un tableau des sites de la forme : "initiale du nom du site" => "id du site" ]
+        [(#SET{initiale[(#NOM_SITE|supprimer_numero|initiale)],
+            [(#GET{initiale[(#NOM_SITE|supprimer_numero|initiale)]}
+                |array_merge_{#ARRAY{#COMPTEUR_BOUCLE,#ID_SYNDIC}})]}
+        )]
+        [(#SET{initiale_nom,[(#NOM_SITE|supprimer_numero|initiale)]})]
+        [[(#GET{initiale_nom}|=={[(#ENV{lettre,#ENV{premier_site}})]}|?{<strong>,<a href="[(#URL_RUBRIQUE|parametre_url{lettre,#GET{initiale_nom}})]">})](#GET{initiale_nom}|unique)[(#GET{initiale_nom}|=={[(#ENV{lettre,#ENV{premier_site}})]}|?{'</strong>','</a>'})] ]
+        </BOUCLE_sites>
+    </p>
+
+    <B_s>
+    <dl>
+        <BOUCLE_s(SITES){id_syndic IN #GET{initiale#ENV{lettre,#ENV{premier_site}}}}>
+        <dt>
+            [[(#ID_SYNDIC|=={#ENV{site}}|?{<strong>,<a href="[(#ID_SYNDIC|generer_url_site)]">})](#NOM_SITE)[(#ID_SYNDIC|=={#ENV{site}}|?{</strong>,</a>})]]
+        </dt>
+        <BOUCLE_descriptif_site(SITES){id_syndic=#ENV{site}}{doublons}>
+        <dd class="clearfix">
+            [<p>(#DESCRIPTIF|PtoBR)</p>]
+            [<p><a href="#URL_SITE">(#URL_SITE)</a></p>]
+        </dd>
+        </BOUCLE_descriptif_site>
+        </BOUCLE_s>
+    </dl>
+    </B_s>
+</div>

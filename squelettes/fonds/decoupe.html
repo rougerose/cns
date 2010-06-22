@@ -1,0 +1,22 @@
+[(#REM)
+	champs disponibles : artpage, derniere_page, items, self
+	etendue : nombre minimum de pages pour la pagination etendue : << < 1 2 3 4 > >>
+	(si les images debut.gif et debut_off.gif ne sont pas trouvees, alors ce modele utilise un "double precedent.gif"
+	idem pour fin.gif)
+
+]
+#SET{etendue,4}
+#SET{prec_off,#CHEMIN{img/decoupe/precedent_off.gif}}
+#SET{prec_on,#CHEMIN{img/decoupe/precedent.gif}}
+#SET{precpage,#ENV*{artpage}|moins{1}}
+#SET{suiv_off,#CHEMIN{img/decoupe/suivant_off.gif}}
+#SET{suiv_on,#CHEMIN{img/decoupe/suivant.gif}}
+#SET{suivpage,#ENV*{artpage}|plus{1}}
+#SET{debut_off,#CHEMIN{img/decoupe/debut_off.gif}}
+#SET{debut_on,#CHEMIN{img/decoupe/debut.gif}}
+#SET{fin_off,#CHEMIN{img/decoupe/fin_off.gif}}
+#SET{fin_on,#CHEMIN{img/decoupe/fin.gif}}
+
+<p class="decoupe"><span><:page:></span>
+    [(#ENV*{items})]
+</p>

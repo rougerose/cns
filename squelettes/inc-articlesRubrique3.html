@@ -1,0 +1,27 @@
+[(#REM) fichier inclus depuis le squelette rubrique-3.html]
+<BOUCLE_mot(MOTS){id_rubrique}{id_groupe=3}>#SET{id_mot,#ID_MOT}</BOUCLE_mot>
+<B_articles>
+#ANCRE_PAGINATION
+<div class="blocContenu">
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+    <BOUCLE_articles(ARTICLES){id_secteur}{id_mot=#GET{id_mot}}{lang}{!par date}{pagination}>
+    <div class="colonneContenuRubrique">
+        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+    </div>
+    </BOUCLE_articles>
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+</div>
+</B_articles>
+#ANCRE_PAGINATION
+<div class="blocContenu">
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+    <BOUCLE_articles_alter(ARTICLES){id_rubrique}{lang}{!par date}{pagination}>
+    <div class="colonneContenuRubrique">
+        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+    </div>
+    </BOUCLE_articles_alter>
+    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+</div>
+<//B_articles>

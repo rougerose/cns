@@ -1,0 +1,17 @@
+<div id="menuLangue"> 
+    <BOUCLE_langues(ARTICLES){id_article}{par lang}>
+    <BOUCLE_trad_en(ARTICLES){traduction}{lang=en}>
+    [(#SET{trad_en,[(#URL_ARTICLE|urlencode)]})]
+    <a rel="alternate" hreflang="#LANG" href="[(#REM|sinon{spip.php?action=cookie}|parametre_url{var_lang,#LANG})]&amp;url=[(#GET{trad_en})]">[(#LANG)]</a>
+    </BOUCLE_trad_en>
+    <a rel="alternate" hreflang="en" href="[(#REM|sinon{spip.php?action=cookie}|parametre_url{var_lang,en})]&amp;url=<?php echo urlencode(self()); ?>">en</a>
+    <//B_trad_en>
+    <span>|</span>
+    <BOUCLE_trad_fr(ARTICLES){traduction}{lang=fr}>
+    [(#SET{trad_fr,[(#URL_ARTICLE|urlencode)]})]
+    <a rel="alternate" hreflang="#LANG" href="[(#REM|sinon{spip.php?action=cookie}|parametre_url{var_lang,#LANG})]&amp;url=[(#GET{trad_fr})]">[(#LANG)]</a>
+    </BOUCLE_trad_fr>
+    <a rel="alternate" hreflang="fr" href="[(#REM|sinon{spip.php?action=cookie}|parametre_url{var_lang,fr})]&amp;url=<?php echo urlencode(self()); ?>">fr</a>
+    <//B_trad_fr>
+    </BOUCLE_langues>
+</div>
