@@ -1,90 +1,99 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
-    <title>[(#NOM_SITE_SPIP|textebrut)]</title>
-    [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|textebrut)" />]
-    <INCLURE{fond=inc-head}>
+	<title>[(#NOM_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|textebrut)" />]
+	<INCLURE{fond=inc-head}>
 </head>
 
 <body id="sommaire">
-    <div id="enveloppe">
-        <div id="entete" class="clearfix">
-            <div id="logo">
-                <h1[ style="width:(#LOGO_SITE_SPIP|image_reduire{153,0}|largeur)px;[height:(#LOGO_SITE_SPIP|image_reduire{153,0}|hauteur)px;]"]>[(#LOGO_SITE_SPIP||image_reduire{153,0}|inserer_attribut{alt,#NOM_SITE_SPIP}|sinon{#NOM_SITE_SPIP})]</h1>
-            </div><!-- fin div logo -->
+	<div id="enveloppe">
+		<div id="entete" class="clearfix">
+			<div id="logo">
+				<h1[ style="width:(#LOGO_SITE_SPIP|image_reduire{153,0}|largeur)px;[height:(#LOGO_SITE_SPIP|image_reduire{153,0}|hauteur)px;]"]>[(#LOGO_SITE_SPIP||image_reduire{153,0}|inserer_attribut{alt,#NOM_SITE_SPIP}|sinon{#NOM_SITE_SPIP})]</h1>
+			</div><!-- fin div logo -->
 
-            <INCLURE{fond=inc-menuPrincipal}{lang}{skel=#SQUELETTE}>
+			<INCLURE{fond=inc-menuPrincipal}{lang}{skel=#SQUELETTE}>
 
-            <INCLURE{fond=inc-menuSecondaire}{lang}>
+			<INCLURE{fond=inc-menuSecondaire}{lang}>
 
-        </div><!-- fin div entete -->
-        <div id="corps">
-            <div id="colonnePrincipale">
-                <BOUCLE_apropos(RUBRIQUES){id_rubrique=1}{id_mot=1}{doublons apropos}>
-                <div id="apropos" class="blocContenu clearfix">
-                    <h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
-                    [<div class="colonneContenuRubrique">
-                        (#DESCRIPTIF)
-                    </div>]
-                    
-                    <B_apropos_sousrubriques>
-                    <ul class="liste colonneContenuRubrique">
-                        <BOUCLE_apropos_sousrubriques(RUBRIQUES){id_parent}{id_mot=1}{doublons apropos}>
-                        <li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
-                        </BOUCLE_apropos_sousrubriques>
-                    </ul>
-                    </B_apropos_sousrubriques>
-                </div>
-                </BOUCLE_apropos>
+		</div><!-- fin div entete -->
+		<div id="corps">
+			<div id="colonnePrincipale">
+				<BOUCLE_apropos(RUBRIQUES){id_rubrique=1}{id_mot=1}{doublons apropos}>
+				<div id="apropos" class="blocContenu clearfix">
+					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+					[<div class="colonneContenuRubrique">
+						(#DESCRIPTIF)
+					</div>]
 
-                <B_rubrique_rapport>
-                <div class="blocContenu">
-                    <BOUCLE_rubrique_rapport(RUBRIQUES){id_rubrique=3}{id_mot=1}>
-                    <h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
-                    <BOUCLE_affiche_articles(ARTICLES){id_secteur}{lang}{id_mot=1}{!par date}{doublons tous}>
-                    <div class="colonneContenuRubrique">
-                        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-                        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
-                    </div>
-                    </BOUCLE_affiche_articles>
-                    </BOUCLE_rubrique_rapport>
-                </div>
-                </B_rubrique_rapport>
+					<B_apropos_sousrubriques>
+					<ul class="liste colonneContenuRubrique">
+						<BOUCLE_apropos_sousrubriques(RUBRIQUES){id_parent}{id_mot=1}{doublons apropos}>
+						<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+						</BOUCLE_apropos_sousrubriques>
+					</ul>
+					</B_apropos_sousrubriques>
+				</div>
+				</BOUCLE_apropos>
 
-                <B_cp>
-                <div class="blocContenu">
-                    <BOUCLE_cp(RUBRIQUES){id_rubrique=4}{id_mot=1}>
-                    <h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
-                    <BOUCLE_cp_tous(ARTICLES){id_secteur}{lang}{id_mot=1}{!par date}{doublons tous}>
-                    <div class="colonneContenuRubrique">
-                        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-                        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
-                    </div>
-                    </BOUCLE_cp_tous>
-                    </BOUCLE_cp>
-                </div>
-                </B_cp>
+				<B_rubrique_rapport>
+				<div class="blocContenu">
+					<BOUCLE_rubrique_rapport(RUBRIQUES){id_rubrique=3}{id_mot=1}>
+					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+					<B_affiche_articles>
+					<div class="colonneContenuRubrique">
+						<BOUCLE_affiche_articles(ARTICLES){id_secteur}{lang}{id_mot=1}{!par date}{doublons tous}>
+						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+						<p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						</BOUCLE_affiche_articles>
+	                    <p class="lienTous"><a href="#URL_RUBRIQUE"><:avis_tous:></a></p>
+					</div>
+					</B_affiche_articles>
+					</BOUCLE_rubrique_rapport>
+				</div>
+				</B_rubrique_rapport>
 
-                <BOUCLE_autres(ARTICLES){id_mot=1}{!par date, id_rubrique}{lang}{doublons tous}>
-                <BOUCLE_rubrique_relative_autres(RUBRIQUES){id_rubrique}{unique}>
-                <div class="blocContenu">
-                    <h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
-                    <BOUCLE_tous_autres(ARTICLES){id_rubrique}{!par date}{id_mot=1}{lang}{doublons}>
-                    <div class="colonneContenuRubrique">
-                        <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-                        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
-                    </div>
-                    </BOUCLE_tous_autres>
-                </div>
-                </BOUCLE_rubrique_relative_autres>
-                </BOUCLE_autres>
+				<B_cp>
+				<div class="blocContenu">
+					<BOUCLE_cp(RUBRIQUES){id_rubrique=4}{id_mot=1}>
+					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+					<B_cp_tous>
+					<div class="colonneContenuRubrique">
+						<BOUCLE_cp_tous(ARTICLES){id_secteur}{lang}{id_mot=1}{!par date}{doublons tous}>
+						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+						<p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						</BOUCLE_cp_tous>
+						<p class="lienTous"><a href="#URL_RUBRIQUE"><:cp_tous:></a></p>
+					</div>
+					</B_cp_tous>
+					</BOUCLE_cp>
+				</div>
+				</B_cp>
 
-            </div><!-- fin div colonnePrincipale -->
-        </div><!-- fin div corps -->
-        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
-    </div><!-- fin div enveloppe -->
-    
+				<BOUCLE_autres(ARTICLES){id_mot=1}{!par date, id_rubrique}{lang}{doublons tous}>
+				<BOUCLE_rubrique_relative_autres(RUBRIQUES){id_rubrique}{unique}>
+				<div class="blocContenu">
+					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+					<B_tous_autres>
+					<div class="colonneContenuRubrique">
+						<BOUCLE_tous_autres(ARTICLES){id_rubrique}{!par date}{id_mot=1}{lang}{doublons}>
+						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+						<p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						</BOUCLE_tous_autres>
+						<p class="lienTous"><a href="#URL_RUBRIQUE"><:_articles_rubrique:></a></p>
+					</div>
+					</B_tous_autres>
+				</div>
+				</BOUCLE_rubrique_relative_autres>
+				</BOUCLE_autres>
+
+			</div><!-- fin div colonnePrincipale -->
+		</div><!-- fin div corps -->
+		[(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+	</div><!-- fin div enveloppe -->
+
 </body>
 </html>
