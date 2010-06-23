@@ -13,6 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'_articles_rubrique' => 'Tous les articles de cette rubrique',
 	'aucun_evenement' => 'L&#x27;agenda ne contient pas d&#x27;&eacute;v&eacute;nement &agrave; venir.',
 	'avis_tous' => 'Tous les avis, rapports et recommandations',
+	'_avis_tous' => 'tous les avis, rapports et recommandations',
 	'contratcc_court' => 'Creative Commons',
 	'contratcc_long' => 'Les contenus de ce site sont plac&eacute;s sous un contrat Creative Commons',
 	'cp_tous' => 'Tous les communiqu&eacute;s de presse',
