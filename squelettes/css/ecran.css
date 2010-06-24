@@ -25,3 +25,7 @@ site : 		Conseil National du Sida (CNS)
 /* formulaires */
 
 @import url(styles_ecran/formulaires.css);
+
+/* boutons administration spip */
+
+@import url(styles_ecran/admin.css);
