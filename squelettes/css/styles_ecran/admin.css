@@ -1,0 +1,10 @@
+/* Boutons d'admin SPIP */
+.spip-admin-bloc,
+.spip-admin-float { position: fixed !important; top: 0; left: 0 !important; right: auto !important; white-space: nowrap; }
+.spip-admin-bloc, .spip-admin-bloc *,
+.spip-admin-float, .spip-admin-float * { font-size: 100% !important; }
+a.spip-admin-boutons, a:hover.spip-admin-boutons { margin: 0 !important; padding: .4em 1em !important; background: #666 !important; border: 0 !important; color: #fff !important; text-decoration: none; }
+a.spip-admin-boutons { margin: auto !important; opacity: .7; -moz-border-radius-bottomleft: .3em; -moz-border-radius-bottomright: .3em; }
+a:hover.spip-admin-boutons { opacity: 1; }
+@media handheld { .spip-admin-float, .spip-admin-boutons { display: none !important; } }
+@media print { .spip-admin-float, .spip-admin-boutons { display: none !important; } }
