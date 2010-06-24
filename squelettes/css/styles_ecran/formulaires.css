@@ -15,7 +15,7 @@ formulaires
 #formulaire_recherche {
 	margin: 0 0;
 	padding: 0;
-	background-color: red; width: 205px; text-align: right;
+	background-color: transparent; width: 205px; text-align: right;
 }
 
 /* Structure generale des formulaires
