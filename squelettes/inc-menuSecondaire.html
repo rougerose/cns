@@ -1,13 +1,17 @@
 #CACHE{0}
+[(#ID_ARTICLE|?{
+    [(#INCLURE{fond=inc-menuLangueArticle}{id_article=#ENV{id_article}})]
+    ,
+    [(#INCLURE{fond=inc-menuLangueDefaut}{lang})]
+})]
+
+#FORMULAIRE_RECHERCHE
+
 <div id="menuSecondaire">
     
-    [(#ID_ARTICLE|?{
-        [(#INCLURE{fond=inc-menuLangueArticle}{id_article=#ENV{id_article}})]
-        ,
-        [(#INCLURE{fond=inc-menuLangueDefaut}{lang})]
-    })]
+    
 
-    #FORMULAIRE_RECHERCHE
+    
 
     <ul>
         <BOUCLE_contact(ARTICLES){titre_mot=contact}{0,1}>

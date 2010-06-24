@@ -19,7 +19,7 @@ body {
 }
 #entete {
 	margin: 0 6px 0 7px;
-	padding-top: 5em;
+	padding-top: 6em;
 }
 
 #menuSecondaire {
@@ -27,6 +27,13 @@ body {
 	position: fixed;
 	float: left;
 }
+
+#menuLangue {
+	position: absolute; top: 5px; left: 219px;
+	 }
+
+#formulaire_recherche {
+	position: absolute; top: 5px; right: 6px; }
 
 #corps {
 	margin: 0 6px 0 7px;
