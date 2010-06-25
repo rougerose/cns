@@ -20,11 +20,11 @@ a:visited {
 
 a:hover, #enveloppe .on a:hover, #enveloppe .blocContenu h2 a:hover, a:focus {
 	color: #f00;
-	text-decoration: none;
+	text-decoration: none; outline: none;
 }
 
-a:active {
-}
+a:active, a:focus { position: relative; top: 1px; outline: thin dotted; }
+a:active { outline: none; }
 
 /*image links*/
 
@@ -33,3 +33,5 @@ a:link img, a img
   border: 0;
 }
 
+/* exceptions */
+#logo a:active, #logo a:focus { top: 0 !important; outline: 0; }
