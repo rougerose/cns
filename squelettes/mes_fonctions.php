@@ -19,6 +19,4 @@ function initiale($texte) {
     return $texte;
 }
 
-
-
 ?>

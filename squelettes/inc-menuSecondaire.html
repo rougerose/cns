@@ -8,15 +8,9 @@
 #FORMULAIRE_RECHERCHE
 
 <div id="menuSecondaire">
-    
-    
-
-    
-
     <ul>
         <BOUCLE_newsletter(ARTICLES){titre_mot=newsletter}{0,1}>
         <li><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero|majuscules)]</a></li>
         </BOUCLE_newsletter>
     </ul>
-
 </div><!-- fin div menuSecondaire -->
