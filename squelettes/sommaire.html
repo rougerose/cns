@@ -39,6 +39,23 @@
 				</div>
 				</BOUCLE_apropos>
 
+				<B_rubrique_actus>
+				<div class="blocContenu">
+					<BOUCLE_rubrique_actus(RUBRIQUES){id_rubrique=23}{id_mot=1}>
+					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+					<B_affiche_actus>
+					<div class="colonneContenuRubrique">
+						<BOUCLE_affiche_actus(ARTICLES){id_rubrique}{lang}{id_mot=1}{!par date}{doublons tous}>
+						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+						<p>[(#INTRODUCTION|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						</BOUCLE_affiche_actus>
+	                    <p class="lienTous"><a href="#URL_RUBRIQUE"><:actus_toutes:></a></p>
+					</div>
+					</B_affiche_actus>
+					</BOUCLE_rubrique_actus>
+				</div>
+				</B_rubrique_rapport>
+				
 				<B_rubrique_rapport>
 				<div class="blocContenu">
 					<BOUCLE_rubrique_rapport(RUBRIQUES){id_rubrique=3}{id_mot=1}>

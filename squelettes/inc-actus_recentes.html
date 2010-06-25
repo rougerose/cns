@@ -1,0 +1,6 @@
+<BOUCLE_actu(ARTICLES){id_article}>
+<li id="actu-#ID_ARTICLE" class="hentry">
+	<h4 class="entry-title"><a href="#URL_ARTICLE" rel="bookmark">[(#TITRE|supprimer_numero)]</a></h4>
+	<p class="entry-content">[(#INTRODUCTION|couper{100}|PtoBR)][<span class="separateur"> | </span><strong class="published"><:publie:> <span class="value" title="[(#DATE|date_iso)]">(#DATE|affdate)</span></strong>]</p>
+</li>
+</BOUCLE_actu>
