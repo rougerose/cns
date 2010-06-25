@@ -6,18 +6,6 @@ formulaires
 
 ****************************************/
 
-/* recherche */
-
-#formulaire_recherche label, /*#formulaire_recherche input#boutonRecherche,*/ #formulaire_menu_lang label {
-	display: none;
-}
-
-#formulaire_recherche {
-	margin: 0 0;
-	padding: 0;
-	background-color: transparent; width: 205px; text-align: right;
-}
-
 /* Structure generale des formulaires
 ----------------------------------------------- */
 .formulaire_spip { margin: 0 0 2em; padding: 1em; background-color: #f2f2f2; border: 0; text-align: left; /*font-size: 1em;*/ }
@@ -48,7 +36,8 @@ formulaires
 /* Boutons */
 .formulaire_spip .boutons, .formulaire_spip .spip_bouton { clear: both; margin: 0; padding: 0; text-align: right; }
 .formulaire_spip .boutons input, .formulaire_spip .spip_bouton input { margin: 1em 0 0 1em;}
-.formulaire_spip .boutons input, input.submit {}
+.formulaire_spip .boutons input, input.submit { border: 0; color: #09f; }
+.formulaire_spip .boutons input:active, input.submit:active { position: relative; top: 1px; outline: thin dotted; }
 
 
 /* Reponses, previsu et erreurs
@@ -79,6 +68,27 @@ fieldset.reponse_formulaire.reponse_formulaire legend { color: #f00; } /* Precis
 
 /* Variantes et cas particuliers
 ----------------------------------------------- */
+
+/* recherche */
+
+#formulaire_recherche {
+	text-align: right;
+	background-color: #fff;
+	margin: 0; padding: 0;
+	width: 205px; }
+	#formulaire_recherche label, #formulaire_menu_lang label { display: none; }
+	#formulaire_recherche .text {
+		font-size: 11px;
+		border: 1px solid #09f;
+		width: 160px; }
+	#formulaire_recherche .text:focus {
+		border: 1px solid #f00; }
+	#formulaire_recherche .submit { 
+		font-size: 11px; 
+		background-color: #fff;
+		padding: 0 3px 1px; }
+	#formulaire_recherche .submit:hover { background-color: #f00; color: #fff; }
+
 
 /* Selection des langues */
 .formulaire_menu_lang { margin: 0; padding: 0; background: none; }
