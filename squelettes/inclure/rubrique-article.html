@@ -1,0 +1,34 @@
+[(#REM) pour les rubriques qui affiche directement le contenu d'un article -- plutôt que son contenu propre. ]
+<BOUCLE_contenu_article(ARTICLES){id_article}>
+#DEBUT_SURLIGNE
+[<p id="surtitre">(#SURTITRE)</p>]
+<h1>[(#TITRE|supprimer_numero)]</h1>
+[<p id="soustitre">(#SOUSTITRE)</p>]
+<p class="datePublication">
+	[(#DATE|affdate)]
+	[(#ID_SECTEUR|=={3}|?{[<:publie:> (#DATE|affdate)]})]
+	[(#ID_SECTEUR|=={4}|?{[<:publie:> (#DATE|affdate)]})]
+</p>
+<div id="contenuPrincipal">
+	[<div id="chapo">
+		(#CHAPO)
+	</div>]
+	[<div id="haut" class="pagination">
+		(#CS_DECOUPE)
+	</div>]
+	[<div id="texte">
+		(#TEXTE|image_reduire{450,0})
+	</div>]
+	[<div id="notes">
+		<h3><:ecrire:info_notes:></h3>
+		(#NOTES)
+	</div>]
+	#FIN_SURLIGNE
+	[<div id="bas" class="pagination">
+		(#CS_DECOUPE)
+	</div>]
+</div><!-- fin div contenuPrincipal -->
+
+<INCLURE{fond=inclure/contenuSecondaire-article}{id_article}{lang}{cs}{artpage}>
+
+</BOUCLE_contenu_article>

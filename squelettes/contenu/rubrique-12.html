@@ -1,0 +1,100 @@
+[(#REM)
+rubrique 12 => Agenda
+]
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<div id="titre" class="blocContenu">
+	#DEBUT_SURLIGNE
+	<h1>[(#TITRE|supprimer_numero)]</h1>
+	[<div class="colonneContenuRubrique">
+		(#DESCRIPTIF)
+	</div>]
+	#FIN_SURLIGNE
+</div>
+
+<div id="contenuPrincipal">
+	[(#REM) affichage des événements ]
+	
+	[(#REM) test selon le type d'affichage souhaité : tout ou mois par mois ]
+	[(#ENV{d}|?{#SET{d,#ENV{d}},#SET{d,#ENV{date}}})]
+
+	[(#ENV{type}|?{
+		[(#INCLURE{fond=inc-agendaTri}{id_rubrique}{date_debut=#GET{d}})]
+		,
+		[(#INCLURE{fond=inc-agenda}{id_rubrique}{date_debut=#GET{d}})]
+	})]
+</div><!-- fin div contenuPrincipal -->
+
+<div id="contenuSecondaire">
+	<h3><:agenda:></h3>
+	<dl id="menuAgenda">
+		<dt>[(#ENV{type}|=={''}|?{
+				[(#ENV{d}|=={[(#ENV{date}|affdate{Y-m})]}|?{
+					'<strong>'
+					,
+					<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#ENV{date}|affdate{Y-m})]})#hcalendar]">
+				})]
+				,
+				<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#ENV{date}|affdate{Y-m})]})#hcalendar]">
+			})]
+			<:prochains_rendezvous:>
+			[(#ENV{type}|=={''}|?{
+				[(#ENV{d}|=={[(#ENV{date}|affdate{Y-m})]}|?{
+					'</strong>'
+					,
+					</a>
+				})]
+				,
+				</a>
+			})]
+		</dt>
+		<BOUCLE_evenement_premier(EVENEMENTS){id_rubrique}{par date_debut}{0,1}>
+		<dt>[(#ENV{type}|=={''}|?{
+				[(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+					'<strong>'
+					,
+					<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]})#hcalendar]">
+				})]
+				,
+				<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]})#hcalendar]">
+			})]
+			<:tous_les_rendezvous:>
+			[(#ENV{type}|=={''}|?{
+				[(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+					'</strong>'
+					,
+					</a>
+				})]
+				,
+				</a>
+			})]
+		</dt>
+		</BOUCLE_evenement_premier>
+		<B_evenements_liste>
+		<dt><:tri_par_mois:></dt>
+		<BOUCLE_evenements_liste(EVENEMENTS){id_rubrique}{par date_debut}{annee_relatif=0}>
+		[<dd>
+			[(#ENV{type}|=={'mois'}|?{
+				[(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+					'<strong>'
+					,
+					<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]}|parametre_url{type,mois})#hcalendar]">
+				})]
+				,
+				<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#DATE_DEBUT|affdate{Y-m})]}|parametre_url{type,mois})#hcalendar]">
+			})]
+			(#DATE_DEBUT|affdate_mois_annee|unique)
+			[(#ENV{type}|=={'mois'}|?{
+				[(#ENV{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{
+					'</strong>'
+					,
+					</a>
+				})]
+				,
+				</a>
+			})]
+		</dd>]
+		</BOUCLE_evenements_liste>
+		</B_evenements_liste>
+	</dl>
+</div><!-- fin div contenuSecondaire -->
+</BOUCLE_rubrique>

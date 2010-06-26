@@ -223,7 +223,7 @@ h6.spip {
 	margin: 0 0 .3em;
 }
 
-#corps p, #recherche dl dd, #article dl.listeMembres {
+#corps p, #recherche dl dd, #texte dl.listeMembres {
 	font-size: 1.4em;
 }
 
@@ -573,7 +573,7 @@ li.spip dl.listeMembres dt {
 }
 
 #hcalendar dl {
-	margin: .5em 0 1.5em;
+	margin: .5em 0 1.5em 106px;
 	position: relative;
 }
 
@@ -583,16 +583,16 @@ li.spip dl.listeMembres dt {
 
 #hcalendar dt {
 	color: #09f;
-	position: absolute;
-	left: 0;
-	top:auto;
-	width: 159px;
+	text-align: right;
+	position: absolute; left: 0; top: auto;
+	padding-right: 10px;
+	width: 149px;
 }
 
 #hcalendar dd {
 	border-left: 1px solid #c9c9c9;
 	margin: 0 0 0 159px;
-	padding: 0 0 .5em .5em;
+	padding: 0 0 .5em 10px;
 }
 
 #hcalendar dd.ajoutCalendrier p {

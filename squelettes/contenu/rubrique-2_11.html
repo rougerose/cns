@@ -1,0 +1,10 @@
+[(#REM) 
+	rubrique 2 => Missions et organisation
+	rubrique 11 => Membres
+]
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+	[(#REM) on affiche directement  le contenu de l'unique article présent dans la rubrique ]
+	<BOUCLE_article(ARTICLES){id_rubrique}{lang}{!par date}{0,1}>
+		[(#INCLURE{fond=inclure/rubrique-article}{id_rubrique}{id_article}{date}{lang}{cs}{artpage})]
+	</BOUCLE_article>
+</BOUCLE_rubrique>

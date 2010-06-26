@@ -1,0 +1,17 @@
+[(#REM) rubrique A propos ]
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<div id="titre" class="blocContenu">
+	#DEBUT_SURLIGNE
+	<h1>[(#TITRE|supprimer_numero)]</h1>
+	[<div class="colonneContenuRubrique">
+		(#DESCRIPTIF)
+	</div>]
+	#FIN_SURLIGNE
+</div>
+<BOUCLE_sous_rubriques(RUBRIQUES){id_parent}{par num titre, titre}>
+<div class="blocContenu">
+	<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+	[<p class="descriptifRubrique">(#DESCRIPTIF|PtoBR)</p>]
+</div>
+</BOUCLE_sous_rubriques>
+</BOUCLE_rubrique>
