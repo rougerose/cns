@@ -26,38 +26,21 @@
 					#FIN_SURLIGNE
 				</div>
 
-				[(#REM) les articles de la rubrique]
-				[(#INCLURE{fond=inc-articlesRubrique}{id_rubrique}{id_secteur}{lang}{ajax}{self=#SELF})]
-
 				<BOUCLE_sous_rubriques(RUBRIQUES){id_parent}{par num titre, titre}>
 				<div class="blocContenu">
 					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
 					[<p class="descriptifRubrique">(#DESCRIPTIF|PtoBR)</p>]
-
-					<BOUCLE_exclu_evenements_passe(EVENEMENTS){id_rubrique}>
-					<BOUCLE_art_evenement(ARTICLES){id_evenement}{doublons}>
-					</BOUCLE_art_evenement>
-					</BOUCLE_exclu_evenements_passe>
-					<B_articles>
-					<div class="colonneContenuRubrique">
-						<BOUCLE_articles(ARTICLES){id_secteur!=1}{id_rubrique}{!par date}{0,2}{lang}{doublons}>
-						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#INTRODUCTION|PtoBR)][(#ID_SECTEUR|=={4}|?{[<span> | </span><strong><:publie:> (#DATE|affdate)</strong>]})]</p>
-						</BOUCLE_articles>
-						<BOUCLE_articles_supp(ARTICLES){lang}{id_rubrique}{id_secteur!=1}{doublons}{0,1}>
-						<p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:articles_rubrique:></a></p>
-						</BOUCLE_articles_supp>
-					</div>
-					</B_articles>
-					<//B_evenement>
 				</div>
 				</BOUCLE_sous_rubriques>
 
 			</div><!-- fin div colonnePrincipale -->
 		</div><!-- fin div corps -->
-		[(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+		<div id="pied" class="clearfix">
+			
+			<INCLURE{fond=inclure/pied}>
+			
+		</div><!-- / div pied -->
 	</div><!-- fin div enveloppe -->
-
 </body>
 </html>
 </BOUCLE_p>
