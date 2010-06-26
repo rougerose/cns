@@ -573,7 +573,8 @@ li.spip dl.listeMembres dt {
 }
 
 #hcalendar dl {
-	margin: .5em 0 1.5em 106px;
+	border-bottom: 1px solid #eee;
+	margin: 0 0 1em;
 	position: relative;
 }
 
@@ -583,15 +584,15 @@ li.spip dl.listeMembres dt {
 
 #hcalendar dt {
 	color: #09f;
-	text-align: right;
+	xtext-align: right;
 	position: absolute; left: 0; top: auto;
 	padding-right: 10px;
-	width: 149px;
+	width: 255px;
 }
 
 #hcalendar dd {
-	border-left: 1px solid #c9c9c9;
-	margin: 0 0 0 159px;
+	xborder-left: 1px solid #c9c9c9;
+	margin: 0 0 0 255px;
 	padding: 0 0 .5em 10px;
 }
 

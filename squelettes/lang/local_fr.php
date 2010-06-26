@@ -35,7 +35,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'mots_clefs' => 'mots-cl&eacute;s',
 	'mots_clefs_maj' => 'Mots-cl&eacute;s',
 	'page' => 'page',
-	'prochains_rendezvous' => 'Prochains rendez-vous',
+	'prochains_rendezvous' => 'Les prochains rendez-vous',
 	'publie' => 'Publi&eacute; le',
 	'publie_enligne' => 'Publi&eacute; en ligne le',
 	'rubrique' => 'rubrique',
@@ -50,10 +50,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'telecharger_page_pdf' => 'T&eacute;l&eacute;charger en PDF',
 	'tous_les_rendezvous' => 'Tous les rendez-vous',
 	'traduction_disponible' => 'Traduction disponible',
-	'tri_par_mois' => 'Tri par mois'
+	'trier_agenda' => 'Trier l\'agenda',
+	'tri_par_mois' => 'Tri par mois',
 
 	// reprise fichier lang spip_listes
-, 'format_reception' => "Format de r&eacute;ception :"
+	'format_reception' => "Format de r&eacute;ception :"
 	, 'texte' => 'Texte'
 	, 'html' => 'HTML'
 	, 'desabonnement' => 'D&eacute;sabonnement&nbsp;'

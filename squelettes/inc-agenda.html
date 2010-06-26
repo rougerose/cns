@@ -1,7 +1,7 @@
 [(#REM) tous les événements ]
 <B_evenements>
 <div id="hcalendar">
-    <BOUCLE_evenements(EVENEMENTS){id_article?}{id_rubrique?}{par date_debut}{mois_relatif_debut<=0}>
+    <BOUCLE_evenements(EVENEMENTS){id_article?}{id_rubrique?}{par date_debut}{jour_relatif_debut<=0}>
     <dl class="vevent">
         [(#DATE_DEBUT|affdate{d-m}|=={[(#DATE_FIN|affdate{d-m})]}|?{
             [<dt>(#DATE_DEBUT|affdate)</dt>]

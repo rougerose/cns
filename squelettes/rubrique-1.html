@@ -31,7 +31,7 @@
 				[(#ID_RUBRIQUE|match{^(2|11)$}|?{[(#SET{contenu,contenu/rubrique-2_11})]})]
 				[(#ID_RUBRIQUE|match{12}|?{[(#SET{contenu,contenu/rubrique-12})]})]
 				
-				<INCLURE{fond=#GET{contenu}}{date=#ENV{date}}{lang}{id_rubrique}{cs}{artpage}{d}>
+				<INCLURE{fond=#GET{contenu}}{date=#ENV{date}}{lang}{id_rubrique}{cs}{artpage}{d=#ENV{d}}{type}>
 
 			</div><!-- fin div colonnePrincipale -->
 		</div><!-- fin div corps -->

@@ -49,6 +49,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'telecharger_page_pdf' => 'Download as PDF',
 	'tous_les_rendezvous' => 'All events',
 	'traduction_disponible' => 'Translation available',
+	'trier_agenda' => 'Trier l\'agenda',
 	'tri_par_mois' => 'Sort by month'
 
 	// reprise fichier lang spip_listes
