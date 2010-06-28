@@ -1,21 +1,53 @@
+#SET{test,non}
 <BOUCLE_evenement(EVENEMENTS){id_evenement}>
-<dl class="vevent">
-	[(#DATE_DEBUT|affdate{d-m}|=={[(#DATE_FIN|affdate{d-m})]}|?{
-		[<dt>(#DATE_DEBUT|affdate)</dt>]
-		[(#HORAIRE|=={oui}|?{
-			[<dd><abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})][T(#DATE_DEBUT|heures)][:(#DATE_DEBUT|minutes):00]">(#DATE_DEBUT|heures)[:(#DATE_DEBUT|minutes)]</abbr> <span class="separateur">&#x2192;</span> [<abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m-d})][T(#DATE_FIN|heures)][:(#DATE_FIN|minutes):00]">(#DATE_FIN|heures)[:(#DATE_FIN|minutes)]</abbr>]</dd>]
-			,
-			''
-		})]
-		,
-		[<dt>(#DATE_DEBUT|affdate)</dt>]
-		[<dd>[<abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})]">(#DATE_DEBUT|affdate)</abbr>] <span class="separateur" title="jusqu'au">&#x2192;</span> <abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m-d})]">(#DATE_FIN|affdate)</abbr></dd>]
+[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{[(#SET{test,oui})]})]
+<dl id="id-#ID_EVENEMENT" class="vevent clearfix">
+	[(#GET{test}|match{^(oui)$}|?{
+		[<dt>
+			<span class="dtstart">
+				<span class="value-title" title="[(#DATE_DEBUT|affdate{Y-m-d}|concat{T})[(#DATE_DEBUT|affdate{H:i:s})][(#DATE_DEBUT|affdate{O})]]"></span>
+				(#DATE_DEBUT|affdate)
+			</span>
+			<span class="dtend"><span class="value-title" title="[(#DATE_FIN|affdate{Y-m-})[(#DATE_FIN|affdate{d}|plus{1}|concat{T})][(#DATE_FIN|affdate{H:i:s})][(#DATE_FIN|affdate{O})]]"></span></span>
+		</dt>]
 	})]
-	[<dd class="summary">(#TITRE|supprimer_numero)</dd>]
-	[<dd class="location">(#LIEU|PtoBR)</dd>]
-	[<dd class="description">(#DESCRIPTIF|PtoBR)</dd>]
-	<B_mots_evenements>
-	<dd class="category"><:mots_clefs:>&nbsp;: <BOUCLE_mots_evenements(MOTS){id_evenement}{par num titre, multi titre}{", "}>[<a href="#URL_MOT" rel="tag">(#TITRE|supprimer_numero)</a>]</BOUCLE_mots_evenements></dd>
-	</B_mots_evenements>
+
+	[(#GET{test}|match{^(non)$}|?{
+		<dt>
+			[<span class="dtstart">
+				<span class="value-title" title="[(#DATE_DEBUT|affdate{Y-m-d}|concat{T})[(#DATE_DEBUT|affdate{H:i:s})][(#DATE_DEBUT|affdate{O})]]"></span>
+				(#DATE_DEBUT|affdate)
+			</span>]
+			[<span class="separateur">&#x2192;</span>
+			<span class="dtend">
+				<span class="value-title" title="[(#DATE_FIN|affdate{Y-m-d}|concat{T})[(#DATE_FIN|affdate{H:i:s})][(#DATE_FIN|affdate{O})]]"></span>
+				(#DATE_FIN|affdate)
+			</span>]
+		</dt>
+	})]
+		<dd>
+			<h3 class="summary">[(#TITRE|supprimer_numero)]</h3>
+			[(#HORAIRE|=={oui}|?{
+				<p class="infos">
+					<span class="label"><:quand:></span>
+					<:de:>[ (#DATE_DEBUT|heures)h[(#DATE_DEBUT|minutes)] ]<:a:>[ (#DATE_FIN|heures)h[(#DATE_FIN|minutes)]]
+				</p>
+			})]
+			[<p class="location infos">
+				<span class="label"><:ou:></span> 
+				<span [ class="(#EDIT{lieu})"]>(#LIEU|PtoBR)</span>
+			</p>]
+			[<div class="description">
+				<p class="infos"><span class="label"><:informations:></span> (#DESCRIPTIF|PtoBR)</p>
+			</div>]
+			<B_mots>
+			<p class="tag infos">
+				<span class="label"><:mots_clefs_maj:></span>
+				<BOUCLE_mots(MOTS){id_evenement}{par num titre, titre}{", "}>
+				[(#TITRE|supprimer_numero)]
+				</BOUCLE_mots>
+			</p>
+			</B_mots>
+		</dd>
 </dl>
 </BOUCLE_evenement>

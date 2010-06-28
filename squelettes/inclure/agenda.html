@@ -1,7 +1,7 @@
 [(#REM) tous les événements ]
 <B_evenements>
 <div id="hcalendar">
-	<BOUCLE_evenements(EVENEMENTS){id_article?}{id_rubrique?}{par date_debut}{jour_relatif_debut<=0}>
+	<BOUCLE_evenements(EVENEMENTS){id_article?}{id_rubrique?}{!par date_debut}{jour_relatif_debut<=0}>
 	<INCLURE{fond=inclure/evenement}{id_evenement}>
 	</BOUCLE_evenements>
 </div>

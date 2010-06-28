@@ -584,17 +584,15 @@ li.spip dl.listeMembres dt {
 
 #hcalendar dt {
 	color: #09f;
-	xtext-align: right;
 	position: absolute; left: 0; top: auto;
 	padding-right: 10px;
-	width: 255px;
-}
-
+	width: 255px; }
 #hcalendar dd {
-	xborder-left: 1px solid #c9c9c9;
 	margin: 0 0 0 255px;
-	padding: 0 0 .5em 10px;
-}
+	padding: 0 0 1em 10px; }
+	#hcalendar dd h3 { font-size: 14px; }
+	#hcalendar dd p { font-size: 12px; }
+	#hcalendar dd p .label { font-weight: bold; }
 
 #hcalendar dd.ajoutCalendrier p {
 	border: 1px solid #fff;
@@ -615,15 +613,18 @@ li.spip dl.listeMembres dt {
 	color: #09f;
 }
 
-#menuAgenda dt {
-	border-bottom: 1px solid #eee;
-	margin-bottom: .3em;
-	padding-bottom: .3em;
-}
+#menuAgenda {  }
+	#menuAgenda li {
+		border-bottom: 1px solid #eee;
+		margin-bottom: 5px; padding-bottom: 5px; }
+		#menuAgenda li label {
+			float: left; }
+		#menuAgenda li select {
+			float: right;
+			max-width: 100px; }		
 
 #menuAgenda strong {
-	color: #f00;
-}
+	color: #f00; }
 
 /* Tableaux */
 
