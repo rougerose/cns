@@ -1,7 +1,10 @@
+[(#REM) définition de variable ]
 #SET{test,non}
 <BOUCLE_evenement(EVENEMENTS){id_evenement}>
+[(#REM) même jour ? ]
 [(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{[(#SET{test,oui})]})]
 <dl id="id-#ID_EVENEMENT" class="vevent clearfix">
+	[(#REM) agenda microformat. La date format iso n'est disponible que sur php5 et il n'est pas certain que cette version soit disponible en production. On la calcule "à la main". Pour la date de fin, on ajoute un jour. ]
 	[(#GET{test}|match{^(oui)$}|?{
 		[<dt>
 			<span class="dtstart">
