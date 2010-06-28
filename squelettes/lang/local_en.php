@@ -50,10 +50,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tous_les_rendezvous' => 'All events',
 	'traduction_disponible' => 'Translation available',
 	'trier_agenda' => 'Trier l\'agenda',
-	'tri_par_mois' => 'By month'
+	'tri_par_mois' => 'By month',
+	'tri_par_categorie' => 'By category',
 
 	// reprise fichier lang spip_listes
-, 'format_reception' => "Format:"
+	'format_reception' => "Format:"
 	, 'texte' => 'Text'
 	, 'html' => 'HTML'
 	, 'desabonnement' => 'Unsubscribe'

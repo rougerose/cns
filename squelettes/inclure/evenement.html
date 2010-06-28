@@ -1,0 +1,21 @@
+<BOUCLE_evenement(EVENEMENTS){id_evenement}>
+<dl class="vevent">
+	[(#DATE_DEBUT|affdate{d-m}|=={[(#DATE_FIN|affdate{d-m})]}|?{
+		[<dt>(#DATE_DEBUT|affdate)</dt>]
+		[(#HORAIRE|=={oui}|?{
+			[<dd><abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})][T(#DATE_DEBUT|heures)][:(#DATE_DEBUT|minutes):00]">(#DATE_DEBUT|heures)[:(#DATE_DEBUT|minutes)]</abbr> <span class="separateur">&#x2192;</span> [<abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m-d})][T(#DATE_FIN|heures)][:(#DATE_FIN|minutes):00]">(#DATE_FIN|heures)[:(#DATE_FIN|minutes)]</abbr>]</dd>]
+			,
+			''
+		})]
+		,
+		[<dt>(#DATE_DEBUT|affdate)</dt>]
+		[<dd>[<abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})]">(#DATE_DEBUT|affdate)</abbr>] <span class="separateur" title="jusqu'au">&#x2192;</span> <abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m-d})]">(#DATE_FIN|affdate)</abbr></dd>]
+	})]
+	[<dd class="summary">(#TITRE|supprimer_numero)</dd>]
+	[<dd class="location">(#LIEU|PtoBR)</dd>]
+	[<dd class="description">(#DESCRIPTIF|PtoBR)</dd>]
+	<B_mots_evenements>
+	<dd class="category"><:mots_clefs:>&nbsp;: <BOUCLE_mots_evenements(MOTS){id_evenement}{par num titre, multi titre}{", "}>[<a href="#URL_MOT" rel="tag">(#TITRE|supprimer_numero)</a>]</BOUCLE_mots_evenements></dd>
+	</B_mots_evenements>
+</dl>
+</BOUCLE_evenement>

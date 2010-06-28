@@ -1,0 +1,9 @@
+[(#REM) les événements mois par mois ]
+<div id="hcalendar">
+	<BOUCLE_evenements(EVENEMENTS){id_article?}{id_rubrique?}{mois_relatif_debut=0}{!par date_debut}>
+	<INCLURE{fond=inclure/evenement}{id_evenement}>
+	</BOUCLE_evenements>
+</div>
+</B_evenements>
+<p class="spip"><:aucun_evenement:></p>
+<//B_evenements>

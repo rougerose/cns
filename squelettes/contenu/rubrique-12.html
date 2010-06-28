@@ -2,7 +2,10 @@
 rubrique 12 => Agenda
 ]
 #SET{type,#ENV{type,defaut}}
+[(#REM) on fait en sorte que type soit toujours égal à une variable pré-définie ]
+[(#ENV{type}|match{^(mois|tout|categorie)$}|?{'',[(#SET{type,defaut})]})]
 #SET{d,#ENV{d,#ENV{date}}}
+#SET{mots,#ARRAY}
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
 <div id="titre" class="blocContenu">
 	#DEBUT_SURLIGNE
@@ -13,10 +16,13 @@ rubrique 12 => Agenda
 	#FIN_SURLIGNE
 </div>
 
-<div id="contenuPrincipal">	
-	[(#REM) test selon le type d'affichage souhaité : par defaut les prochains rendez-vous, tous ou mois par mois ]
+<div id="contenuPrincipal">
+	[(#REM) test selon le type d'affichage souhaité : par defaut les prochains rendez-vous, tous, par catégorie ou par mois ]
 	[(#GET{type}|match{^(defaut|tout)$}|?{
 		[(#INCLURE{fond=inc-agenda}{id_rubrique}{date_debut=#GET{d}})]
+	})]
+	[(#GET{type}|match{^(categorie)$}|?{
+		[(#INCLURE{fond=inclure/agendaCategorie}{id_rubrique}{id_mot=#ENV{c}})]
 	})]
 	[(#GET{type}|match{^(mois)$}|?{
 		[(#INCLURE{fond=inc-agendaTri}{id_rubrique}{date_debut=#GET{d}})]
@@ -24,6 +30,13 @@ rubrique 12 => Agenda
 </div><!-- fin div contenuPrincipal -->
 
 <div id="contenuSecondaire">
+	[(#REM) tableau des mots-clés liés aux événements ]
+	<BOUCLE_events(EVENEMENTS){id_rubrique}>
+	<BOUCLE_m(MOTS){id_evenement}{doublons}>
+	#SET{mots,#GET{mots}|array_merge_{#ID_MOT}}
+	</BOUCLE_m>
+	</BOUCLE_events>
+	
 	<h3><:trier_agenda:></h3>
 	<dl id="menuAgenda">
 		<dt>[(#GET{type}|=={'defaut'}|?{
@@ -66,6 +79,7 @@ rubrique 12 => Agenda
 		<dd>
 			<form action="#SELF" method="get" accept-charset="utf-8" class="formulaire_agenda">
 				<input type="hidden" name="rubrique" value="#ID_RUBRIQUE">
+				<input type="hidden" name="type" value="mois">
 				<select name="d" size="1">
 					<option value=""><:selection:></option>
 					<BOUCLE_evenements_mois(EVENEMENTS){id_rubrique}{!par date_debut}{annee_relatif=0}>
@@ -75,10 +89,26 @@ rubrique 12 => Agenda
 					[<option value="(#DATE_DEBUT|affdate{Y-m})"[(#GET{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{' selected="selected"'})]>Toutes les dates</option>]
 					</BOUCLE_evenements_annee_n_moins1>
 				</select>
-				<p><input type="submit" value="Continue &rarr;"></p>
+				<p><input type="submit" value="&rarr;"></p>
 			</form>
 		</dd>
 		</B_evenements_mois>
+
+		<dt><:tri_par_categorie:></dt>
+		<dd>
+			<form action="#SELF" method="get" accept-charset="utf-8" class="formulaire_agenda">
+				<input type="hidden" name="rubrique" value="#ID_RUBRIQUE">
+				<input type="hidden" name="type" value="categorie">
+				<select name="c" size="1">
+					<option value=""><:selection:></option>
+					<BOUCLE_affichage(MOTS){id_mot IN #GET{mots}}{par titre}>
+					[<option value="#ID_MOT"[(#ENV{c}|=={#ID_MOT}|?{' selected="selected"'})]>(#TITRE|supprimer_numero)</option>]
+					</BOUCLE_affichage>
+				</select>
+				<p><input type="submit" value="&rarr;"></p>
+			</form>
+		</dd>
+		
 	</dl>
 </div><!-- fin div contenuSecondaire -->
 </BOUCLE_rubrique>
