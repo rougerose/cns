@@ -493,7 +493,7 @@ a.sommaire_ancre {
 	font-size: 1.5em;
 	line-height: 1.2;
 	margin-bottom: .7em;
-	width: 207px;
+	width: 200px;
 	padding-right: 10px;
 }
 
@@ -509,6 +509,10 @@ a.sommaire_ancre {
 	width: 470px;
 	float: right;
 }
+#index dd.descriptif {
+	position: absolute;
+	top: 0; left: 219px;
+	xdisplay: none; }
 
 p#abecedaire strong, #index dt strong {
 	color: #f00;

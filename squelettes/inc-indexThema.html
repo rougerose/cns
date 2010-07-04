@@ -6,12 +6,12 @@
     <p id="abecedaire">
         <BOUCLE_mot(MOTS){par multi titre}{!doublons mots}>
         [(#REM) un tableau des mots-cles de la forme : "initiale du mot" => "id du mot" ]
-        [(#SET{initiale[(#TITRE|supprimer_numero|initiale)],
-            [(#GET{initiale[(#TITRE|supprimer_numero|initiale)]}
+        [(#SET{initiale[(#TITRE|supprimer_numero|mb_strtoupper|initiale)],
+            [(#GET{initiale[(#TITRE|supprimer_numero|mb_strtoupper|initiale)]}
                 |array_merge_{#ARRAY{#COMPTEUR_BOUCLE,#ID_MOT}}
             )]}
         )]
-        [(#SET{initiale_titre,[(#TITRE|supprimer_numero|initiale)]})]
+        [(#SET{initiale_titre,[(#TITRE|supprimer_numero|mb_strtoupper|initiale)]})]
         [[(#GET{initiale_titre}|=={[(#ENV{lettre,#ENV{premier}})]}|?{<strong>,<a href="[(#URL_PAGE{index}|parametre_url{lettre,#GET{initiale_titre}})]">})](#GET{initiale_titre}|unique)[(#GET{initiale_titre}|=={[(#ENV{lettre,#ENV{premier}})]}|?{</strong>,</a>})]]
         </BOUCLE_mot>
     </p>

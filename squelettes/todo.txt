@@ -4,5 +4,6 @@ TODO icone spip-out
 TODO traductions : "trier_agenda"... (?)
 TODO mots-clés agenda : l'interface pour ajouter des mots-clés aux événements est assez mal foutue. Je pars du principe qu'il existe un article par type d'événements et du coup les mots-clés sont positionnés au niveau de l'article et non de l'événement lui-même.
 TODO styler <hr>
-TODO style les listes imbriquées
+TODO styler les listes imbriquées
 TODO voir <http://www.cns.sante.fr/spip.php?article331> avec IE6. les mots-clés et le document devraient s'afficher sur 2 colonnes.
+TODO passer la colonne nom_site de la base en text plutôt qu'en blob, sinon le classement orthographique ne marchera jamais comme il faut.

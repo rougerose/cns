@@ -1,16 +1,13 @@
 <BOUCLE_p(RUBRIQUES){id_rubrique}>[(#REM) squelette pour l'annuaire de liens ]
-<BOUCLE_premier_site(SITES){id_rubrique}{par nom_site}{0,1}>
-[(#SET{premier_site,[(#NOM_SITE|supprimer_numero|initiale)]})]
-</BOUCLE_premier_site>
-
-[(#SET{typeIndex,[(#ENV{index}|?{' '})<:index_thematique:>][(#ENV{index}|?{'',' '})<:index_alpha:>]})]
-<BOUCLE_mots_avec_sites(spip_mots_syndic)><BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises></BOUCLE_mots_avec_sites>
-
-<BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>[(#SET{premier_mot,[(#TITRE|supprimer_numero|initiale)]})]</BOUCLE_premier_mot>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<BOUCLE_premier_site(SITES){id_rubrique}{par multi nom_site}{0,1}>[(#SET{premier_site,[(#NOM_SITE|supprimer_numero|initiale)]})]</BOUCLE_premier_site>
+
+[(#SET{typeIndex,[(#ENV{index}|?{' '})<:index_thematique:>][(#ENV{index}|?{'',' '})<:index_alpha:>]})]
+<BOUCLE_mots_avec_sites(spip_mots_syndic)><BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}> </BOUCLE_mots_utilises></BOUCLE_mots_avec_sites>
+
+<BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>[(#SET{premier_mot,[(#TITRE|supprimer_numero|initiale)]})]</BOUCLE_premier_mot>
 <head>
     <title>
         [(#TITRE|supprimer_numero|textebrut) > ]
