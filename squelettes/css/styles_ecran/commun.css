@@ -507,14 +507,17 @@ a.sommaire_ancre {
 
 #index dd {
 	width: 470px;
-	float: right;
 }
-#index dd.descriptif {
+#index dl.jq-off dd.descriptif {
+	xfloat: right;
+	margin-bottom: 1em; padding-left: 210px; }
+
+#index dl.jq-on dd.descriptif {
 	position: absolute;
 	top: 0; left: 219px;
-	xdisplay: none; }
+	display: none; }
 
-p#abecedaire strong, #index dt strong {
+p#abecedaire strong, #index dt strong, #index dt a.on {
 	color: #f00;
 }
 

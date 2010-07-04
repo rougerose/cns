@@ -24,28 +24,16 @@
 	</p>
 
 	<B_s>
-	<dl>
+	<dl class="sites jq-off">
 		<BOUCLE_s(SITES){id_syndic IN #GET{initiale#ENV{lettre,#ENV{premier_site}}}}>
 		<dt>
-			[
-			[(#ID_SYNDIC|=={#ENV{site}}|?{
-				<strong>
-				,
-				<a href="[(#ID_SYNDIC|generer_url_site)]">})]
-				(#NOM_SITE)
-			[(#ID_SYNDIC|=={#ENV{site}}|?{
-				</strong>
-				,
-				</a>
-			})]
-			]
+			[<a href="#site#ID_SYNDIC">(#NOM_SITE)</a>]
 		</dt>
 		
-		<dd class="descriptif clearfix">
+		<dd id="site#ID_SYNDIC" class="descriptif clearfix">
 			[<p>(#DESCRIPTIF|PtoBR)</p>]
 			[<p><a href="#URL_SITE">(#URL_SITE)</a></p>]
 		</dd>
-		
 		</BOUCLE_s>
 	</dl>
 	</B_s>

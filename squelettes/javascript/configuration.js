@@ -37,6 +37,41 @@ $(document).ready(function(){
 	}
 	
 	// ********************************************************************
+	//  Pages index de la rubrique Liens : 
+	//  affichage des descriptifs des sites
+	//	inspiré de http://jqueryfordesigners.com/jquery-look-tim-van-damme/
+	// ********************************************************************
+	$("#index .sites").each(function(){
+		var $liens = $(this).find("dt > a"),
+			idLiens = $liens.map(function(){ return this.hash; }).get().join(","),
+			$panneaux = $(idLiens);
+		
+		$panneaux.hide();
+		
+		// on applique le style lié au javascript quand il est activé
+		$(this).removeClass("jq-off").addClass("jq-on");
+		
+		$liens.click(function(){
+			var lien = this,
+				$lien = $(this);
+			
+			if ($lien.is('.on')) {
+				return false;
+			}
+			
+			$liens.removeClass("on");
+			$lien.addClass("on");
+			$panneaux.filter(":visible").slideUp("fast");
+			$panneaux.filter(lien.hash).slideDown(700);
+			
+		});
+		// le descriptif s'affiche si l'url comporte l'id correspondant
+		$liens.filter(window.location.hash ? '[hash=' + window.location.hash + ']' : '').click();
+	});
+	
+	
+	
+	// ********************************************************************
 	//	Agenda : 
 	//  menu déroulants de tri par date et par catégorie
 	//  
