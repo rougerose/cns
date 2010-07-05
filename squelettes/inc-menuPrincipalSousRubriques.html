@@ -1,37 +1,42 @@
 #SET{courante, #ENV{rubrique_courante}}
 <ul>
-    <BOUCLE_sousrubriques(RUBRIQUES){id_parent}{par num titre, multi titre}>
-    <li[ (#GET{courante}|=={#ID_RUBRIQUE}|?{' '})class="on"]>
-        <a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
-        <BOUCLE_recursive(BOUCLE_sousrubriques)></BOUCLE_recursive>
-    </li>
-    </BOUCLE_sousrubriques>
-    [(#REM) pour la rubrique FR et EN "rapports, avis..." on ajoute l'index des mots-clés]
-    [(#ENV{id_secteur}|=={3}|?{' '})
-    <li[ (#ENV{skel}|match{squelettes\/mot}|?{'class="on"'})][ (#ENV{page}|=={index}|?{'class="on"'})]>
-        <a href="#URL_PAGE{index}"><:index:></a>
-        [(#ENV{skel}|match{squelettes\/mot}|?{' '})
-        <ul>
-            <li[ (#ENV{skel}|match{squelettes\/mot}|?{'class="on"'})][(#ENV{lettre}|?{'class="on"'})]><a href="[(#URL_PAGE{index})]"><:index_thematique:></a></li>
-            <li[ (#ENV{annee}|?{'class="on"'})]><a href="[(#URL_PAGE{index}|parametre_url{'annee',[(#DATE|annee)]})]"><:index_chronologique:></a></li>
-        </ul>
-        ]
-        [(#ENV{page}|=={index}|?{' '})
-        <ul>
-            <li[(#ENV{page}|=={index}|?{' '})[(#ENV{annee}|?{'',' '}) class="on"]]><a href="[(#URL_PAGE{index})]"><:index_thematique:></a></li>
-            <li[ (#ENV{annee}|?{'class="on"'})]><a href="[(#URL_PAGE{index}|parametre_url{'annee',[(#DATE|annee)]})]"><:index_chronologique:></a></li>
-        </ul>
-        ]
-    </li>
-    ]
-    
-    [(#REM) pour la rubrique FR et EN "le CNS vous oriente" on ajoute annuaire thematique et alphabetique ]
-    [(#ENV{id_secteur}|=={5}|?{' '})
-    <li[ (#ENV{index}|?{'',' '})[(#ID_RUBRIQUE|=={5}|?{' '})class="on"]]>
-        <a href="#URL_RUBRIQUE"><:index_alpha:></a>
-    </li>
-    <li[ (#ENV{index}|?{' '})class="on"]>
-        <a href="[(#URL_RUBRIQUE|parametre_url{index,t})]"><:index_thematique:></a>
-    </li>
-    ]
+	<BOUCLE_sousrubriques(RUBRIQUES){id_parent}{par num titre, multi titre}>
+	<li[ (#GET{courante}|=={#ID_RUBRIQUE}|?{' '})class="on"]>
+		<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
+		<BOUCLE_recursive(BOUCLE_sousrubriques)></BOUCLE_recursive>
+	</li>
+	</BOUCLE_sousrubriques>
+	[(#REM) pour la rubrique FR et EN "rapports, avis..." on ajoute l'index des mots-clés]
+	[(#ENV{id_secteur}|=={3}|?{' '})
+	<li[ (#ENV{skel}|match{squelettes\/mot}|?{'class="on"'})][ (#ENV{page}|=={index}|?{'class="on"'})]>
+		<a href="#URL_PAGE{index}"><:index:></a>
+		[(#ENV{skel}|match{squelettes\/mot}|?{' '})
+		<ul>
+			<li[ (#ENV{skel}|match{squelettes\/mot}|?{'class="on"'})][(#ENV{lettre}|?{'class="on"'})]><a href="[(#URL_PAGE{index})]"><:index_thematique:></a></li>
+			<li[ (#ENV{annee}|?{'class="on"'})]><a href="[(#URL_PAGE{index}|parametre_url{'annee',[(#DATE|annee)]})]"><:index_chronologique:></a></li>
+		</ul>
+	]
+	[(#ENV{page}|=={index}|?{' '})
+	<ul>
+		<li[(#ENV{page}|=={index}|?{' '})[(#ENV{annee}|?{'',' '}) class="on"]]><a href="[(#URL_PAGE{index})]"><:index_thematique:></a></li>
+		<li[ (#ENV{annee}|?{'class="on"'})]><a href="[(#URL_PAGE{index}|parametre_url{'annee',[(#DATE|annee)]})]"><:index_chronologique:></a></li>
+	</ul>
+	]
+	</li>
+]
+
+[(#REM) pour la rubrique FR et EN "le CNS vous oriente" on ajoute annuaire thematique et alphabetique ]
+[(#ENV{id_secteur}|=={5}|?{' '})
+	<li[ (#ENV{index}|?{'',' '})[(#ID_RUBRIQUE|=={5}|?{' '})class="on"]]>
+		<a href="#URL_RUBRIQUE"><:index_alpha:></a>
+	</li>
+	<li[ (#ENV{index}|?{' '})class="on"]>
+		<a href="[(#URL_RUBRIQUE|parametre_url{index,t})]"><:index_thematique:></a>
+	</li>
+]
+[(#REM) rubrique Contact ? On liste les articles de la rubrique ]
+[(#ENV{id_secteur}|=={24}|?{' '})
+	[(#INCLURE{fond=inclure/secteur24}{id_rubrique}{id_article})]
+]
+
 </ul>
