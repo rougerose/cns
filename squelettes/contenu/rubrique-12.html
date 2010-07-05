@@ -9,7 +9,7 @@ rubrique 12 => Agenda
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
 <div id="titre" class="blocContenu">
 	#DEBUT_SURLIGNE
-	<h1>[(#TITRE|supprimer_numero)]</h1>
+	<h1 id="agenda">[(#TITRE|supprimer_numero)]</h1>
 	[<div class="colonneContenuRubrique">
 		(#DESCRIPTIF)
 	</div>]
@@ -45,10 +45,10 @@ rubrique 12 => Agenda
 					[(#GET{d}|affdate|=={[(#ENV{date}|affdate)]}|?{
 						<strong>
 						,
-						<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#ENV{date}|affdate{Y-m-d})]})#hcalendar]">
+						<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#ENV{date}|affdate{Y-m-d})]})#agenda]">
 					})]
 					,
-					<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#ENV{date}|affdate{Y-m-d})]})#hcalendar]">
+					<a href="[(#URL_RUBRIQUE|parametre_url{d,[(#ENV{date}|affdate{Y-m-d})]})#agenda]">
 				})]
 				<:prochains_rendezvous:>
 				[(#GET{type}|=={'defaut'}|?{
