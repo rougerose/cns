@@ -25,57 +25,26 @@ $(document).ready(function(){
 	if ($("#index dd").length > 0) {
 		// ajout d'une classe specifique
 		$("#pageIndex").addClass("jquery-on");
-		var BlocArticles = $("#index dl dd").height();
-		var BlocIndex = $("#index dl").height();
-		if (BlocArticles > BlocIndex) {
-			if ($.browser.msie && $.browser.version == 6.0) {
+		var blocArticles = $("#index dl dd").height(),
+			blocIndex = $("#index dl").height(),
+			// taille du blocContenu et tri du tableau obtenu en ordre décroissant
+			blocContenu = $("#index dl div.blocContenu").map(function(){ return $(this).height(); }).get().sort(function(a,b){ return b - a })
+			marge = 80;
+			
+		if (blocContenu[0] > blocIndex) {
 			// test pour IE 6
-			$("#index dl").css({'height': BlocArticles}); 
+			if ($.browser.msie && $.browser.version == 6.0) {
+			$("#index dl").css({ 'height': blocContenu[0] + marge }); 
 			}
-		$("#index dl").css({'min-height': BlocArticles});
+		$("#index dl").css({ 'min-height': blocContenu[0] + marge });
 		}
 	}
-	
-	// ********************************************************************
-	//  Pages index de la rubrique Liens : 
-	//  affichage des descriptifs des sites
-	//	inspiré de http://jqueryfordesigners.com/jquery-look-tim-van-damme/
-	// ********************************************************************
-/*	$("#index .sites").each(function(){
-		var $liens = $(this).find("dt > a"),
-			idLiens = $liens.map(function(){ return this.hash; }).get().join(","),
-			$panneaux = $(idLiens);
-		
-		$panneaux.hide();
-		
-		// on applique le style lié au javascript quand il est activé
-		$(this).removeClass("jq-off").addClass("jq-on");
-		
-		$liens.click(function(){
-			var lien = this,
-				$lien = $(this);
-			
-			if ($lien.is('.on')) {
-				return false;
-			}
-			
-			$liens.removeClass("on");
-			$lien.addClass("on");
-			$panneaux.filter(":visible").slideUp("fast");
-			$panneaux.filter(lien.hash).slideDown(700);
-			
-		});
-		// le descriptif s'affiche si l'url comporte l'id correspondant
-		$liens.filter(window.location.hash ? '[hash=' + window.location.hash + ']' : '').click();
-	});
-*/	
 	
 	// ********************************************************************
 	//	jQuery UI-tabs : 
 	//  paramétrage du plugin activé préalablement dans spip
 	// ********************************************************************
 	$("#tabs").tabs();
-	
 	
 	
 	// ********************************************************************
