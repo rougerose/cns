@@ -277,10 +277,10 @@ p.spip strong {
 /* hentry */
 
 /* hentry colonne secondaire */
-.hentry { margin-bottom: 1em; }
-	.hentry .entry-title { line-height: 1.2em; }
-	#corps .hentry .entry-content { font-size: .95em ; }
-		.hentry .entry-content span.separateur { color: #f00; }
+.contexte .hentry { margin-bottom: 1em; }
+	.contexte .hentry .entry-title { line-height: 1.2em; }
+	#corps .contexte .hentry .entry-content { font-size: .95em ; }
+		.contexte .hentry .entry-content span.separateur { color: #f00; }
 
 
 /* listes */

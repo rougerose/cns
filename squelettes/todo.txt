@@ -7,3 +7,4 @@ TODO styler <hr>
 TODO styler les listes imbriquées
 TODO voir <http://www.cns.sante.fr/spip.php?article331> avec IE6. les mots-clés et le document devraient s'afficher sur 2 colonnes.
 TODO passer la colonne nom_site de la base en text plutôt qu'en blob, sinon le classement orthographique ne marchera jamais comme il faut.
+TODO corriger partout l'appel du pied de page dans inclure afin de prendre en charge la langue définie par l'utilisateur

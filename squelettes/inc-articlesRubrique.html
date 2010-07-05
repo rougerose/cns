@@ -13,7 +13,7 @@
     <BOUCLE_articles(ARTICLES){id_rubrique}{lang}{!par date}{pagination}{doublons exclusion}>
     <div class="colonneContenuRubrique">
         <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-        <p>[(#INTRODUCTION|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)</strong>]</p>
+        <p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)</strong>]</p>
     </div>
     </BOUCLE_articles>
     [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
