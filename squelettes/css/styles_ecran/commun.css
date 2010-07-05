@@ -160,9 +160,9 @@ h1,h2,h3,h4,h5,h6 {
 	font-size: 2.5em;
 }
 
-#pageIndex h1 {
-	margin-bottom: 1.5em;
-}
+#pageIndex h1 { margin-bottom: 1.5em; }
+
+#pageIndex h1.thema { margin-bottom: 3em; }
 
 #sommaire h2, #rubrique .blocContenu h2, #recherche .blocContenu h2 {
 	font-size: 2em;
@@ -184,9 +184,8 @@ h3.message {
 	color: #707070;
 }
 
-#index h2 {
-	font-size: 2em;
-	line-height: 1;
+#index.chrono h2 {
+	font-size: 16px;
 	margin-bottom: .3em;
 }
 
@@ -195,7 +194,7 @@ h4.spip {
 	margin:	1em 0 .25em;
 }
 
-.colonneContenuRubrique h3, #pageIndex .blocContenu h3 {
+.colonneContenuRubrique h3 {
 	font-size: 1.8em;
 }
 
@@ -467,17 +466,13 @@ a.sommaire_ancre {
 
 #index p#abecedaire {
 	float: left;
-	xfont-size: 2em;
-	xfont-size:	1em;
-	xline-height: 1;
+	font-size: 18px; line-height: 20px;
 	width: 53px;
 }
 
 #index p#abecedaire a, #index p#abecedaire strong {
 	display: block;
 	float: left;
-	xfont-size: 2em;
-	font-size: 18px; line-height: 20px;
 	margin-bottom: 9px;
 	width: 53px;
 }
@@ -491,27 +486,24 @@ a.sommaire_ancre {
 #index dl dt {
 	clear: left;
 	float: left;
-	xfont-size: 1.5em;
-	xline-height: 20px;
 	font-size: 18px; line-height: 20px;
 	margin-bottom: 9px;
-	width: 200px;
-	padding-right: 10px;
+	width: 190px;
+	padding-right: 20px;
 }
 
-#index dl dt:first-child {
-	xpadding-top: .3em;
-}
+#index dl dt:first-child { /*padding-top: .3em;*/ }
 
-#index.chrono dt {
-	width: 265px;
-}
-#index.thema dd, #index.alpha dd {
-	float: right; }
+#index.chrono dt { width: 265px; }
+#index.thema dd, #index.alpha dd { float: right; }
 
-#index dd {
-	width: 470px;
-}
+#index dd { width: 470px; }
+
+#index dd#tabs h2 { display: none; }
+
+#index dd h3 { font-size: 16px; }
+
+#index dd p.pagination { text-align: right; margin-bottom: 1em; }
 
 p#abecedaire strong, #index dt strong, #index dt a.on {
 	color: #f00;
@@ -524,6 +516,8 @@ p#abecedaire strong, #index dt strong, #index dt a.on {
 	margin-left: 212px;
 	position: absolute;
 }
+
+.jquery-on #index dd#tabs { top: -5em; }
 
 .jquery-on #index.chrono dd {
 	margin-left: 265px;

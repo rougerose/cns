@@ -1,46 +1,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
-    
-    <BOUCLE_mots_avec_articles(spip_mots_articles)><BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises></BOUCLE_mots_avec_articles>
-    <BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>
-    [(#SET{premier,[(#TITRE|supprimer_numero|initiale)]})]
-    </BOUCLE_premier_mot>
-    
-    <title>[(#ENV{annee}|?{' '})<:index_chronologique:>[ > (#ENV{date}|annee)]][(#ENV{annee}|?{'',' '})<:index_thematique:>[ > (#ENV{lettre,#GET{premier}})]][ / (#NOM_SITE_SPIP|textebrut)]</title>
-    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
-    <INCLURE{fond=inc-head}>
+	<BOUCLE_mots_avec_articles(spip_mots_articles)><BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises></BOUCLE_mots_avec_articles>
+	<BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>
+	[(#SET{premier,[(#TITRE|supprimer_numero|initiale)]})]
+	</BOUCLE_premier_mot>
+	
+	[(#REM) variable ]
+	[(#SET{typeIndex,[(#ENV{annee}|?{chrono,thema})]})]
+	<title>
+		[(#GET{typeIndex}|=={chrono}|?{
+			<:index_chronologique:>[ / (#ENV{date}|annee)]
+			,
+			<:index_thematique:>[ / (#ENV{lettre,#GET{premier}})]
+		})]
+		[ | (#NOM_SITE_SPIP|textebrut)]
+	</title>
+	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+	<INCLURE{fond=inc-head}>
 </head>
 
 <body id="pageIndex">
-    <div id="enveloppe">
-        <div id="entete" class="clearfix">
-            [(#INCLURE{fond=inc-logo})]
+	<div id="enveloppe">
+		<div id="entete" class="clearfix">
+			[(#INCLURE{fond=inc-logo})]
 
-            <INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique=3}{skel=#SQUELETTE}{page=#ENV{page}}{annee=#ENV{annee}}>
+			<INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique=3}{skel=#SQUELETTE}{page=#ENV{page}}{annee=#ENV{annee}}>
 
-            <INCLURE{fond=inc-menuSecondaire}{lang}>
+			<INCLURE{fond=inc-menuSecondaire}{lang}>
 
-        </div><!-- fin div entete -->
-        <div id="corps">
-            <div id="colonnePrincipale" class="clearfix">
-                
-                <h1>[(#ENV{annee}|?{' '})
-                    <:index_chronologique:>
-                    ][(#ENV{annee}|?{'',' '})<:index_thematique:>]
-                </h1>
-                [(#ENV{annee}|?{' '})
-                [(#INCLURE{fond=inc-indexChrono}{lang}{annee=#ENV{annee}}{id_secteur=3}{self=#SELF})]
-                ]
-                [(#ENV{annee}|?{'',' '})
-                [(#INCLURE{fond=inc-indexThema}{lang}{lettre=#ENV{lettre}}{premier=#GET{premier}}{mot=#ENV{mot}})]
-                ]
-            </div><!-- fin div colonnePrincipale -->
-        </div><!-- fin div corps -->
-        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
-    </div><!-- fin div enveloppe -->
-    
+		</div><!-- fin div entete -->
+		<div id="corps">
+			<div id="colonnePrincipale" class="clearfix">
+				<h1[(#GET{typeIndex}|=={thema}|?{' class="thema"'})]>
+					[(#GET{typeIndex}|=={chrono}|?{
+						<:index_chronologique:>[ / (#ENV{date}|annee)]
+						,
+						<:index_thematique:>[ / (#ENV{lettre,#GET{premier}})]
+					})]
+				</h1>
+				[(#GET{typeIndex}|=={chrono}|?{
+					[(#INCLURE{fond=inc-indexChrono}{lang}{annee=#ENV{annee}}{id_secteur=3}{self=#SELF})]
+					,
+					[(#INCLURE{fond=inc-indexThema}{lang}{lettre=#ENV{lettre}}{premier=#GET{premier}}{mot=#ENV{mot}})]
+				})]
+			</div><!-- fin div colonnePrincipale -->
+		</div><!-- fin div corps -->
+		[(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+	</div><!-- fin div enveloppe -->
+
 </body>
 </html>

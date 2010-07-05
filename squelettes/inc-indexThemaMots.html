@@ -24,7 +24,7 @@
     <dl>
         <BOUCLE_afficher_mots(MOTS){id_mot IN #GET{initiale#ENV{titre}}}{par multi titre}{doublons a}>
         [<dt>
-            [(#ID_MOT|=={#ENV{id_mot}}|?{<strong>,<a href="[(#URL_MOT)]">})]
+            [(#ID_MOT|=={#ENV{id_mot}}|?{<strong>,<a href="[(#URL_MOT)]" rel="tag">})]
             (#TITRE|supprimer_numero)
             [(#ID_MOT|=={#ENV{id_mot}}|?{</strong>,</a>})]
         </dt>]
