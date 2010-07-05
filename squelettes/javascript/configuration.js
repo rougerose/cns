@@ -41,7 +41,7 @@ $(document).ready(function(){
 	//  affichage des descriptifs des sites
 	//	inspiré de http://jqueryfordesigners.com/jquery-look-tim-van-damme/
 	// ********************************************************************
-	$("#index .sites").each(function(){
+/*	$("#index .sites").each(function(){
 		var $liens = $(this).find("dt > a"),
 			idLiens = $liens.map(function(){ return this.hash; }).get().join(","),
 			$panneaux = $(idLiens);
@@ -68,7 +68,7 @@ $(document).ready(function(){
 		// le descriptif s'affiche si l'url comporte l'id correspondant
 		$liens.filter(window.location.hash ? '[hash=' + window.location.hash + ']' : '').click();
 	});
-	
+*/	
 	
 	
 	// ********************************************************************

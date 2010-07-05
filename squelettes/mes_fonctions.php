@@ -16,7 +16,8 @@ function initiale($texte) {
      "aAaAaAaAaAaAacCeEeEeEeEiIiIiIiInNo".
      "OoOoOoOoOoOoouUuUuUuUyYyaAso");
     $texte = utf8_encode($texte);
-    return $texte;
+	// passer en majuscules pour ne pas pertuber le fonctionnement si le titre est en minuscules
+    return ucfirst($texte);
 }
 
 ?>

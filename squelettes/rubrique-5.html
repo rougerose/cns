@@ -1,62 +1,66 @@
 <BOUCLE_p(RUBRIQUES){id_rubrique}>[(#REM) squelette pour l'annuaire de liens ]
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <BOUCLE_premier_site(SITES){id_rubrique}{par multi nom_site}{0,1}>[(#SET{premier_site,[(#NOM_SITE|supprimer_numero|initiale)]})]</BOUCLE_premier_site>
 
-[(#SET{typeIndex,[(#ENV{index}|?{' '})<:index_thematique:>][(#ENV{index}|?{'',' '})<:index_alpha:>]})]
 <BOUCLE_mots_avec_sites(spip_mots_syndic)><BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}> </BOUCLE_mots_utilises></BOUCLE_mots_avec_sites>
 
 <BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>[(#SET{premier_mot,[(#TITRE|supprimer_numero|initiale)]})]</BOUCLE_premier_mot>
+
+[(#REM) variables ]
+[(#SET{typeIndex,[(#ENV{index}|=={t}|?{<:_index_thematique:>,<:_index_alpha:>})]})]
+[(#ENV{index}|=={t}|?{
+	[(#SET{lettre,[(#ENV{lettre,[(#GET{premier_mot})]})]})]
+	,
+	[(#SET{lettre,[(#ENV{lettre,[(#GET{premier_site})]})]})]
+})]
 <head>
-    <title>
-        [(#TITRE|supprimer_numero|textebrut) > ]
-        [(#GET{typeIndex}) > ]
-        [(#ENV{index}|?{' '})
-            [(#ENV{lettre}|?{#ENV{lettre},#GET{premier_mot}})]]
-        [(#ENV{index}|?{'',' '})
-            [(#ENV{lettre}|?{#ENV{lettre},#GET{premier_site}})]]
-        <BOUCLE_mot_select(MOTS){id_mot=#ENV{mot}}>
-        [ > (#TITRE|supprimer_numero|textebrut)]
-        </BOUCLE_mot_select>
-        [ / (#NOM_SITE_SPIP|textebrut)]
-    </title>
-    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
-    <INCLURE{fond=inc-head}>
+	<title>
+		[(#TITRE|supprimer_numero|textebrut)]
+		[ / (#GET{typeIndex})]
+		[ / (#GET{lettre})]
+		<BOUCLE_mot_select(MOTS){id_mot=#ENV{mot}}>
+		[ / (#TITRE|supprimer_numero|textebrut)]
+		</BOUCLE_mot_select>
+		[ | (#NOM_SITE_SPIP|textebrut)]
+	</title>
+	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+	<INCLURE{fond=inc-head}>
 </head>
 
 <body id="rubrique" class="annuaireLiens">
-    <div id="enveloppe">
-        <div id="entete" class="clearfix">
-            [(#INCLURE{fond=inc-logo})]
+	<div id="enveloppe">
+		<div id="entete" class="clearfix">
+			[(#INCLURE{fond=inc-logo})]
 
-            <INCLURE{fond=inc-menuPrincipal}{lang}{id_secteur}{skel=#SQUELETTE}{index=#ENV{index}}>
+			<INCLURE{fond=inc-menuPrincipal}{lang}{id_secteur}{skel=#SQUELETTE}{index=#ENV{index}}>
 
-            <INCLURE{fond=inc-menuSecondaire}{lang}>
+			<INCLURE{fond=inc-menuSecondaire}{lang}>
 
-        </div><!-- fin div entete -->
-        <div id="corps">
-            <div id="colonnePrincipale" class="clearfix">
-                <div id="titre" class="blocContenu">
-                    <h1>
-                        [(#TITRE|supprimer_numero)]
-                    </h1>
-                    [<div class="colonneContenuRubrique">
-                        (#DESCRIPTIF)
-                    </div>]
-                </div>
-                [(#ENV{index}|?{' '})
-                [(#INCLURE{fond=inc-indexThemaSites}{lang}{id_rubrique}{lettre=#ENV{lettre}}{mot=#ENV{mot}}{self=#SELF})]
-                ]
-                [(#ENV{index}|?{'',' '})
-                [(#INCLURE{fond=inc-indexAlphaSites}{lang}{id_rubrique}{premier_site=#GET{premier_site}}{lettre=#ENV{lettre}}{self=#SELF}{site=#ENV{site}})]
-                ]
+		</div><!-- fin div entete -->
+		<div id="corps">
+			<div id="colonnePrincipale" class="clearfix">
+				<div id="titre" class="blocContenu">
+					<h1>
+						[(#TITRE|supprimer_numero)[ / (#GET{typeIndex})][ / (#GET{lettre})]]
+					</h1>
+					[<div class="colonneContenuRubrique">
+						(#DESCRIPTIF)
+					</div>]
+				</div>
+				
+				[(#ENV{index}|=={t}|?{
+					[(#INCLURE{fond=inc-indexThemaSites}{lang}{id_rubrique}{lettre=#GET{lettre}}{mot=#ENV{mot}}{self=#SELF})]
+					,
+					[(#INCLURE{fond=inc-indexAlphaSites}{lang}{id_rubrique}{premier_site=#GET{premier_site}}{lettre=#GET{lettre}}{self=#SELF})]
+				})]
+				
+			</div><!-- fin div colonnePrincipale -->
+		</div><!-- fin div corps -->
+		[(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+	</div><!-- fin div enveloppe -->
 
-            </div><!-- fin div colonnePrincipale -->
-        </div><!-- fin div corps -->
-        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
-    </div><!-- fin div enveloppe -->
-    
 </body>
 </html>
 </BOUCLE_p>

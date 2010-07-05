@@ -224,7 +224,7 @@ h6.spip {
 }
 
 #corps p, #recherche dl dd, #texte dl.listeMembres {
-	font-size: 1.4em;
+	font-size: 1.4em; line-height: 20px;
 }
 
 /*#article dl.listeMembres dd.email, #article dl.listeMembres dd.url {
@@ -467,17 +467,18 @@ a.sommaire_ancre {
 
 #index p#abecedaire {
 	float: left;
-	font-size: 2em;
-	font-size:	1em;
-	line-height: 1;
+	xfont-size: 2em;
+	xfont-size:	1em;
+	xline-height: 1;
 	width: 53px;
 }
 
 #index p#abecedaire a, #index p#abecedaire strong {
 	display: block;
 	float: left;
-	font-size: 2em;
-	margin-bottom: .3em;
+	xfont-size: 2em;
+	font-size: 18px; line-height: 20px;
+	margin-bottom: 9px;
 	width: 53px;
 }
 
@@ -490,32 +491,27 @@ a.sommaire_ancre {
 #index dl dt {
 	clear: left;
 	float: left;
-	font-size: 1.5em;
-	line-height: 1.2;
-	margin-bottom: .7em;
+	xfont-size: 1.5em;
+	xline-height: 20px;
+	font-size: 18px; line-height: 20px;
+	margin-bottom: 9px;
 	width: 200px;
 	padding-right: 10px;
 }
 
 #index dl dt:first-child {
-	padding-top: .3em;
+	xpadding-top: .3em;
 }
 
 #index.chrono dt {
 	width: 265px;
 }
+#index.thema dd, #index.alpha dd {
+	float: right; }
 
 #index dd {
 	width: 470px;
 }
-#index dl.jq-off dd.descriptif {
-	xfloat: right;
-	margin-bottom: 1em; padding-left: 210px; }
-
-#index dl.jq-on dd.descriptif {
-	position: absolute;
-	top: 0; left: 219px;
-	display: none; }
 
 p#abecedaire strong, #index dt strong, #index dt a.on {
 	color: #f00;
