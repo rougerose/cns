@@ -3,6 +3,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'a' => '&agrave;',
 	'abonnement_liste_gestion' => 'Gestion de votre abonnement',
 	'accueil' => 'Accueil',
+	'actus_consulter' => 'Consulter les actualit&eacute;s',
 	'actus_toutes' => 'Toutes les actualit&eacute;s',
 	'actus_recentes' => 'Derni&egrave;res actualit&eacute;s',
 	'affiche_reponse' => 'Cliquez pour afficher la r&eacute;ponse',

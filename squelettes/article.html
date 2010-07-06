@@ -115,18 +115,19 @@
 					</B_doc_joints2>
 					<//B_mots>
 					
-					<BOUCLE_test_rub_actu(RUBRIQUES){id_rubrique}{id_rubrique IN 23}>
-						<B_actus_recentes>
-						<div class="contexte">
-							<h3><:actus_recentes:></h3>
-							<ul class="hfeed">
-								<BOUCLE_actus_recentes(ARTICLES){id_rubrique}{!par date}{exclus}>
-								<INCLURE{fond=inc-actus_recentes}{id_article}>
-								</BOUCLE_actus_recentes>
-							</ul>
-						</div>
-						</B_actus_recentes>
-					</BOUCLE_test_rub_actu>
+					#SET{rubrique,#ID_RUBRIQUE}
+					<BOUCLE_actus(RUBRIQUES){id_rubrique=23}>
+					<B_actus_recentes>
+					<div class="contexte">
+						<h3>[(#GET{rubrique}|=={23}|?{<:actus_recentes:>,<:actus_consulter:>})]</h3>
+						<ul class="hfeed">
+							<BOUCLE_actus_recentes(ARTICLES){id_rubrique}{!par date}{exclus}{0,5}>
+							<INCLURE{fond=inc-actus_recentes}{id_article}>
+							</BOUCLE_actus_recentes>
+						</ul>
+					</div>
+					</B_actus_recentes>
+					</BOUCLE_actus>
 
 				</div><!-- fin div contenuSecondaire -->
 

@@ -116,5 +116,20 @@ rubrique 12 => Agenda
 			</li>
 		</ul>
 	</div>
+	
+	#SET{rubrique,#ID_RUBRIQUE}
+	<BOUCLE_actus(RUBRIQUES){id_rubrique=23}>
+	<B_actus_recentes>
+	<div class="contexte">
+		<h3>[(#GET{rubrique}|=={23}|?{<:actus_recentes:>,<:actus_consulter:>})]</h3>
+		<ul class="hfeed">
+			<BOUCLE_actus_recentes(ARTICLES){id_rubrique}{!par date}{exclus}{0,5}>
+			<INCLURE{fond=inc-actus_recentes}{id_article}>
+			</BOUCLE_actus_recentes>
+		</ul>
+	</div>
+	</B_actus_recentes>
+	</BOUCLE_actus>
+	
 </div><!-- fin div contenuSecondaire -->
 </BOUCLE_rubrique>

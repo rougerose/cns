@@ -282,7 +282,8 @@ p.spip strong {
 /* hentry colonne secondaire */
 .contexte .hentry { margin-bottom: 1em; }
 	.contexte .hentry .entry-title { line-height: 1.2em; }
-	#corps .contexte .hentry .entry-content { font-size: .95em ; }
+	#corps .contexte .hentry .descriptif { font-size: .95em ; }
+		#corps .contexte .hentry .descriptif .entry-content { display: none; }
 
 
 /* listes */
