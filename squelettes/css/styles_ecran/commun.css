@@ -41,7 +41,7 @@ body {
 #colonnePrincipale {
 	border-top: 1px solid #09f;
 	margin: 1em 0 0 212px;
-	padding-top: 1em;
+	padding-top: 2em;
 }
 
 #contenuPrincipal {
@@ -157,7 +157,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #corps h1 {
-	font-size: 2.5em;
+	font-size: 2.8em;
 }
 
 #pageIndex h1 { margin-bottom: 1.5em; }
@@ -179,6 +179,7 @@ h3.spip, #notes h3 {
 	margin:	1.5em 0 .5em;
 }
 
+#texte h2.spip:first-child, #texte h3.spip:first-child { margin-top: 0; }
 
 h3.message {
 	color: #707070;
@@ -222,9 +223,9 @@ h6.spip {
 	margin: 0 0 .3em;
 }
 
-#corps p, #recherche dl dd, #texte dl.listeMembres {
-	font-size: 1.4em; line-height: 20px;
-}
+#corps p, #recherche dl dd, #texte dl { font-size: 1.4em; line-height: 20px; }
+#texte dl p { font-size: 1em; }
+
 
 /*#article dl.listeMembres dd.email, #article dl.listeMembres dd.url {
 	font-size: .85em;
@@ -335,6 +336,19 @@ ul.liste li {
 	margin-bottom: .3em;
 	padding-left: 16px;
 }
+
+/* FAQ - Questions/Réponses */
+dl.faq { margin-bottom: 1.5em; border-bottom: 1px dotted #ddd; }
+	dl.faq dt { 
+		font-weight: bold; color: #191919;
+		cursor: pointer; 
+		border-top: 1px solid #eee;
+		position: relative; }
+	dl.faq dt:hover { color: #f00; }
+		dl.faq dt span.ui-icon { position: absolute; left: 0; top: 50%; margin-top: -8px; }
+	dl.faq dt, dl.faq dd { padding: .5em .5em .3em; padding-left: 20px; }
+	dl.faq dd { padding-top: 0; }
+
 
 /* pages sommaire, rubrique, plan & recherche */
 
@@ -733,7 +747,7 @@ p.pagination {
 }
 
 p.pagination span.on {
-	color: #f00;
+	color: #f00; font-size: 1.3em;
 }
 
 .spip_surligne {

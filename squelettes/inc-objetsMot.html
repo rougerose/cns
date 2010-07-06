@@ -25,7 +25,7 @@
 		<div class="blocContenu">
 			<BOUCLE_articles(ARTICLES){id_mot}{lang}{!par date}{pagination}>
 			<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-			<p>[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+			<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
 			</BOUCLE_articles>
 		</div>
 	</div>

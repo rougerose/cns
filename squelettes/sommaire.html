@@ -47,7 +47,7 @@
 					<div class="colonneContenuRubrique">
 						<BOUCLE_affiche_actus(ARTICLES){id_rubrique}{lang}{id_mot=1}{!par date}{doublons tous}>
 						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#INTRODUCTION|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						<p>[(#INTRODUCTION|PtoBR)][<span class="separateur"> | </span><:publie:> (#DATE|affdate)]</p>
 						</BOUCLE_affiche_actus>
 	                    <p class="lienTous"><a href="#URL_RUBRIQUE"><:actus_toutes:></a></p>
 					</div>
@@ -64,7 +64,7 @@
 					<div class="colonneContenuRubrique">
 						<BOUCLE_affiche_articles(ARTICLES){id_secteur}{lang}{id_mot=1}{!par date}{doublons tous}>
 						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><:publie:> (#DATE|affdate)]</p>
 						</BOUCLE_affiche_articles>
 	                    <p class="lienTous"><a href="#URL_RUBRIQUE"><:avis_tous:></a></p>
 					</div>
@@ -81,7 +81,7 @@
 					<div class="colonneContenuRubrique">
 						<BOUCLE_cp_tous(ARTICLES){id_secteur}{lang}{id_mot=1}{!par date}{doublons tous}>
 						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><:publie:> (#DATE|affdate)]</p>
 						</BOUCLE_cp_tous>
 						<p class="lienTous"><a href="#URL_RUBRIQUE"><:cp_tous:></a></p>
 					</div>
@@ -98,7 +98,7 @@
 					<div class="colonneContenuRubrique">
 						<BOUCLE_tous_autres(ARTICLES){id_rubrique}{!par date}{id_mot=1}{lang}{doublons}>
 						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#DESCRIPTIF|PtoBR)][<span> | </span><:publie:> (#DATE|affdate)]</p>
+						<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><:publie:> (#DATE|affdate)]</p>
 						</BOUCLE_tous_autres>
 						<p class="lienTous"><a href="#URL_RUBRIQUE"><:_articles_rubrique:></a></p>
 					</div>

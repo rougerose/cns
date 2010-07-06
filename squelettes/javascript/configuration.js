@@ -46,6 +46,34 @@ $(document).ready(function(){
 	// ********************************************************************
 	$("#tabs").tabs();
 	
+	// ********************************************************************
+	//	FAQ - Questions/Réponses
+	// ********************************************************************
+	$("dl.faq").each(function(){
+		var $questions = $(this).find("dt"),
+			icone = '<span class="ui-icon ui-icon-triangle-1-e" />',
+			iconeE = 'ui-icon-triangle-1-e',
+			iconeS = 'ui-icon-triangle-1-s';
+		
+		$questions.next("dd").hide();
+		$questions.prepend(icone);
+		
+		$questions.click(function(){
+			var test = '';
+			if ($(this).is(".ouvert")) {
+				test = 1;
+			}
+			$("dt.ouvert").removeClass("ouvert")
+				.children("span").removeClass(iconeS).addClass(iconeE)
+				.parent("dt").next("dd").slideUp("fast");
+			
+			if (test == 1) { return false }
+			
+			$(this).addClass("ouvert")
+				.children("span").addClass(iconeS)
+				.parent("dt").next("dd").slideDown("slow");
+		});
+	});
 	
 	// ********************************************************************
 	//	Agenda : 

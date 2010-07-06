@@ -4,5 +4,5 @@
 [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
 <BOUCLE_affiche_articles(ARTICLES){id_secteur}{!par date}{annee_relatif}{lang}{pagination 5}>
 <h2><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h2>
-<p class="descriptif">[(#DESCRIPTIF|PtoBR)][<span> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+<p class="descriptif">[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
 </BOUCLE_affiche_articles>

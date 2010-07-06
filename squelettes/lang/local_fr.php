@@ -5,6 +5,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'accueil' => 'Accueil',
 	'actus_toutes' => 'Toutes les actualit&eacute;s',
 	'actus_recentes' => 'Derni&egrave;res actualit&eacute;s',
+	'affiche_reponse' => 'Cliquez pour afficher la r&eacute;ponse',
 	'agenda' => 'Agenda',
 	'ajouter_calendrier' => 'ajouter &agrave; votre agenda (fichier .ics)',
 	'article' => 'article',
