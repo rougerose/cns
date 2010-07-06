@@ -1,7 +1,10 @@
 <BOUCLE_article(ARTICLES){id_article}>
 <div id="article-#ID_ARTICLE" class="colonneContenuRubrique hentry">
 	<h3 class="entry-title"><a href="#URL_ARTICLE" rel="bookmark">[(#TITRE|supprimer_numero)]</a></h3>
-	<p class="entry-content">[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><strong class="published"><:publie:> <span class="value-title" title="[(#DATE|date_iso)]" />(#DATE|affdate)</strong>]</p>
-	<p class="auteur"><address class="vcard author"><span class="fn">CNS</span></address>
+	<p class="descriptif">
+		[<span class="entry-content">(#DESCRIPTIF|PtoBR)</span>]
+		[<span class="separateur"> | </span><strong class="published"><:publie:> <span class="value-title" title="[(#DATE|date_iso)]" />(#DATE|affdate)</strong>]
+		<span class="vcard author"><span class="separateur"> | </span><multi>[fr]Par[en]By</multi> <span class="fn">Conseil national du sida (CNS)</span></span>
+	</p>
 </div>
 </BOUCLE_article>

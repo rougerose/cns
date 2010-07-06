@@ -275,12 +275,13 @@ p.spip strong {
 }
 
 /* hentry */
+.descriptif span.vcard { display: none; }
+
 
 /* hentry colonne secondaire */
 .contexte .hentry { margin-bottom: 1em; }
 	.contexte .hentry .entry-title { line-height: 1.2em; }
 	#corps .contexte .hentry .entry-content { font-size: .95em ; }
-		.contexte .hentry .entry-content span.separateur { color: #f00; }
 
 
 /* listes */
@@ -372,7 +373,7 @@ ul.liste li {
 	margin-left: 265px;
 }
 
-.colonneContenuRubrique p span, .blocContenu p span, .descriptif span {
+span.separateur {
 	color: #f00;
 	font-weight: bold;
 }
