@@ -47,7 +47,7 @@
 					<div class="colonneContenuRubrique">
 						<BOUCLE_affiche_actus(ARTICLES){id_rubrique}{lang}{id_mot=1}{!par date}{doublons tous}>
 						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#INTRODUCTION|PtoBR)][<span class="separateur"> | </span><:publie:> (#DATE|affdate)]</p>
+						<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><:publie:> (#DATE|affdate)]</p>
 						</BOUCLE_affiche_actus>
 	                    <p class="lienTous"><a href="#URL_RUBRIQUE"><:actus_toutes:></a></p>
 					</div>

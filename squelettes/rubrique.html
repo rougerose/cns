@@ -49,7 +49,7 @@
 					<div class="colonneContenuRubrique">
 						<BOUCLE_articles(ARTICLES){id_secteur!=1}{id_rubrique}{!par date}{0,2}{lang}{doublons}>
 						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#INTRODUCTION|PtoBR)][(#ID_SECTEUR|=={4}|?{[<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)</strong>]})]</p>
+						<p>[(#DESCRIPTIF|PtoBR)][(#ID_SECTEUR|=={4}|?{[<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)</strong>]})]</p>
 						</BOUCLE_articles>
 						<BOUCLE_articles_supp(ARTICLES){lang}{id_rubrique}{id_secteur!=1}{doublons}{0,1}>
 						<p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:articles_rubrique:></a></p>
