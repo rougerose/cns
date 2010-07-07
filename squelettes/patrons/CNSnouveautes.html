@@ -21,48 +21,48 @@
 ]
 
 [
-    <div style="color:#707070; font:100%/150% Georgia,'Times New Roman',Times,serif; width:470px; margin: 2em auto;">
-        <table border="0" cellspacing="2" cellpadding="2">
-            <tr>
-                <td style="width:120px; margin-bottom:2em;"><a href="[(#URL_SITE_SPIP|url_absolue)]"><img src="#URL_SITE_SPIP/squelettes/images/logo_CNS_newsletter.png" [alt="(#NOM_SITE_SPIP|textebrut)"]></a></td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td> </td>
-                <td>
-                    <h1 style="color:#09f; font-weight:normal; font-size: 1.6em;"><:spiplistes:abo_1_lettre:>, [(#DATE|affdate)]</h1>
-                    <p>
-                        <:spiplistes:nouveaute_intro:>  <a href="#URL_SITE_SPIP" style="color: #191919;">#NOM_SITE_SPIP</a> [(#ENV{date}|date_depuis)]
-                    </p>
-                    <p>#ENV{message}</p>
-                    (#DATE_MODIF_SITE|strtotime|>{[(#ENV{date}|strtotime)]}|?{' ',''})
-                    ]
+<div style="color:#707070; font:100%/150% Georgia,'Times New Roman',Times,serif; width:470px; margin: 2em auto;">
+	<table border="0" cellspacing="2" cellpadding="2">
+		<tr>
+			<td style="width:120px; margin-bottom:2em;"><a href="[(#URL_SITE_SPIP|url_absolue)]"><img src="#URL_SITE_SPIP/squelettes/images/logo_CNS_newsletter.png" [alt="(#NOM_SITE_SPIP|textebrut)"]></a></td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td>
+				<h1 style="color:#09f; font-weight:normal; font-size: 1.6em;"><:spiplistes:abo_1_lettre:>, [(#DATE|affdate)]</h1>
+				<p>
+					<:spiplistes:nouveaute_intro:>  <a href="#URL_SITE_SPIP" style="color: #191919;">#NOM_SITE_SPIP</a> [(#ENV{date}|date_depuis)]
+				</p>
+				<p>#ENV{message}</p>
+				(#DATE_MODIF_SITE|strtotime|>{[(#ENV{date}|strtotime)]}|?{' ',''})
+				]
 
-                    <B_articles_cp>
-                    <h2 style="color:#09f; font-weight:normal; font-size: 1.4em; margin:2em 0 0;"><multi>[fr]Communiqués de presse[en]Press releases</multi></h2> 
-                    <BOUCLE_articles_cp(ARTICLES){lang}{id_rubrique=4}{id_mot ?}{age_relatif<0}{par date}{inverse}>
-                    [<h3 style="font-size: 1.3em; font-weight: normal; margin: .5em 0 0;"><a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;">(#TITRE|supprimer_numero)</a></h3>]
-                    <p style="margin:0 0 1em">
-                        [(#DESCRIPTIF|PtoBR)] <a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;"><:spiplistes:article_entier:></a><span style="color: red; font-weight:bold;"> | </span>[<:publie:> (#DATE|affdate)]
-                    </p>
-                    </BOUCLE_articles_cp>
-                    </B_articles_cp>
-                    
-                    <B_articles_rapports>
-                    <h2 style="color:#09f; font-weight:normal; font-size: 1.4em; margin:2em 0 0;"><multi>[fr]Rapports, avis et recommandations[en]Opinions</multi></h2>
-                    
-                    <BOUCLE_articles_rapports(ARTICLES){lang}{id_secteur=3}{id_mot ?}{age_relatif<0}{par date}{inverse}>
-                    [<h3 style="font-size: 1.3em; font-weight: normal; margin: .5em 0 .25em;"><a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;">(#TITRE|supprimer_numero)</a></h3>]
-                    <p style="margin:0 0 2.5em">
-                        [(#DESCRIPTIF|PtoBR)] <a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;"><:spiplistes:article_entier:></a><span style="color: red; font-weight:bold;"> | </span>[<:publie:> (#DATE|affdate)]
-                    </p>
-                    </BOUCLE_articles_rapports>
-                    </B_articles_rapports>
-                    [
-                     (#DATE_MODIF_SITE|strtotime|>{[(#ENV{date}|strtotime)]}|?{' ',''})
+				<B_articles_cp>
+				<h2 style="color:#09f; font-weight:normal; font-size: 1.4em; margin:2em 0 0;"><multi>[fr]Communiqués de presse[en]Press releases</multi></h2> 
+				<BOUCLE_articles_cp(ARTICLES){lang}{id_rubrique=4}{id_mot ?}{age_relatif<0}{par date}{inverse}>
+				[<h3 style="font-size: 1.3em; font-weight: normal; margin: .5em 0 0;"><a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;">(#TITRE|supprimer_numero)</a></h3>]
+				<p style="margin:0 0 1em">
+					[(#DESCRIPTIF|PtoBR)] <a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;"><:spiplistes:article_entier:></a><span style="color: red; font-weight:bold;"> | </span>[<:publie:> (#DATE|affdate)]
+				</p>
+				</BOUCLE_articles_cp>
+				</B_articles_cp>
 
-                </td>
-            </tr>
-        </table>
-    </div>
+				<B_articles_rapports>
+				<h2 style="color:#09f; font-weight:normal; font-size: 1.4em; margin:2em 0 0;"><multi>[fr]Rapports, avis et recommandations[en]Opinions</multi></h2>
+
+				<BOUCLE_articles_rapports(ARTICLES){lang}{id_secteur=3}{id_mot ?}{age_relatif<0}{par date}{inverse}>
+				[<h3 style="font-size: 1.3em; font-weight: normal; margin: .5em 0 .25em;"><a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;">(#TITRE|supprimer_numero)</a></h3>]
+				<p style="margin:0 0 2.5em">
+					[(#DESCRIPTIF|PtoBR)] <a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;"><:spiplistes:article_entier:></a><span style="color: red; font-weight:bold;"> | </span>[<:publie:> (#DATE|affdate)]
+				</p>
+				</BOUCLE_articles_rapports>
+				</B_articles_rapports>
+				[
+				(#DATE_MODIF_SITE|strtotime|>{[(#ENV{date}|strtotime)]}|?{' ',''})
+
+			</td>
+		</tr>
+	</table>
+</div>
 ]

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+	<title>
+		[ | (#NOM_SITE_SPIP|textebrut)]
+	</title>
+	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+</head>
+
+<body>
+	[
+	<div style="color:#707070; font:100%/150% Georgia,'Times New Roman',Times,serif; width:100%; margin: 2em auto;">
+		<table border="0" cellspacing="2" cellpadding="2" width="100%">
+			<tr>
+				<td style="width:153px; margin-bottom:2em;">
+					[(#LOGO_SITE_SPIP||image_reduire{153,0}|inserer_attribut{alt,[(#NOM_SITE_SPIP|textebrut)]})]
+				</td>
+				<td> </td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td>
+					<h1 style="color:#09f; font-weight:normal; font-size: 1.5em;"><:spiplistes:abo_1_lettre:>, [(#DATE|affdate)]</h1>
+					<p>
+						<:spiplistes:nouveaute_intro:>  <a href="#URL_SITE_SPIP" style="color: #191919;">#NOM_SITE_SPIP</a> [(#ENV{date}|date_depuis)]
+					</p>
+					<p>#ENV{message}</p>
+					(#DATE_MODIF_SITE|strtotime|>{[(#ENV{date}|strtotime)]}|?{' ',''})
+					]
+
+					[(#REM) les rubriques et de leur ordre
+						1.	rapports, avis => rubrique 3 
+							1.1 dépistage => rubrique 6
+							1.2 prévention => rubrique 7
+							1.3 politique internationale => rubrique 9
+							1.4 politique publique => rubrique 8
+							1.5 prise en charge => rubrique 10
+						2.	communiqués de presse => rubrique 4
+						3.	actualités => rubrique 23
+						4.	le CNS dans les médias => rubrique 13
+					]
+
+					#SET{rubriques,#ARRAY}
+					#SET{articles,#ARRAY}
+					
+					<BOUCLE_rubriques(RUBRIQUES){id_rubrique IN 3,4,23,13}>
+						#SET{rubriques,#GET{rubriques}|array_merge_{#ID_RUBRIQUE}}
+						<BOUCLE_enfant(RUBRIQUES){id_parent}{par num titre}>
+						#SET{rubriques,#GET{rubriques}|array_merge_{#ID_RUBRIQUE}}
+						</BOUCLE_enfant>
+					</BOUCLE_rubriques>
+
+					<BOUCLE_articles(ARTICLES){id_rubrique IN #GET{rubriques}}{lang}{age_relatif<0}>
+						#SET{articles,#GET{articles}|array_merge_{#ID_ARTICLE}}
+					</BOUCLE_articles>
+					
+					[(#REM) avis]
+					<BOUCLE_avis(RUBRIQUES){id_rubrique IN #GET{rubriques}}>
+					<B_affichage>
+					<B_hierarchie><BOUCLE_hierarchie(HIERARCHIE){id_rubrique=3}>
+					[<h2 style="color:#09f; font-weight:normal; font-size: 1.3em; margin:2em 0 0;">(#TITRE|supprimer_numero|unique)</h2>]
+					</BOUCLE_hierarchie>
+					<h3 style="font-style:italic; font-weight:normal; font-size:1.2em; margin:.5em 0 0;">[(#TITRE|supprimer_numero)]</h3>
+					</B_hierarchie>
+					<h2 style="color:#09f; font-weight:normal; font-size: 1.3em; margin:2em 0 0;">[(#TITRE|supprimer_numero)]</h2>
+					<//B_hierarchie>
+					
+					<BOUCLE_affichage(ARTICLES){id_rubrique}{id_article IN #GET{articles}}{doublons}>
+					<h3 style="font-size: 1.1em; font-weight: normal; margin: .5em 0 0;">[(#TITRE|supprimer_numero)]</h3>
+					<p style="margin:0 0 1em">
+						[(#DESCRIPTIF|PtoBR)] <a href="[(#URL_ARTICLE|url_absolue)]" style="color:#191919;"><:spiplistes:article_entier:></a><span style="color: red; font-weight:bold;"> | </span>[<:publie:> (#DATE|affdate)]
+					</p>
+					</BOUCLE_affichage>
+					</B_affichage>
+					</BOUCLE_avis>
+					
+					
+					
+					[
+					(#DATE_MODIF_SITE|strtotime|>{[(#ENV{date}|strtotime)]}|?{' ',''})
+
+				</td>
+			</tr>
+		</table>
+	</div>
+	]
+</body>
+</html>
