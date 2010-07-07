@@ -12,7 +12,7 @@ formulaires
 
 /* Fieldset */
 .formulaire_spip fieldset { margin: 0 0 1em; }
-.formulaire_spip fieldset legend { color: #09f; font-size: 1.5em; font-weight: bold; margin-bottom: .2em ; }
+.formulaire_spip fieldset legend { color: #09f; font-size: 1.5em; xfont-weight: bold; margin-bottom: .2em ; }
 * html .formulaire_spip fieldset legend { background-color: #f2f2f2; color: #09f; } /* Preciser la couleur des legend et du fond pour IE6/Win */
 .formulaire_spip fieldset fieldset { margin-top: 1em; }
 /*.formulaire_spip fieldset fieldset legend { font-size: 1em; font-weight: normal; }*/
@@ -96,20 +96,4 @@ fieldset.reponse_formulaire.reponse_formulaire legend { color: #f00; } /* Precis
 .spip_surligne {} /*Cf.: spip_style.css*/
 
 .formulaire_spip .bugajaxie { display: none; } /* Bug IE/Win */
-
-
-/* Pour Spip-listes */
-
-.formulaire-spiplistes-abo ul li {
-	padding: 0;
-}
-
-.formulaire-spiplistes-abo label {
-	margin: 0;
-	font-size: 1.2em;
-}
-
-.formulaire-spiplistes-abo strong {
-	font-weight: bold;
-}
 

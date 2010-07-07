@@ -65,55 +65,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tri_par_mois' => 'Par mois',
 	'tri_par_categorie' => 'Par mot-cl&eacute;',
 
-	// reprise fichier lang spip_listes
-	'format_reception' => "Format de r&eacute;ception :"
-	, 'texte' => 'Texte'
-	, 'html' => 'HTML'
-	, 'desabonnement' => 'D&eacute;sabonnement&nbsp;'
-	// formulaires, patrons, etc.
-, 'abo_1_lettre' => 'Lettre d\'information'
-	, 'abonnement_seule_liste_dispo' => "Abonnement &agrave; la seule liste disponible "
-	, 'abo_listes' => 'Abonnement'
-	, 'abonnement_0' => 'Abonnement'
-	, 'abonnement_titre_mail'=>'Modifier votre abonnement'
-	, 'lire' => 'Lire'
-	, 'listes_de_diffusion_' => "Listes de diffusion "
-	, 'jour' => 'jour'
-	, 'jours' => 'jours'
-	, 'abonnement_bouton'=>'Modifier votre abonnement'
-	, 'abonnement_cdt' => "<a href='http://bloog.net/spip-listes/'>SPIP-Listes</a>"
-, 'abonnement_change_format' => "Vous pouvez changer de format de r&eacute;ception ou vous d&eacute;sabonner : "
-	, 'abonnement_texte_mail' => 'Indiquez ci-dessous l\'adresse email sous laquelle vous vous &ecirc;tes 
-	pr&eacute;c&eacute;demment enregistr&eacute;. 
-	Vous recevrez un email permettant d\'acc&eacute;der &agrave; la page de modification de votre abonnement.'
-	, 'article_entier' => 'Lire l\'article entier'
-	, 'form_forum_identifiants' => 'Confirmation'
-	, 'form_forum_identifiant_confirm'=>'Votre abonnement est enregistr&eacute;, vous allez recevoir un mail de confirmation.'
-	, 'inscription_mail_forum' => 'Voici vos identifiants pour vous connecter au site @nom_site_spip@ (@adresse_site@)'
-	, 'inscription_mail_redac' => 'Voici vos identifiants pour vous connecter au site @nom_site_spip@ (@adresse_site@) 
-	et &agrave; l\'interface de r&eacute;daction (@adresse_site@/ecrire)'
-	, 'inscription_visiteurs' => 'L&acute;abonnement vous permet d&acute;acc&eacute;der aux parties du site en acc&egrave;s restreint,
-	d&acute;intervenir sur les forums r&eacute;serv&eacute;s aux visiteurs enregistr&eacute;s et de recevoir 
-	les lettres d&acute;informations.'
-	, 'inscription_redacteurs' =>'L\'espace de r&eacute;daction de ce site est ouvert aux visiteurs apr&egrave;s inscription.
-	Une fois enregistr&eacute;, vous pourrez consulter les articles en cours de r&eacute;daction, proposer des articles
-	et participer &agrave; tous les forums.  L\'inscription permet &eacute;galement d\'acc&eacute;der aux parties du 
-	site en acc&egrave;s restreint et de recevoir les lettres d\'informations.'
-	, 'mail_non' => 'Vous n\'&ecirc;tes pas abonn&eacute; &agrave; la lettre d\'information du site @nom_site_spip@'
-	, 'messages_auto' => 'Courriers automatiques'
-	, 'nouveaute_intro' => 'Bonjour, voici les nouveautés publiées sur le site'
-	, 'nom' => 'Nom d\'utilisateur'
-	, 'texte_lettre_information' => 'Voici la lettre d\'information de '
-	, 'vous_pouvez_egalement' => 'Vous pouvez &eacute;galement'
-	, 'vous_inscrire_auteur' => 'vous inscrire en tant qu\'auteur'
-	, 'voir_discussion' => 'Voir la discussion'
-	, 'inconnu' => 'n\'est plus abonn&eacute; &agrave; la liste'
-	, 'infos_liste' => 'Informations sur cette liste'
-	, 'editeur' => 'Editeur : '
-	, 'html_description' => " Texte enrichi (caract&egrave;res en gras ou en italique, parfois accompagn&eacute; d&#39;images)"
-, 'texte_brut' => "Texte brut"
-	, 'vous_etes_abonne_aux_listes_' => "Vous &ecirc;tes abonn&eacute; aux listes de diffusion :"
-	, 'vous_etes_abonne_a_la_liste_' => "Vous &ecirc;tes abonn&eacute; &agrave; la liste de diffusion :"
-
 	);
 ?>
