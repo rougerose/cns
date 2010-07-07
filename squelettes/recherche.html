@@ -18,7 +18,7 @@
 
         </div><!-- fin div entete -->
         <div id="corps">
-            <div id="colonnePrincipale">
+            <div id="colonnePrincipale" class="texte">
                 <div id="titre" class="blocContenu">
                     [(#REM) afficher si pas de résultats sur l'ensemble ]
                     <h1>[<:resultats_recherche:>&nbsp;: (#RECHERCHE)]</h1>
@@ -38,7 +38,7 @@
                         
                         <dt><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dt>
                         [<dd class="extrait-recherche">(#DESCRIPTIF|PtoBR)</dd>]
-                        <dd class="url"><a href="[(#URL_ARTICLE)]">[(#URL_ARTICLE|url_absolue)]</a></dd>
+                        <dd class="url"><p><a href="[(#URL_ARTICLE)]">[(#URL_ARTICLE|url_absolue)]</a></p></dd>
                         
                     </dl>
                     </BOUCLE_articles>
@@ -57,7 +57,7 @@
                         <BOUCLE_rubriques(RUBRIQUES){recherche}{par points}{inverse}{pagination 7}>
                         <dt><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dt>
                         [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd class="url"><a href="[(#URL_RUBRIQUE)]">[(#URL_RUBRIQUE|url_absolue)]</a></dd>
+                        <dd class="url"><p><a href="[(#URL_RUBRIQUE)]">[(#URL_RUBRIQUE|url_absolue)]</a></p></dd>
                         </BOUCLE_rubriques>
                     </dl>
                 </div>
@@ -75,8 +75,8 @@
                         <BOUCLE_documents(DOCUMENTS){recherche}{par points}{inverse}{pagination 5}>
                         <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
                         [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd><:document:>[ (#TYPE_DOCUMENT)][, (#TAILLE|taille_en_octets).]</dd>
-                        <dd class="url"><a href="[(#URL_DOCUMENT)]" type="#MIME_TYPE">[(#URL_DOCUMENT|url_absolue)]</a></dd>
+                        <dd class="typeDocument"><p><:document:>[ (#TYPE_DOCUMENT)][, (#TAILLE|taille_en_octets).]</p></dd>
+                        <dd class="url"><p><a href="[(#URL_DOCUMENT)]" type="#MIME_TYPE">[(#URL_DOCUMENT|url_absolue)]</a></p></dd>
                         </BOUCLE_documents>
                     </dl>
                 </div>
@@ -95,7 +95,7 @@
                         <BOUCLE_mots(MOTS){recherche}{par points}{inverse}{pagination 5}{doublons mots}>
                         <dt><a href="#URL_MOT">[(#TITRE|supprimer_numero)]</a></dt>
                         [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd class="url"><a href="[(#URL_MOT)]">[(#URL_MOT|url_absolue)]</a></dd>
+                        <dd class="url"><p><a href="[(#URL_MOT)]">[(#URL_MOT|url_absolue)]</a></p></dd>
                         </BOUCLE_mots>
                     </dl>
                 </div>
@@ -120,7 +120,7 @@
                             </a>
                         </dt>
                         [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd class="url"><a href="[(#URL_SITE)]">[(#URL_SITE)]</a></dd>
+                        <dd class="url"><p><a href="[(#URL_SITE)]">[(#URL_SITE)]</a></p></dd>
                         </BOUCLE_sites>
                     </dl>
                 </div>

@@ -223,7 +223,7 @@ h6.spip {
 	margin: 0 0 .3em;
 }
 
-.texte p, #recherche dl dd, #texte dl { font-size: 1.4em; line-height: 20px; }
+.texte p, #texte dl { font-size: 1.4em; line-height: 20px; }
 #texte dl p { font-size: 1em; }
 
 p.spip br:first-child { display: none; } /* Spip rajoute un br avant un "-" même quand le tiret est en début de paragraphe. */
@@ -420,6 +420,7 @@ ul.colonneContenuRubrique {
 #recherche dl dd.url, #index dd p.url {
 	margin-bottom: 2em;
 }
+#recherche dl dd.typeDocument p { margin-bottom: 0; }
 
 #recherche dl dd.extrait-recherche {
 	margin-bottom: .5em;
