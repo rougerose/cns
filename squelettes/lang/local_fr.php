@@ -63,7 +63,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'traduction_disponible' => 'Traduction disponible',
 	'trier_agenda' => 'Trier l\'agenda',
 	'tri_par_mois' => 'Par mois',
-	'tri_par_categorie' => 'Par cat&eacute;gorie',
+	'tri_par_categorie' => 'Par mot-cl&eacute;',
 
 	// reprise fichier lang spip_listes
 	'format_reception' => "Format de r&eacute;ception :"
