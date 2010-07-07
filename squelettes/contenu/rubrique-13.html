@@ -1,0 +1,93 @@
+#SET{type,#ENV{type,defaut}}
+[(#REM) on fait en sorte que type soit toujours égal à une variable pré-définie ]
+[(#ENV{type}|match{^(annee|categorie)$}|?{'',[(#SET{type,defaut})]})]
+#SET{d,#ENV{d,#ENV{date}}}
+#SET{mots,#ARRAY}
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}>
+<div id="titre" class="blocContenu">
+	#DEBUT_SURLIGNE
+	<h1>[(#TITRE|supprimer_numero)]</h1>
+	#FIN_SURLIGNE
+</div>
+
+<div id="contenuPrincipal" class="texte">
+	[(#REM) affichage par defaut, par categorie (mot-clé), par année ]
+
+	[(#GET{type}|match{defaut}|?{
+		[(#INCLURE{fond=inclure/rubrique-13_articles_par_date}{lang}{id_rubrique}{self=#SELF})]
+	})]
+	[(#GET{type}|match{categorie}|?{
+		[(#INCLURE{fond=inclure/rubrique-13_articles_par_mot}{lang}{id_rubrique}{self=#SELF}{c=#ENV{c}})]
+	})]
+	[(#GET{type}|match{annee}|?{
+		[(#INCLURE{fond=inclure/rubrique-13_articles_par_annee}{lang}{id_rubrique}{self=#SELF}{c=#ENV{c}}{date=#ENV{d}})]
+	})]
+	
+	
+</div><!-- fin div contenuPrincipal -->
+
+<div id="contenuSecondaire">
+	[(#REM) tableau des mots-clés liés aux événements ]
+	<BOUCLE_art(ARTICLES){id_rubrique}>
+	<BOUCLE_m(MOTS){id_article}{doublons}>
+	#SET{mots,#GET{mots}|array_merge_{#ID_MOT}}
+	</BOUCLE_m>
+	</BOUCLE_art>
+	
+	<div id="menuTri">
+		<h3>Trier (titre menu à compléter)</h3>
+		<ul>
+			[(#REM) tri par annee ]
+			<B_tri_annee>
+			<li class="clearfix">
+				<form action="#SELF" method="get" accept-charset="utf-8" class="formulaire_tri">
+					<input type="hidden" name="rubrique" value="#ID_RUBRIQUE">
+					<input type="hidden" name="type" value="annee">
+					<label for="d"><:tri_par_mois:></label>
+					<select name="d" size="1">
+						<option value=""><:selection:></option>
+						<BOUCLE_tri_annee(ARTICLES){id_rubrique}{!par date}>
+						[<option value="[(#DATE|affdate{Y})]"[(#GET{d}|=={[(#DATE|affdate{Y})]}|?{' selected="selected"'})]>(#DATE|annee|unique)</option>]
+						</BOUCLE_tri_annee>
+					</select>
+					<input type="submit" value="&rarr;">
+				</form>
+			</li>
+			</B_tri_annee>
+			
+			[(#REM) tri par catégorie ]
+			<B_tri_categorie>
+			<li class="clearfix">
+				<form action="#SELF" method="get" accept-charset="utf-8" class="formulaire_tri">
+					<input type="hidden" name="rubrique" value="#ID_RUBRIQUE">
+					<input type="hidden" name="type" value="categorie">
+					<label for="c"><:tri_par_categorie:></label>
+					<select name="c" size="1">
+						<option value=""><:selection:></option>
+						<BOUCLE_tri_categorie(MOTS){id_mot IN #GET{mots}}{par multi titre}>
+						[<option value="#ID_MOT"[(#ENV{c}|=={#ID_MOT}|?{' selected="selected"'})]>(#TITRE|supprimer_numero)</option>]
+						</BOUCLE_tri_categorie>
+					</select>
+					<input type="submit" value="&rarr;">
+				</form>
+			</li>
+			</B_tri_categorie>
+		</ul>
+	</div>
+	
+	#SET{rubrique,#ID_RUBRIQUE}
+	<BOUCLE_actus(RUBRIQUES){id_rubrique=23}>
+	<B_actus_recentes>
+	<div class="contexte">
+		<h3>[(#GET{rubrique}|=={23}|?{<:actus_recentes:>,<:actus_consulter:>})]</h3>
+		<ul class="hfeed">
+			<BOUCLE_actus_recentes(ARTICLES){id_rubrique}{!par date}{exclus}{0,5}>
+			<INCLURE{fond=inc-actus_recentes}{id_article}>
+			</BOUCLE_actus_recentes>
+		</ul>
+	</div>
+	</B_actus_recentes>
+	</BOUCLE_actus>
+	
+</div><!-- fin div contenuSecondaire -->
+</BOUCLE_contenu_rubrique>

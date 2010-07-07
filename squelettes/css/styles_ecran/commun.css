@@ -223,9 +223,10 @@ h6.spip {
 	margin: 0 0 .3em;
 }
 
-#corps p, #recherche dl dd, #texte dl { font-size: 1.4em; line-height: 20px; }
+.texte p, #recherche dl dd, #texte dl { font-size: 1.4em; line-height: 20px; }
 #texte dl p { font-size: 1em; }
 
+p.spip br:first-child { display: none; } /* Spip rajoute un br avant un "-" même quand le tiret est en début de paragraphe. */
 
 /*#article dl.listeMembres dd.email, #article dl.listeMembres dd.url {
 	font-size: .85em;
@@ -278,9 +279,18 @@ p.spip strong {
 /* hentry */
 .descriptif span.vcard { display: none; }
 
+/* hentry inclus en li (rubrique 13, Le CNS dans les médias) */
+ul.hfeed {  }
+	.hfeed li.hentry { margin-bottom: 3em; }
+	.hfeed li div.groupe { margin-left: 20px; }
+		.hfeed li p.published { color: #09f; font-size: 1.8em; margin-bottom: .5em; }
+		.hfeed li h3 { font-size: 1.8em; margin-bottom: .5em; }
+		.hfeed li .entry-content p, .hfeed li .categories p { font-size: 1.4em; line-height: 20px; }
+
+
 
 /* hentry colonne secondaire */
-.contexte .hentry { margin-bottom: 1em; }
+.contexte li.hentry { margin-bottom: 1em; }
 	.contexte .hentry .entry-title { line-height: 1.2em; }
 	#corps .contexte .hentry .descriptif { font-size: .95em ; }
 		#corps .contexte .hentry .descriptif .entry-content { display: none; }
@@ -626,17 +636,17 @@ li.spip dl.listeMembres dt {
 	color: #09f;
 }
 
-#menuAgenda {  }
-	#menuAgenda li {
+#menuTri {  }
+	#menuTri li {
 		border-bottom: 1px solid #eee;
 		margin-bottom: 5px; padding-bottom: 5px; }
-		#menuAgenda li label {
+		#menuTri li label {
 			float: left; }
-		#menuAgenda li select {
+		#menuTri li select {
 			float: right;
 			max-width: 100px; }		
 
-#menuAgenda strong {
+#menuTri strong {
 	color: #f00; }
 
 /* Tableaux */

@@ -36,7 +36,7 @@ rubrique 12 => Agenda
 	#SET{mots,#GET{mots}|array_merge_{#ID_MOT}}
 	</BOUCLE_m>
 	</BOUCLE_events>
-	<div id="menuAgenda">
+	<div id="menuTri">
 		<h3><:trier_agenda:></h3>
 		<ul>
 			<li>
@@ -106,7 +106,7 @@ rubrique 12 => Agenda
 					<label for="c"><:tri_par_categorie:></label>
 					<select name="c" size="1">
 						<option value=""><:selection:></option>
-						<BOUCLE_evenements_categorie(MOTS){id_mot IN #GET{mots}}{par titre}>
+						<BOUCLE_evenements_categorie(MOTS){id_mot IN #GET{mots}}{par multi titre}>
 						[<option value="#ID_MOT"[(#ENV{c}|=={#ID_MOT}|?{' selected="selected"'})]>(#TITRE|supprimer_numero)</option>]
 						</BOUCLE_evenements_categorie>
 					</select>

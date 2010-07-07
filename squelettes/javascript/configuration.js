@@ -80,8 +80,8 @@ $(document).ready(function(){
 	//  menu déroulants de tri par date et par catégorie
 	//  
 	// ********************************************************************
-	$(".formulaire_agenda input[type='submit']").hide();
-	$(".formulaire_agenda").change(function(){
+	$(".formulaire_tri input[type='submit']").hide();
+	$(".formulaire_tri").change(function(){
 		this.submit();
 	});
 });

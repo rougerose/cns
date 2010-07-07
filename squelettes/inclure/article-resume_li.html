@@ -1,0 +1,30 @@
+<BOUCLE_article(ARTICLES){id_article}>
+<li id="article-#ID_ARTICLE" class="hentry">
+	[<p class="published"><span class="value-title" title="[(#DATE|date_iso)]"></span>(#DATE|affdate)</p>]
+	<div class="groupe">
+		[<p class="surtitre">(#SURTITRE)</p>]
+		<h3 class="entry-title"><a href="#URL_ARTICLE" rel="bookmark">[(#TITRE|supprimer_numero)]</a></h3>
+		[<p class="soustitre">(#SOUSTITRE)</p>]
+		<div class="texte entry-content">
+			[<div class="chapo">(#CHAPO)</div>]
+			[<div class="texte">(#TEXTE)</div>]
+			[<div class="source">
+				<p class="hyperlien spip">#PUCE <:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>
+			</div>]
+			[<div class="ps supplement">
+				<h4><:postscriptum:></h3>
+				<div>(#PS|image_reduire{450,0})</div>
+			</div>]
+			[<div class="notes supplement">
+				<h4><:ecrire:info_notes:></h3>
+				(#NOTES)
+			</div>]
+		</div>
+		<B_mots>
+		<div class="categories">
+			<p class="spip"><:mots_clefs:> <BOUCLE_mots(MOTS){id_article}{par multi titre}{","}>[<a href="#URL_MOT" rel="tag">(#TITRE|supprimer_numero)</a>]</BOUCLE_mots></p>
+		</div>
+		</B_mots>
+	</div>
+</li>
+</BOUCLE_article>

@@ -1,0 +1,10 @@
+<B_articles>
+#ANCRE_PAGINATION
+	[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+	<ul class="hfeed">
+		<BOUCLE_articles(ARTICLES){id_rubrique}{id_mot=#ENV{c}}{lang}{!par date}{pagination}>
+		[(#INCLURE{fond=inclure/article-resume_li}{lang}{id_article})]
+		</BOUCLE_articles>
+	</ul>
+	[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+</B_articles>
