@@ -174,7 +174,7 @@ h2.spip {
 	margin:1.5em 0 .8em;
 }
 
-h3.spip, #notes h3 {
+h3.spip, .supplement h3 /* notes, ps */ {
 	font-size: 2em;
 	margin:	1.5em 0 .5em;
 }

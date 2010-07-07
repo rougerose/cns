@@ -43,6 +43,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'mots_clefs' => 'Mots-cl&eacute;s',
 	'ou' => 'O&ugrave;',
 	'page' => 'page',
+	'postscriptum' => 'Post-scriptum',
 	'prochains_rendezvous' => 'Les prochains rendez-vous',
 	'publie' => 'Publi&eacute; le',
 	'publie_enligne' => 'Publi&eacute; en ligne le',

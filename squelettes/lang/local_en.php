@@ -41,6 +41,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'mots_clefs' => 'Keywords',
 	'ou' => 'Where',
 	'page' => 'page',
+	'postscriptum' => 'Postscript',
 	'prochains_rendezvous' => 'Upcoming events',
 	'publie' => 'Published',
 	'publie_enligne' => 'Published online',
