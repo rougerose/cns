@@ -89,6 +89,17 @@ fieldset.reponse_formulaire.reponse_formulaire legend { color: #f00; } /* Precis
 		padding: 0 3px 1px; }
 	#formulaire_recherche .submit:hover { background-color: #f00; color: #fff; }
 
+/* spip-lettres */
+.spip_lettres {  }
+	.spip_lettres fieldset legend { margin-bottom: 1em; }
+	.spip_lettres dl { font-size: 1.4em; line-height: 20px; margin: 0 0 1em; }
+	.spip_lettres dt { 
+		float: left; width: 80px; }
+		.spip_lettres dt label { margin: 0; }
+	.spip_lettres dd { float: left; width: 350px; }
+		.spip_lettres dd input.champ_texte { width: 99%; }
+		.spip_lettres dd label { display: inline; font-size: 1em; }
+
 
 /* Selection des langues */
 .formulaire_menu_lang { margin: 0; padding: 0; background: none; }
