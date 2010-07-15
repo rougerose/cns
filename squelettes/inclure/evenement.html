@@ -32,16 +32,14 @@
 			<h3 class="summary">[(#TITRE|supprimer_numero)]</h3>
 			[(#HORAIRE|=={oui}|?{
 				<p class="infos">
-					<span class="label"><:quand:></span>
 					<:de:>[ (#DATE_DEBUT|heures)h[(#DATE_DEBUT|minutes)] ]<:a:>[ (#DATE_FIN|heures)h[(#DATE_FIN|minutes)]]
 				</p>
 			})]
 			[<p class="location infos">
-				<span class="label"><:ou:></span> 
 				<span [ class="(#EDIT{lieu})"]>(#LIEU|PtoBR)</span>
 			</p>]
 			[<div class="description">
-				<p class="infos"><span class="label"><:informations:></span> (#DESCRIPTIF|PtoBR)</p>
+				<p class="infos">(#DESCRIPTIF|PtoBR)</p>
 			</div>]
 			<B_mots>
 			<p class="tag infos">
