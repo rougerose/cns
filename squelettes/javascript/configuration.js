@@ -81,7 +81,7 @@ $(document).ready(function(){
 	//  
 	// ********************************************************************
 	$(".formulaire_tri input[type='submit']").hide();
-	$(".formulaire_tri").change(function(){
-		this.submit();
+	$(".formulaire_tri select").change(function(){
+		this.form.submit();
 	});
 });

@@ -291,7 +291,7 @@ ul.hfeed {  }
 
 /* hentry colonne secondaire */
 .contexte li.hentry { margin-bottom: 1em; }
-	.contexte .hentry .entry-title { line-height: 1.2em; }
+	.contexte .hentry .entry-title { line-height: 1.2em; font-size: 1em; }
 	#corps .contexte .hentry .descriptif { font-size: .95em ; }
 		#corps .contexte .hentry .descriptif .entry-content { display: none; }
 
@@ -598,44 +598,24 @@ li.spip dl.listeMembres dt {
 
 #hcalendar dl {
 	border-bottom: 1px solid #eee;
-	margin: 0 0 1em;
-	position: relative;
-}
+	margin: 0 0 1em; }
 
-#hcalendar dt, #hcalendar dd {
-	font-size: 1.4em;
-}
+#hcalendar dt, #hcalendar dd { font-size: 1.4em; }
 
 #hcalendar dt {
+	clear: left; float: left;
 	color: #09f;
-	position: absolute; left: 0; top: auto;
 	padding-right: 10px;
 	width: 255px; }
+	
 #hcalendar dd {
 	margin: 0 0 0 255px;
 	padding: 0 0 1em 10px; }
+	
 	#hcalendar dd h3 { font-size: 14px; }
 	#hcalendar dd p { font-size: 12px; }
 	#hcalendar dd p .label { font-weight: bold; }
-
-#hcalendar dd.ajoutCalendrier p {
-	border: 1px solid #fff;
-	font-size: .8em;
-	float: left;
-	padding: 2px 4px 0;
-}
-
-#hcalendar dd.ajoutCalendrier p:hover {
-	border-color: #f00;
-}
-
-#hcalendar dd img {
-	vertical-align: middle;
-}
-
-#hcalendar dd span.separateur {
-	color: #09f;
-}
+	#hcalendar dd span.separateur { color: #09f; }
 
 #menuTri {  }
 	#menuTri li {

@@ -35,6 +35,5 @@
 	margin: 0 0 .2em 0;
 }
 
-#hcalendar dt {
-	left: -159px;
-}
+#menuTri li select { width: 110px; font-size: 10px; }
+
