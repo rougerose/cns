@@ -55,7 +55,7 @@ body {
 
 #contenuSecondaire {
 	width: 205px;
-	float: left;
+	float: right;
 	padding-left: 60px;
 }
 
@@ -596,6 +596,7 @@ li.spip dl.listeMembres dt {
 	margin-bottom: .5em;
 }
 
+#hcalendar { clear: left; }
 #hcalendar dl {
 	border-bottom: 1px solid #eee;
 	margin: 0 0 1em; }

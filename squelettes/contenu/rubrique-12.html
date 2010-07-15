@@ -86,12 +86,9 @@ rubrique 12 => Agenda
 					<label for="d"><:tri_par_mois:></label>
 					<select name="d" size="1">
 						<option value=""><:selection:></option>
-						<BOUCLE_evenements_mois(EVENEMENTS){id_rubrique}{!par date_debut}{annee_relatif=0}>
+						<BOUCLE_evenements_mois(EVENEMENTS){id_rubrique}{!par date_debut}{annee_relatif>=0}>
 						[<option value="[(#DATE_DEBUT|affdate{Y-m})]"[(#GET{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{' selected="selected"'})]>(#DATE_DEBUT|affdate_mois_annee|unique)</option>]
 						</BOUCLE_evenements_mois>
-						<BOUCLE_evenements_annee_n_moins1(EVENEMENTS){id_rubrique}{par date_debut}{annee_relatif>0}{0,1}>
-						[<option value="(#DATE_DEBUT|affdate{Y-m})"[(#GET{d}|=={[(#DATE_DEBUT|affdate{Y-m})]}|?{' selected="selected"'})]>Toutes les dates</option>]
-						</BOUCLE_evenements_annee_n_moins1>
 					</select>
 					<input type="submit" value="&rarr;">
 				</form>

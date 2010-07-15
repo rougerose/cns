@@ -11,3 +11,4 @@ TODO corriger partout l'appel du pied de page dans inclure afin de prendre en ch
 TODO rubrique CNS dans les médias : faire un essai avec un article dont tous les champs (chapeau, soustitre, surtitre) sont remplis
 DONE rubrique actualités > dans chaque article : afficher le champs url de l'article
 TODO critère "toutes les dates" n'affichent que les événements janvier 2009
+TODO faire valider traductions fr/en
