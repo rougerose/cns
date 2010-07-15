@@ -288,7 +288,8 @@ ul.hfeed {  }
 		.hfeed li h3 { font-size: 1.8em; margin-bottom: .5em; }
 		.hfeed li .entry-content p, .hfeed li .categories p { font-size: 1.4em; line-height: 20px; }
 
-
+/* cas particulier rubrique contact */
+.rubrique-24 .hentry .published, .rubrique-24 .hentry .separateur { display: none; }
 
 /* hentry colonne secondaire */
 .contexte li.hentry { margin-bottom: 1em; }

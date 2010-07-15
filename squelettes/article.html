@@ -27,9 +27,9 @@
 				[<p id="surtitre">(#SURTITRE)</p>]
 				<h1>[(#TITRE|supprimer_numero)]</h1>
 				[<p id="soustitre">(#SOUSTITRE)</p>]
-				<p class="datePublication">
-					[<:publie:> (#DATE|affdate)]
-				</p>
+				[<p class="datePublication">
+					(#ID_RUBRIQUE|match{^(24)$}|?{'',[<:publie:> (#DATE|affdate)]})
+				</p>]
 				<div id="contenuPrincipal">
 					[<div id="chapo">
 						(#CHAPO|image_reduire{450,0})
