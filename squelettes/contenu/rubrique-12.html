@@ -3,7 +3,7 @@ rubrique 12 => Agenda
 ]
 #SET{type,#ENV{type,defaut}}
 [(#REM) on fait en sorte que type soit toujours égal à une variable pré-définie ]
-[(#ENV{type}|match{^(mois|tout|categorie)$}|?{'',[(#SET{type,defaut})]})]
+[(#ENV{type}|match{^(mois|categorie)$}|?{'',[(#SET{type,defaut})]})]
 #SET{d,#ENV{d,#ENV{date}}}
 #SET{mots,#ARRAY}
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
@@ -18,7 +18,7 @@ rubrique 12 => Agenda
 
 <div id="contenuPrincipal">
 	[(#REM) test selon le type d'affichage souhaité : par defaut les prochains rendez-vous, tous, par catégorie ou par mois ]
-	[(#GET{type}|match{^(defaut|tout)$}|?{
+	[(#GET{type}|match{^(defaut)$}|?{
 		[(#INCLURE{fond=inclure/agenda}{id_rubrique}{date_debut=#GET{d}})]
 	})]
 	[(#GET{type}|match{^(categorie)$}|?{

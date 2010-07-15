@@ -1,10 +1,10 @@
 [(#REM) tous les événements d'une categorie ]
-<B_evenements>
 <div id="hcalendar">
+<B_evenements>
 	<BOUCLE_evenements(EVENEMENTS){id_mot}{id_rubrique}{!par date_debut}>
 	<INCLURE{fond=inclure/evenement}{id_evenement}>
 	</BOUCLE_evenements>
-</div>
 </B_evenements>
 <p class="spip"><:aucun_evenement:></p>
 <//B_evenements>
+</div>
