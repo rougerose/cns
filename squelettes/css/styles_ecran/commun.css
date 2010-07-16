@@ -227,11 +227,7 @@ h6.spip {
 .texte p, #texte dl { font-size: 1.4em; line-height: 20px; }
 #texte dl p { font-size: 1em; }
 
-p.spip br:first-child { display: none; } /* Spip rajoute un br avant un "-" même quand le tiret est en début de paragraphe. */
-
-/*#article dl.listeMembres dd.email, #article dl.listeMembres dd.url {
-	font-size: .85em;
-}*/
+p.spip + br:first-child { display: none; } /* Spip rajoute un br avant un "-" même quand le tiret est en début de paragraphe. */
 
 #recherche #colonnePrincipale dl dt {
 	font-size: 1.7em;
@@ -245,6 +241,11 @@ p.spip strong {
 	font-weight: bold;
 	font-size: 1em;
 }
+
+abbr, acronym { border-bottom: 1px dotted #707070; }
+.spip_out {
+	background: url(../../images/icone-spip_out.png) no-repeat right center;
+	padding-right: 14px; }
 
 /* colonne secondaire */
 
@@ -445,6 +446,8 @@ p.spip, p.spip_note  {
 #article #chapo, #article #texte, #article #notes {
 	margin-bottom: 2em;
 }
+
+#article #chapo p { color: #515151; }
 
 p.datePublication {
 	margin-left: 530px;

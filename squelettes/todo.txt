@@ -1,8 +1,7 @@
 TODO traduction divers = miscellaneous
-TODO demande de créer un mot-clé "divers" pour les communiqués de presse. A priori, pas de problème pour ajouter les mots-clés que le CNS souhaite à condition qu'ils soient classés dans le groupe de mots-clés "thématiques". S'il s'agit de considérer que le mot-clé "divers" doit être une catégorie comme "dépistage", "prévention", etc. qui sont utilisées pour les rapports, alors, il s'agit simplement d'ajouter un mot-clé dans la catégorie de mots-clés "thématique rubrique" qui existe déjà. Avec une limite posée par la charte graphique du site : ces catégories sont utilisées pour la navigation dans la rubrique Rapports et il ne peut y avoir 6 à 7 entrées. Le mot/catégorie "divers" est créé et peut-être utilisé pour les avis, rapports comme pour les CP.
+DONE demande de créer un mot-clé "divers" pour les communiqués de presse. A priori, pas de problème pour ajouter les mots-clés que le CNS souhaite à condition qu'ils soient classés dans le groupe de mots-clés "thématiques". S'il s'agit de considérer que le mot-clé "divers" doit être une catégorie comme "dépistage", "prévention", etc. qui sont utilisées pour les rapports, alors, il s'agit simplement d'ajouter un mot-clé dans la catégorie de mots-clés "thématique rubrique" qui existe déjà. Avec une limite posée par la charte graphique du site : ces catégories sont utilisées pour la navigation dans la rubrique Rapports et il ne peut y avoir 6 à 7 entrées. Le mot/catégorie "divers" est créé et peut-être utilisé pour les avis, rapports comme pour les CP.
 TODO icone spip-out
 TODO traductions : "trier_agenda"... (?)
-TODO mots-clés agenda : l'interface pour ajouter des mots-clés aux événements est assez mal foutue. Je pars du principe qu'il existe un article par type d'événements et du coup les mots-clés sont positionnés au niveau de l'article et non de l'événement lui-même.
 TODO styler <hr>
 TODO styler les listes imbriquées
 TODO voir <http://www.cns.sante.fr/spip.php?article331> avec IE6. les mots-clés et le document devraient s'afficher sur 2 colonnes.
@@ -12,3 +11,4 @@ TODO rubrique CNS dans les médias : faire un essai avec un article dont tous le
 DONE rubrique actualités > dans chaque article : afficher le champs url de l'article
 DONE critère "toutes les dates" n'affichent que les événements janvier 2009
 TODO faire valider traductions fr/en
+TODO faire valider un index en pied de page
