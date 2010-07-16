@@ -1,9 +1,10 @@
 <div class="formulaire_spip formulaire_recherche" id="formulaire_recherche">
-    <form action="[(#ENV{lien})]" method="get">
-        <p>[(#ENV{lien}|form_hidden)]
-        [<input type="hidden" name="lang" value="(#ENV{lang})" />]
-        <label for="recherche"><:info_rechercher_02:></label>
-        <input type="text" class="text" size="15" name="recherche" id="recherche"[ value="(#ENV{recherche}|sinon{<:info_rechercher:>})"] onfocus="this.value='';" />
-        <input type="submit" class="submit" value=">>" id="boutonRecherche"/></p>
-    </form>
+	<form action="[(#ENV{lien})]" method="get">
+		<p>[(#ENV{lien}|form_hidden)]
+			[<input type="hidden" name="lang" value="(#ENV{lang})" />]
+			<label for="recherche"><:info_rechercher_02:></label>
+			<input type="text" class="text" size="15" name="recherche" id="recherche"[ value="(#ENV{recherche}|sinon{<:info_rechercher:>})"] onfocus="this.value='';" />
+			<input type="submit" class="submit" value=">>" id="boutonRecherche"/>
+		</p>
+	</form>
 </div>
