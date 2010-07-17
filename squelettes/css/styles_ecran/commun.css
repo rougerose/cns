@@ -243,9 +243,23 @@ p.spip strong {
 }
 
 abbr, acronym { border-bottom: 1px dotted #707070; }
-.spip_out {
+
+hr.spip {
+	background-color:#09f; 
+	color:#09f; 
+	border:none; height:1px; 
+	width:70%; margin:36px auto; 
+	text-align:center; }
+
+a.spip_out {
 	background: url(../../images/icone-spip_out.png) no-repeat right center;
 	padding-right: 14px; }
+a.spip_glossaire {
+	background: url(../../images/icone-spip_glossaire.png) no-repeat right center;
+	padding-right: 14px;}
+.spip_code {
+	font: .9em "Courier New", Courier, mono; }	
+div.spip_code { margin-bottom: 1em; }
 
 /* colonne secondaire */
 
@@ -302,54 +316,37 @@ ul.hfeed {  }
 /* listes */
 
 #article #texte ol.spip {
-	font-size: 1.4em;
 	list-style-type: decimal-leading-zero;
 	list-style-position: outside;
-	margin-left: 2em;
-	text-align: justify;
-}
+	margin-left: 2em; }
+	#article #texte ol.spip li {
+		font-size: 1.4em;
+		margin-bottom: 1em; }
+		#article #texte ol.spip li li { list-style-type: lower-latin; }
+			#article #texte ol.spip li li li { list-style-type: lower-roman; }
 
-#article #texte ol.spip li {
-	margin-bottom: 1em;
-}
-
-#article #texte ul.spip {
-	margin-bottom: 1.5em;
-}
-
-#article #texte ul.spip ul {
-	margin-bottom: 0;
-}
-
-#article #texte ul.spip li {
-	font-size: 1.4em;
-}
-
-#article #texte ul.spip li li {
-	font-size: 1em;
-}
+#article #texte ul.spip { margin-bottom: 1.5em; }
+	#article #texte ul.spip li { font-size: 1.4em; }
+		#article #texte ul.spip li li, #article #texte ol.spip li li { font-size: 1em; }
+	#article #texte ul.spip ul { margin-bottom: 0; }
 
 #contenuSecondaire li, #article #texte ul.spip li {
 	background: url(../../images/iconeCarreListe.png) no-repeat 0 0;
-	padding-left: 16px;
-}
+	padding-left: 16px; }
 
 ul.liste li {
 	background: url(../../images/fleche.png) no-repeat 0 .2em;
 	font-size: 1.4em;
-	padding-left: 16px;
-}
+	padding-left: 16px; }
 
 #documents dt, #documentArticlePDF dt {
 	padding-left: 16px;
-	background: url(../../images/iconeDocument.png) no-repeat 0 0;
-}
+	background: url(../../images/iconeDocument.png) no-repeat 0 0; }
 
 #documents dd, #documentArticlePDF dd {
 	font-size: .9em;
 	margin-bottom: .3em;
-	padding-left: 16px;
-}
+	padding-left: 16px; }
 
 /* FAQ - Questions/Réponses */
 dl.faq { margin-bottom: 1.5em; border-bottom: 1px dotted #ddd; }
@@ -642,64 +639,48 @@ table.spip {
 	border: 1px solid #ddd;
 	margin: 0 auto 2em;
 	text-align: center;
-}
+	width: 99%; }
 
 table.spip td {
 	text-align: center;
-	border-left: 1px solid #bbb;
-}
+	border-left: 1px solid #bbb; }
 
 table.spip th {
+	font-weight: bold;
 	background-color: #ddd;
 	border-left: 1px solid #bbb;
-	text-align: center;
-}
+	text-align: center; }
 
-table.spip td:first-child, table.spip th:first-child {
-	border-left: 0;
-}
+table.spip td:first-child, table.spip th:first-child { border-left: 0; }
 
 table.spip tr.row_odd td {
 	background-color: #eee;
-	border-left-color: #bbb;
-}
+	border-left-color: #bbb; }
 
 table.spip th, table.spip td, table.spip caption {
 	font-size: 1.2em;
-	padding: .3em;
-}
+	padding: .3em; }
 
 table.spip caption {
 	text-align: center;
-	font-style: italic;
-}
+	font-style: italic; }
 
-table.spip th {
-	color: #444;
-}
+table.spip th { color: #444; }
 
 /* Documents insérés dans les articles */
 
-.spip_documents {
-	border: 1px solid #eee;
-	padding: 5px;
-	position: relative;
-}
+.spip_documents { position: relative; }
+	.spip_documents img.spip_logos  {
+		border: 1px solid #eee;
+		padding: 5px; }
 
-span.spip_documents {
-	display: block;
-}
-
-.spip_documents_left {
-	margin-right: 10px;
-}
-
-.spip_documents_right {
-	margin-left: 10px;
-}
+span.spip_documents, .spip_documents a { display: block; }
+dl.spip_documents { margin-bottom: 10px; }
+.spip_documents_left { margin-right: 10px; }
+.spip_documents_right { margin-left: 10px; }
 
 .spip_documents_center {
-	text-align: center;
+	text-align: center; 
 }
 
 #article #texte div.clearfix {
@@ -707,8 +688,7 @@ span.spip_documents {
 }
 
 .spip_documents .spip_doc_titre, .spip_documents .spip_doc_descriptif {
-	font-size: 1.1em;
-}
+	font: 10px "Lucida Grande", Lucida, Verdana, sans-serif; }
 
 .spip_documents .spip_doc_titre {
 	font-weight: bold;
