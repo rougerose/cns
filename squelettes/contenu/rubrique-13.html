@@ -82,7 +82,7 @@
 		<h3>[(#GET{rubrique}|=={23}|?{<:actus_recentes:>,<:actus_consulter:>})]</h3>
 		<ul class="hfeed">
 			<BOUCLE_actus_recentes(ARTICLES){id_rubrique}{!par date}{exclus}{0,5}>
-			<INCLURE{fond=inc-actus_recentes}{id_article}>
+			<INCLURE{fond=inclure/actus_recentes}{id_article}>
 			</BOUCLE_actus_recentes>
 		</ul>
 	</div>

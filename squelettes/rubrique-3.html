@@ -29,9 +29,6 @@
 					#FIN_SURLIGNE
 				</div>
 
-				[(#REM) les articles de la rubrique]
-				[(#INCLURE{fond=inc-articlesRubrique3}{id_rubrique}{id_secteur}{lang}{ajax}{self=#SELF})]
-
 				<BOUCLE_sous_rubriques(RUBRIQUES){id_parent}{par num titre, titre}>
 				<div class="blocContenu">
 					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
