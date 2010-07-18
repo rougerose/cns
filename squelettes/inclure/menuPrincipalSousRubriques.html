@@ -25,13 +25,14 @@
 	</li>
 ]
 
-[(#REM) pour la rubrique FR et EN "le CNS vous oriente" on ajoute annuaire thematique et alphabetique ]
+[(#REM) pour la rubrique FR et EN "Liens" on ajoute annuaire thematique et alphabetique ]
 [(#ENV{id_secteur}|=={5}|?{' '})
-	<li[ (#ENV{index}|?{'',' '})[(#ID_RUBRIQUE|=={5}|?{' '})class="on"]]>
-		<a href="#URL_RUBRIQUE"><:index_alpha:></a>
+	[(#SET{typeIndex,#ENV{index,thema}})]
+	<li[ (#GET{typeIndex}|=={thema}|?{class="on"})]>
+		<a href="[(#URL_RUBRIQUE|parametre_url{index,thema})]"><:index_thematique:></a>
 	</li>
-	<li[ (#ENV{index}|?{' '})class="on"]>
-		<a href="[(#URL_RUBRIQUE|parametre_url{index,t})]"><:index_thematique:></a>
+	<li[ (#GET{typeIndex}|=={alpha}|?{[(#ID_RUBRIQUE|=={5}|?{class="on"})]})]>
+		<a href="[(#URL_RUBRIQUE|parametre_url{index,alpha})]"><:index_alpha:></a>
 	</li>
 ]
 [(#REM) rubrique Contact ? On liste les articles de la rubrique ]

@@ -9,8 +9,11 @@
 <BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>[(#SET{premier_mot,[(#TITRE|supprimer_numero|initiale)]})]</BOUCLE_premier_mot>
 
 [(#REM) variables ]
-[(#SET{typeIndex,[(#ENV{index}|=={t}|?{<:_index_thematique:>,<:_index_alpha:>})]})]
-[(#ENV{index}|=={t}|?{
+[(#REM) index par défaut est thématique ]
+[(#SET{typeIndex,[(#ENV{index,thema})]})]
+
+[(#SET{typeIndexTitre,[(#GET{typeIndex}|=={thema}|?{<:_index_thematique:>,<:_index_alpha:>})]})]
+[(#GET{typeIndex}|=={thema}|?{
 	[(#SET{lettre,[(#ENV{lettre,[(#GET{premier_mot})]})]})]
 	,
 	[(#SET{lettre,[(#ENV{lettre,[(#GET{premier_site})]})]})]
@@ -18,7 +21,7 @@
 <head>
 	<title>
 		[(#TITRE|supprimer_numero|textebrut)]
-		[ / (#GET{typeIndex})]
+		[ / (#GET{typeIndexTitre})]
 		[ / (#GET{lettre})]
 		<BOUCLE_mot_select(MOTS){id_mot=#ENV{mot}}>
 		[ / (#TITRE|supprimer_numero|textebrut)]
@@ -41,14 +44,14 @@
 			<div id="colonnePrincipale" class="texte clearfix">
 				<div id="titre" class="blocContenu">
 					<h1>
-						[(#TITRE|supprimer_numero)[ / (#GET{typeIndex})][ / (#GET{lettre})]]
+						[(#TITRE|supprimer_numero)[ / (#GET{typeIndexTitre})][ / (#GET{lettre})]]
 					</h1>
 					[<div class="colonneContenuRubrique">
 						(#DESCRIPTIF)
 					</div>]
 				</div>
 				
-				[(#ENV{index}|=={t}|?{
+				[(#GET{typeIndex}|=={thema}|?{
 					[(#INCLURE{fond=inc-indexThemaSites}{lang}{id_rubrique}{lettre=#GET{lettre}}{mot=#ENV{mot}}{self=#SELF})]
 					,
 					[(#INCLURE{fond=inc-indexAlphaSites}{lang}{id_rubrique}{premier_site=#GET{premier_site}}{lettre=#GET{lettre}}{self=#SELF})]
