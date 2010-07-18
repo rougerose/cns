@@ -8,107 +8,78 @@ styles
 
 /* structure des pages  */
 
-body {
-	text-align: center;
-}
+body { text-align: center; }
 #enveloppe {
 	margin: 0 auto;
 	position: relative;
 	text-align: left;
-	width: 960px;
-}
+	width: 960px; }
 #entete {
 	margin: 0 6px 0 7px;
-	padding-top: 6em;
-}
+	padding-top: 6em; }
 
 #menuSecondaire {
 	bottom: 3.5em;
 	position: fixed;
-	float: left;
-}
+	float: left; }
 
-#menuLangue {
-	position: absolute; top: 5px; left: 219px;
-	 }
+#menuLangue { position: absolute; top: 5px; left: 219px; }
 
-#formulaire_recherche {
-	position: absolute; top: 5px; right: 6px; }
+#formulaire_recherche { position: absolute; top: 5px; right: 6px; }
 
-#corps {
-	margin: 0 6px 0 7px;
-}
+#corps { margin: 0 6px 0 7px; }
 #colonnePrincipale {
 	border-top: 1px solid #09f;
 	margin: 1em 0 0 212px;
-	padding-top: 2em;
-}
+	padding-top: 2em; }
 
 #contenuPrincipal {
 	width: 470px;
-	float: left;
-}
+	float: left; }
 
-#article.page404 #contenuPrincipal, #article.auteur #contenuPrincipal {
-	margin-top: 3em;
-}
+#article.page404 #contenuPrincipal, #article.auteur #contenuPrincipal { margin-top: 3em; }
 
 #contenuSecondaire {
 	width: 205px;
 	float: left;
-	padding-left: 60px;
-}
+	padding-left: 60px; }
 
 #pied {
 	border-bottom: 1px solid #09f;
 	margin: 0 6px 4em 219px;
-	padding: 0 0 0;
-}
+	padding: 0 0 0; }
 
 /* Logo */
 
 #logo {
 	float: left;
-	width: 212px;
-}
+	width: 212px; }
 
 /* menu Principal */
 
 #menuPrincipal {
 	position: relative;
-	margin-left: 212px;
-}
+	margin-left: 212px; }
 
 #menuPrincipal ul {
 	position: absolute;
-	width: 258px;
-}
+	width: 258px; }
 
 #menuPrincipal ul ul {
 	left: 265px;
-	top: 0;
-}
+	top: 0; }
 
-#menuPrincipal ul ul ul {
-	width: 205px;
-}
+#menuPrincipal ul ul ul { width: 205px; }
 
-#menuPrincipal ul ul ul ul {
-	display: none;
-}
+#menuPrincipal ul ul ul ul { display: none; }
 
 #menuPrincipal li {
 	line-height: 1.5;
-	text-transform: uppercase;
-}
+	text-transform: uppercase; }
 
-#menuPrincipal ul a {
-	font-size: 1.1em;
-}
+#menuPrincipal ul a { font-size: 1.1em; }
 
-#menuPrincipal li.on > a {
-	color: #09f;
-}
+#menuPrincipal li.on > a { color: #09f; }
 
 
 /* pied de page */
@@ -116,8 +87,7 @@ body {
 #pied ul {
 	padding-top: 2em;
 	float: right;
-	margin-right: 53px;
-}
+	margin-right: 53px; }
 #pied li {
 	border-right: 1px solid #09f;
 	float: left;
@@ -125,128 +95,96 @@ body {
 	line-height: 1.1em;
 	margin: 0 .4em .2em 0;
 	padding: 0 .4em 0 0;
-	text-transform: uppercase;
-}
+	text-transform: uppercase; }
 
 #pied a {
-	display: block;
-}
+	display: block; }
 
 /* typographie */
 
-html {
-	font-size: 100%;
-}
+html { font-size: 100%; }
 
 body {
 	color: #707070;
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 62.5%;
-	/*background: url(../../images/grille.jpg) repeat-y center top;*/
-}
+	/*background: url(../../images/grille.jpg) repeat-y center top;*/ }
 
-#entete, #pied, .bouton {
-	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
-}
+#entete, #pied, .bouton { font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif; }
 
 h1,h2,h3,h4,h5,h6 {
 	color: #09f;
 	font-weight: normal;
 	line-height: 1.1;
-	margin:	0;
-}
+	margin:	0; }
 
-#corps h1 {
-	font-size: 2.8em;
-}
+#corps h1 { font-size: 2.8em; }
 
 #pageIndex h1 { margin-bottom: 1.5em; }
 
 #pageIndex h1.thema { margin-bottom: 3em; }
 
-#sommaire h2, #rubrique .blocContenu h2, #recherche .blocContenu h2 {
-	font-size: 2em;
-}
+#sommaire h2, #rubrique .blocContenu h2, #recherche .blocContenu h2 { font-size: 2em; }
 
 h2.spip {
 	font-size: 2.4em;
 	line-height: normal;
-	margin:1.5em 0 .8em;
-}
+	margin:1.5em 0 .8em; }
 
 h3.spip, .supplement h3 /* notes, ps */ {
 	font-size: 2em;
-	margin:	1.5em 0 .5em;
-}
+	margin:	1.5em 0 .5em; }
 
 #texte h2.spip:first-child, #texte h3.spip:first-child { margin-top: 0; }
 
-h3.message {
-	color: #707070;
-}
+h3.message { color: #707070; }
 
 #index.chrono h2 {
 	font-size: 16px;
-	margin-bottom: .3em;
-}
+	margin-bottom: .3em; }
 
 h4.spip {
 	font-size: 1.8em;
-	margin:	1em 0 .25em;
-}
+	margin:	1em 0 .25em; }
 
-.colonneContenuRubrique h3 {
-	font-size: 1.8em;
-}
+.colonneContenuRubrique h3 { font-size: 1.8em; }
 
 h5.spip {
 	font-size: 1.4em;
-	margin: 1em 0 .25em;
-}
+	margin: 1em 0 .25em; }
 
 h6.spip {
 	font-size: 1.4em;
-	font-style: italic;
-}
+	font-style: italic; }
 
-#menuLangue, #menuSecondaire ul li {
-	font-size: 1.1em;
-}
+#menuLangue, #menuSecondaire ul li { font-size: 1.1em; }
 
-#menuLangue a {
-	text-transform: uppercase;
-}
+#menuLangue a { text-transform: uppercase; }
 
 #contenuSecondaire h3 {
 	border-bottom: 1px solid #09f;
 	font-size: 1.4em;
-	margin: 0 0 .3em;
-}
+	margin: 0 0 .3em; }
 
 .texte h1 { margin-bottom: 2em; }
 .texte .titre { margin-bottom: 2em; }
 	.texte .titre h1 { margin-bottom: 0; }
-
 
 .texte p, #texte dl { font-size: 1.4em; line-height: 20px; }
 #texte dl p { font-size: 1em; }
 
 p.spip + br:first-child { display: none; } /* Spip rajoute un br avant un "-" même quand le tiret est en début de paragraphe. */
 
-#recherche #colonnePrincipale dl dt {
-	font-size: 1.7em;
-}
+#recherche #colonnePrincipale dl dt { font-size: 1.7em; }
 
-p#soustitre, p#surtitre {
-	font-size: 1.8em;
-}
+p#soustitre, p#surtitre { font-size: 1.8em; }
 
-p.spip strong {
-	font-weight: bold;
-	font-size: 1em;
-}
+p.spip strong { font-weight: bold; font-size: 1em; }
 
 abbr, acronym { border-bottom: 1px dotted #707070; }
+
+sup { vertical-align: super; font-size: 12px; line-height: 8px;}
+sub { vertical-align: sub; font-size: 12px; line-height: 8px;}
 
 hr.spip {
 	background-color:#09f; 
@@ -261,40 +199,28 @@ a.spip_out {
 a.spip_glossaire {
 	background: url(../../images/icone-spip_glossaire.png) no-repeat right center;
 	padding-right: 14px;}
+
 .spip_code {
 	font: .9em "Courier New", Courier, mono; }	
 div.spip_code { margin-bottom: 1em; }
 
 /* colonne secondaire */
 
-#contenuSecondaire li, #contenuSecondaire dt, #contenuSecondaire dd {
-	font-size: 1.3em;
-}
+#contenuSecondaire li, #contenuSecondaire dt, #contenuSecondaire dd { font-size: 1.3em; }
 
-#contenuSecondaire dd li {
-	font-size: 1em;
-}
+#contenuSecondaire dd li { font-size: 1em; }
 
-#contenuSecondaire dl, #contenuSecondaire ul {
-	margin-bottom: 2em;
-}
+#contenuSecondaire dl, #contenuSecondaire ul { margin-bottom: 2em; }
 
 #contenuSecondaire .contexte .uneColonne {
 	float: left;
-	width: 99px;
-}
+	width: 99px; }
 
-#contenuSecondaire div#themes.uneColonne {
-	margin-right: 7px;
-}
+#contenuSecondaire div#themes.uneColonne { margin-right: 7px; }
 
-#outil_sommaire li span {
-	color: #808080;
-}
+#outil_sommaire li span { color: #808080; }
 
-#outil_sommaire li a:hover + span {
-	color:#f00;
-}
+#outil_sommaire li a:hover + span { color:#f00; }
 
 /* hentry */
 .descriptif span.vcard { display: none; }
@@ -369,107 +295,66 @@ dl.faq { margin-bottom: 1.5em; border-bottom: 1px dotted #ddd; }
 
 /* pages sommaire, rubrique, plan & recherche */
 
-#rubrique #titre {
-	margin-bottom: 3em;
-}
+#rubrique #titre { margin-bottom: 3em; }
 
 #apropos div.colonneContenuRubrique {
 	float: right;
 	width: 470px;
-	margin-left: 0;
-}
+	margin-left: 0; }
 
-.blocContenu div.colonneContenuRubrique {
-	margin-left: 265px;
-	margin-bottom: 3em;
-}
+.blocContenu div.colonneContenuRubrique { margin-left: 265px; margin-bottom: 3em; }
 
-.agenda .blocContenu .colonneContenuRubrique {
-	margin-left: 159px;
-}
+.agenda .blocContenu .colonneContenuRubrique { margin-left: 159px; }
 
-.blocContenu h3, .blocContenu h2 {
-	margin:	0;
-}
+.blocContenu h3, .blocContenu h2 { margin:	0; }
 
-.blocContenu h2 {
-	margin-bottom: .2em;
-}
+.blocContenu h2 { margin-bottom: .2em; }
 
-.blocContenu p {
-	margin: .3em 0 2em;
-}
+.blocContenu p { margin: .3em 0 2em; }
 
-.blocContenu p.descriptifRubrique {
-	margin-left: 265px;
-}
+.blocContenu p.descriptifRubrique { margin-left: 265px; }
 
 span.separateur {
 	color: #f00;
-	font-weight: bold;
-}
+	font-weight: bold; }
 
-.colonneContenuRubrique strong {
-	color: #606060;
-}
+.colonneContenuRubrique strong { color: #606060; }
 
 ul.colonneContenuRubrique {
 	float: left;
 	margin-top: .3em;
-	width: 258px;
-}
+	width: 258px; }
 
-#recherche .blocContenu {
-	margin-bottom: 2em;
-}
+#recherche .blocContenu { margin-bottom: 2em; }
 
-#recherche dl dd.url, #index dd p.url {
-	margin-bottom: 2em;
-}
+#recherche dl dd.url, #index dd p.url { margin-bottom: 2em; }
+
 #recherche dl dd.typeDocument p { margin-bottom: 0; }
 
-#recherche dl dd.extrait-recherche {
-	margin-bottom: .5em;
-}
+#recherche dl dd.extrait-recherche { margin-bottom: .5em; }
 
 /* page article */
 
-#article #soustitre {
-	margin-top: .5em;
-}
+#article #soustitre { margin-top: .5em; }
 
-#article #surtitre {
-	margin:	1em 0 .2em;
-}
+#article #surtitre { margin: 1em 0 .2em; }
 
-p.spip, p.spip_note  {
-	margin: 0 0 1em;
-}
+p.spip, p.spip_note  { margin: 0 0 1em; }
 
-#article #chapo, #article #texte, #article #notes {
-	margin-bottom: 2em;
-}
+#article #chapo, #article #texte, #article #notes { margin-bottom: 2em; }
 
 #article #chapo p { color: #515151; }
 
-p.datePublication {
-	margin-left: 530px;
-	margin: 2em 0 2em 530px;
-}
+p.datePublication { margin: 2em 0 2em 530px; }
 
-a.sommaire_ancre {
-	display: none;
-}
+a.sommaire_ancre { display: none; }
 
-#article #texte p.spip, #article #texte p.spip_note {
-	text-align: justify;
-}
+#article #texte p.spip, #article #texte p.spip_note { text-align: justify; }
 
 #article #texte blockquote.spip {
 	quotes: "\201C" "\201D";
 	padding: 0 0 0 50px;
-	text-align: left;
-}
+	text-align: left; }
 
 #article #texte blockquote:before {
 	content: '“'; /* pour Safari qui ne prend pas en compte open-quote */
@@ -479,44 +364,34 @@ a.sommaire_ancre {
 	font-size: 8em;
 	height: 0;
 	margin: 0 0 0 -50px;
-	width: 50px;
-}
+	width: 50px; }
 
-#article #texte blockquote.spip p.spip {
-	text-align: left;
-}
+#article #texte blockquote.spip p.spip { text-align: left; }
 
 /* page gestion abonnement spip-listes */
 
-.abonnement h1, .abonnement h2 {
-	margin-bottom: 1em;
-}
+.abonnement h1, .abonnement h2 { margin-bottom: 1em; }
 
 
 /* index (liens et mots-clés) */
 
-#index dd p.descriptif {
-	margin-bottom: 1em;
-}
+#index dd p.descriptif { margin-bottom: 1em; }
 
 #index p#abecedaire {
 	float: left;
 	font-size: 18px; line-height: 20px;
-	width: 53px;
-}
+	width: 53px; }
 
 #index p#abecedaire a, #index p#abecedaire strong {
 	display: block;
 	float: left;
 	margin-bottom: 9px;
-	width: 53px;
-}
+	width: 53px; }
 
 #index dl {
 	float: left;
 	position: relative;
-	width: 682px;
-}
+	width: 682px; }
 
 #index dl dt {
 	clear: left;
@@ -524,8 +399,7 @@ a.sommaire_ancre {
 	font-size: 18px; line-height: 20px;
 	margin-bottom: 9px;
 	width: 190px;
-	padding-right: 20px;
-}
+	padding-right: 20px; }
 
 #index dl dt:first-child { /*padding-top: .3em;*/ }
 
@@ -540,69 +414,51 @@ a.sommaire_ancre {
 
 #index dd p.pagination { text-align: right; margin-bottom: 1em; }
 
-p#abecedaire strong, #index dt strong, #index dt a.on {
-	color: #f00;
-}
+p#abecedaire strong, #index dt strong, #index dt a.on { color: #f00; }
 
 /* si javascript est actif, on positionne les elements plus joliment, et jquery fait le necessaire pour adapter la hauteur de la page en fonction du contenu mis en absolu (voir /javascript/configuration.js) */
 
 .jquery-on #index dd {
 	float: none;
 	margin-left: 212px;
-	position: absolute;
-}
+	position: absolute; }
 
 .jquery-on #index dd#tabs { top: -5em; }
 
-.jquery-on #index.chrono dd {
-	margin-left: 265px;
-}
-
+.jquery-on #index.chrono dd { margin-left: 265px; }
 
 /* squelette Mot */
+
 #objetsMots {
 	float: right;
-	width: 470px;
-}
+	width: 470px; }
 
 #objetsMots h2 {
 	font-size: 1.8em;
-	margin-bottom: .5em;
-}
+	margin-bottom: .5em; }
 
-#objetsMots p.pagination {
-	margin-bottom: 1em;
-}
+#objetsMots p.pagination { margin-bottom: 1em; }
 
 /* Membres */
 
-dl.listeMembres {
-	margin-bottom: 1em;
-}
+dl.listeMembres { margin-bottom: 1em; }
 
 .listeMembres dt {
 	background: url(../../images/iconeCarreListe.png) no-repeat left center;
 	padding-left: 16px;
 }
 
-.listeMembres dd {
-	margin-left: 16px;
-}
+.listeMembres dd { margin-left: 16px; }
 
-.listeMembres dd.note {
-	font-style: italic;
-}
+.listeMembres dd.note { font-style: italic; }
 
 li.spip dl.listeMembres dt {
 	background: none;
-	padding-left: 0;
-}
+	padding-left: 0; }
 
 /* Agenda */
 
-.colonneContenuRubrique h3.agenda {
-	margin-bottom: .5em;
-}
+.colonneContenuRubrique h3.agenda { margin-bottom: .5em; }
 
 #hcalendar { clear: left; }
 #hcalendar dl {
@@ -685,20 +541,14 @@ dl.spip_documents { margin-bottom: 10px; }
 .spip_documents_left { margin-right: 10px; }
 .spip_documents_right { margin-left: 10px; }
 
-.spip_documents_center {
-	text-align: center; 
-}
+.spip_documents_center { text-align: center;  }
 
-#article #texte div.clearfix {
-	margin: 1em auto;
-}
+#article #texte div.clearfix { margin: 1em auto; }
 
 .spip_documents .spip_doc_titre, .spip_documents .spip_doc_descriptif {
 	font: 10px "Lucida Grande", Lucida, Verdana, sans-serif; }
 
-.spip_documents .spip_doc_titre {
-	font-weight: bold;
-}
+.spip_documents .spip_doc_titre { font-weight: bold; }
 
 dd.iconeZoomImage {
 	background-color: white;
@@ -706,49 +556,31 @@ dd.iconeZoomImage {
 	margin: 0 10px 0 0;
 	padding: 0 4px 0;
 	position: absolute;
-	left: -10px; top: -5px;
-	xbottom:	10px;
-}
+	left: -10px; top: -5px; }
 
 /* Divers */
 
 p.lienTous {
 	text-align: right;
 	background: url(../../images/fleche.png) no-repeat right center;
-	padding-right: 16px;
-}
+	padding-right: 16px; }
 
-p.pagination {
-	margin: 0 0 2em;
-}
+p.pagination { margin: 0 0 2em; }
 
-#rubrique div.blocContenu p.pagination {
-	margin-left: 265px;
-} 
+#rubrique div.blocContenu p.pagination { margin-left: 265px; } 
 
-#recherche p.pagination {
-	margin:	1em 0;
-}
+#recherche p.pagination { margin: 1em 0; }
 
-p.pagination span.on {
-	color: #f00; font-size: 1.3em;
-}
+p.pagination span.on { color: #f00; font-size: 1.3em; }
 
-.spip_surligne {
-	border-bottom: 2px solid #09f;
-}
+.spip_surligne { border-bottom: 2px solid #09f; }
 
 /* Pagination des articles decoupes avec le Couteau suisse */
 
 p.decoupe {
 	margin: 2em 0;
-	text-align: right;
-}
+	text-align: right; }
 
-p.decoupe span {
-	color:#f00;
-}
+p.decoupe span { color:#f00; }
 
-#menuLangue span {
-	color: #09f;
-}
+#menuLangue span { color: #09f; }
