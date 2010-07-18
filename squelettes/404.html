@@ -1,49 +1,51 @@
 #HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
 #HTTP_HEADER{Pragma: no-cache}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
-    <title><:pass_erreur:> 404 / [(#NOM_SITE_SPIP|textebrut)]</title>
-    [<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
-    <meta name="robots" content="none" />
-    <INCLURE{fond=inc-head}>
-    <INCLURE{fond=javascript/configuration-shadowbox}{lang}>
+	<title><:pass_erreur:> 404 / [(#NOM_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+	<meta name="robots" content="none" />
+	<INCLURE{fond=inclure/head}>
+	<INCLURE{fond=javascript/configuration-shadowbox}{lang}>
 
 </head>
 
 <body id="article" class="page404">
-    <div id="enveloppe">
-        <div id="entete" class="clearfix">
-            [(#INCLURE{fond=inc-logo})]
+	<div id="enveloppe">
+		<div id="entete" class="clearfix">
+			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuSecondaire}{lang}>
+			
+		</div><!-- fin div entete -->
+		<div id="corps">
+			<div id="colonnePrincipale" class="texte clearfix">
+				<h1><:pass_erreur:> 404</h1>
+				<div id="contenuPrincipal">
+					<div id="chapoArticle">
+						<p class="spip"><:message_404:></p>
+					</div>
+					[<div id="notes" class="supplement">
+						<h3><:ecrire:info_notes:></h3>
+						(#NOTES)
+					</div>]
 
-            <INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique}{skel=#SQUELETTE}>
+				</div><!-- fin div contenuPrincipal -->
+				<div id="contenuSecondaire">
 
-            <INCLURE{fond=inc-menuSecondaire}{lang}>
+				</div><!-- fin div contenuSecondaire -->
 
-        </div><!-- fin div entete -->
-        <div id="corps">
-            <div id="colonnePrincipale" class="texte clearfix">
-                <h1><:pass_erreur:> 404</h1>
-                <div id="contenuPrincipal">
-                    <div id="chapoArticle">
-                        <p class="spip"><:message_404:></p>
-                    </div>
-                    [<div id="notes" class="supplement">
-                        <h3><:ecrire:info_notes:></h3>
-                        (#NOTES)
-                    </div>]
-                    
-                </div><!-- fin div contenuPrincipal -->
-                <div id="contenuSecondaire">
+			</div><!-- fin div colonnePrincipale -->
+		</div><!-- fin div corps -->
+		<div id="pied" class="clearfix">
+			
+			<INCLURE{fond=inclure/pied}>
+			
+		</div><!-- / div pied -->
+	</div><!-- fin div enveloppe -->
 
-                </div><!-- fin div contenuSecondaire -->
-
-            </div><!-- fin div colonnePrincipale -->
-        </div><!-- fin div corps -->
-        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
-    </div><!-- fin div enveloppe -->
-    
 </body>
 </html>

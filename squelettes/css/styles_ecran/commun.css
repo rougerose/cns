@@ -223,7 +223,10 @@ h6.spip {
 	margin: 0 0 .3em;
 }
 
+.texte h1 { margin-bottom: 2em; }
 .texte .titre { margin-bottom: 2em; }
+	.texte .titre h1 { margin-bottom: 0; }
+
 
 .texte p, #texte dl { font-size: 1.4em; line-height: 20px; }
 #texte dl p { font-size: 1em; }

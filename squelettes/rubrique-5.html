@@ -26,18 +26,16 @@
 		[ | (#NOM_SITE_SPIP|textebrut)]
 	</title>
 	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
-	<INCLURE{fond=inc-head}>
+	<INCLURE{fond=inclure/head}>
 </head>
 
 <body id="rubrique" class="annuaireLiens">
 	<div id="enveloppe">
 		<div id="entete" class="clearfix">
-			[(#INCLURE{fond=inc-logo})]
-
-			<INCLURE{fond=inc-menuPrincipal}{lang}{id_secteur}{skel=#SQUELETTE}{index=#ENV{index}}>
-
-			<INCLURE{fond=inc-menuSecondaire}{lang}>
-
+			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}{index=#ENV{index}}>
+			<INCLURE{fond=inclure/menuSecondaire}{lang}>
+			
 		</div><!-- fin div entete -->
 		<div id="corps">
 			<div id="colonnePrincipale" class="texte clearfix">
@@ -58,9 +56,12 @@
 				
 			</div><!-- fin div colonnePrincipale -->
 		</div><!-- fin div corps -->
-		[(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
+		<div id="pied" class="clearfix">
+			
+			<INCLURE{fond=inclure/pied}>
+			
+		</div><!-- / div pied -->
 	</div><!-- fin div enveloppe -->
-
 </body>
 </html>
 </BOUCLE_p>

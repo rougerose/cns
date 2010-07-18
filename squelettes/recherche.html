@@ -1,145 +1,148 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
-    <title><:resultats_recherche:>[ : (#RECHERCHE|textebrut)] / [(#NOM_SITE_SPIP|textebrut)]</title>
-    <INCLURE{fond=inc-head}>
+	<title><:resultats_recherche:>[ : (#RECHERCHE|textebrut)] / [(#NOM_SITE_SPIP|textebrut)]</title>
+	<INCLURE{fond=inclure/head}>
 </head>
 
 <body id="recherche">
-    <div id="enveloppe">
-        <div id="entete" class="clearfix">
-            [(#INCLURE{fond=inc-logo})]
+	<div id="enveloppe">
+		<div id="entete" class="clearfix">
+			
+			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuSecondaire}{lang}>
+			
+		</div><!-- fin div entete -->
+		<div id="corps">
+			<div id="colonnePrincipale" class="texte">
+				<div id="titre" class="blocContenu">
+					[(#REM) afficher si pas de résultats sur l'ensemble ]
+					<h1>[<:resultats_recherche:>&nbsp;: (#RECHERCHE)]</h1>
+				</div>
+				#SET{total,5}
 
-            <INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}>
+				[(#REM) Articles trouves ]
+				<B_articles>
+				<div class="blocContenu">
+					#ANCRE_PAGINATION
+					<h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:articles:>,<:article:>})]]</h2>
 
-            <INCLURE{fond=inc-menuSecondaire}{lang}>
 
-        </div><!-- fin div entete -->
-        <div id="corps">
-            <div id="colonnePrincipale" class="texte">
-                <div id="titre" class="blocContenu">
-                    [(#REM) afficher si pas de résultats sur l'ensemble ]
-                    <h1>[<:resultats_recherche:>&nbsp;: (#RECHERCHE)]</h1>
-                </div>
-                #SET{total,5}
+					[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+					<BOUCLE_articles(ARTICLES){lang}{recherche}{par points}{inverse}{pagination 7}>
+					<dl>
 
-                [(#REM) Articles trouves ]
-                <B_articles>
-                <div class="blocContenu">
-                    #ANCRE_PAGINATION
-                    <h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:articles:>,<:article:>})]]</h2>
-                    
-                    
-                    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
-                    <BOUCLE_articles(ARTICLES){lang}{recherche}{par points}{inverse}{pagination 7}>
-                    <dl>
-                        
-                        <dt><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dt>
-                        [<dd class="extrait-recherche">(#DESCRIPTIF|PtoBR)</dd>]
-                        <dd class="url"><p><a href="[(#URL_ARTICLE)]">[(#URL_ARTICLE|url_absolue)]</a></p></dd>
-                        
-                    </dl>
-                    </BOUCLE_articles>
-                </div>
-                </B_articles>
-                [(#SET{total,[(#GET{total}|moins{1})]})]
-                <//B_articles>
+						<dt><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dt>
+						[<dd class="extrait-recherche">(#DESCRIPTIF|PtoBR)</dd>]
+						<dd class="url"><p><a href="[(#URL_ARTICLE)]">[(#URL_ARTICLE|url_absolue)]</a></p></dd>
 
-                [(#REM) Rubriques trouvees ]
-                <B_rubriques>
-                <div class="blocContenu">
-                    #ANCRE_PAGINATION
-                    <h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:rubriques:>,<:rubrique:>})]]</h2>
-                    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
-                    <dl>
-                        <BOUCLE_rubriques(RUBRIQUES){recherche}{par points}{inverse}{pagination 7}>
-                        <dt><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dt>
-                        [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd class="url"><p><a href="[(#URL_RUBRIQUE)]">[(#URL_RUBRIQUE|url_absolue)]</a></p></dd>
-                        </BOUCLE_rubriques>
-                    </dl>
-                </div>
-                </B_rubriques>
-                [(#SET{total,[(#GET{total}|moins{1})]})]
-                <//B_rubriques>
+					</dl>
+					</BOUCLE_articles>
+				</div>
+				</B_articles>
+				[(#SET{total,[(#GET{total}|moins{1})]})]
+				<//B_articles>
 
-                [(#REM) documents trouves ]
-                <B_documents>
-                <div class="blocContenu">
-                    #ANCRE_PAGINATION
-                    <h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:documents:>,<:document:>})]]</h2>
-                    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
-                    <dl>
-                        <BOUCLE_documents(DOCUMENTS){recherche}{par points}{inverse}{pagination 5}>
-                        <dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
-                        [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd class="typeDocument"><p><:document:>[ (#TYPE_DOCUMENT)][, (#TAILLE|taille_en_octets).]</p></dd>
-                        <dd class="url"><p><a href="[(#URL_DOCUMENT)]" type="#MIME_TYPE">[(#URL_DOCUMENT|url_absolue)]</a></p></dd>
-                        </BOUCLE_documents>
-                    </dl>
-                </div>
-                </B_documents>
-                [(#SET{total,[(#GET{total}|moins{1})]})]
-                <//B_rubriques>
+				[(#REM) Rubriques trouvees ]
+				<B_rubriques>
+				<div class="blocContenu">
+					#ANCRE_PAGINATION
+					<h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:rubriques:>,<:rubrique:>})]]</h2>
+					[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+					<dl>
+						<BOUCLE_rubriques(RUBRIQUES){recherche}{par points}{inverse}{pagination 7}>
+						<dt><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dt>
+						[<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
+						<dd class="url"><p><a href="[(#URL_RUBRIQUE)]">[(#URL_RUBRIQUE|url_absolue)]</a></p></dd>
+						</BOUCLE_rubriques>
+					</dl>
+				</div>
+				</B_rubriques>
+				[(#SET{total,[(#GET{total}|moins{1})]})]
+				<//B_rubriques>
 
-                <BOUCLE_exclusion_mots(MOTS){type=gestion et affichage}{doublons mots}></BOUCLE_exclusion_mots>
-                [(#REM) Mots-cles trouves ]
-                <B_mots>
-                <div class="blocContenu">
-                    #ANCRE_PAGINATION
-                    <h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:_mots_clefs:>,<:_mot_clef:>})]]</h2>
-                    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
-                    <dl>
-                        <BOUCLE_mots(MOTS){recherche}{par points}{inverse}{pagination 5}{doublons mots}>
-                        <dt><a href="#URL_MOT">[(#TITRE|supprimer_numero)]</a></dt>
-                        [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd class="url"><p><a href="[(#URL_MOT)]">[(#URL_MOT|url_absolue)]</a></p></dd>
-                        </BOUCLE_mots>
-                    </dl>
-                </div>
-                </B_mots>
-                [(#SET{total,[(#GET{total}|moins{1})]})]
-                <//B_mots>
+				[(#REM) documents trouves ]
+				<B_documents>
+				<div class="blocContenu">
+					#ANCRE_PAGINATION
+					<h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:documents:>,<:document:>})]]</h2>
+					[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+					<dl>
+						<BOUCLE_documents(DOCUMENTS){recherche}{par points}{inverse}{pagination 5}>
+						<dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+						[<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
+						<dd class="typeDocument"><p><:document:>[ (#TYPE_DOCUMENT)][, (#TAILLE|taille_en_octets).]</p></dd>
+						<dd class="url"><p><a href="[(#URL_DOCUMENT)]" type="#MIME_TYPE">[(#URL_DOCUMENT|url_absolue)]</a></p></dd>
+						</BOUCLE_documents>
+					</dl>
+				</div>
+				</B_documents>
+				[(#SET{total,[(#GET{total}|moins{1})]})]
+				<//B_rubriques>
 
-                [(#REM) Sites web trouves ]
-                <B_sites>
-                <div class="blocContenu">
-                    #ANCRE_PAGINATION
-                    <h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:sites_web:>,<:site_web:>})]]</h2>
-                    [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
-                    <dl>
-                        <BOUCLE_sites(SITES){id_rubrique=4}{recherche}{par points}{inverse}{pagination 5}>
-                        <BOUCLE_mots_sites(MOTS){id_syndic}{doublons mots}{0,1}>
-                        #SET{id_mot,#ID_MOT}
-                        </BOUCLE_mots_sites>
-                        <dt>
-                            <a href="[(#ID_SYNDIC|generer_url_site)]">
-                                #NOM_SITE
-                            </a>
-                        </dt>
-                        [<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
-                        <dd class="url"><p><a href="[(#URL_SITE)]">[(#URL_SITE)]</a></p></dd>
-                        </BOUCLE_sites>
-                    </dl>
-                </div>
-                </B_sites>
-                [(#SET{total,[(#GET{total}|moins{1})]})]
-                <//B_sites>
-                
-                [(#REM) si aucun resultat ]
-                [(#GET{total}|=={0}|?{' '})
-                <div class="blocContenu">
-                    <h2><:avis_aucun_resultat:></h2>
-                </div>
-                ]
+				<BOUCLE_exclusion_mots(MOTS){type=gestion et affichage}{doublons mots}></BOUCLE_exclusion_mots>
+				[(#REM) Mots-cles trouves ]
+				<B_mots>
+				<div class="blocContenu">
+					#ANCRE_PAGINATION
+					<h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:_mots_clefs:>,<:_mot_clef:>})]]</h2>
+					[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+					<dl>
+						<BOUCLE_mots(MOTS){recherche}{par points}{inverse}{pagination 5}{doublons mots}>
+						<dt><a href="#URL_MOT">[(#TITRE|supprimer_numero)]</a></dt>
+						[<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
+						<dd class="url"><p><a href="[(#URL_MOT)]">[(#URL_MOT|url_absolue)]</a></p></dd>
+						</BOUCLE_mots>
+					</dl>
+				</div>
+				</B_mots>
+				[(#SET{total,[(#GET{total}|moins{1})]})]
+				<//B_mots>
 
-            </div><!-- fin div colonnePrincipale -->
-        </div><!-- fin div corps -->
-        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
-    </div><!-- fin div enveloppe -->
-    
+				[(#REM) Sites web trouves ]
+				<B_sites>
+				<div class="blocContenu">
+					#ANCRE_PAGINATION
+					<h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{<:sites_web:>,<:site_web:>})]]</h2>
+					[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+					<dl>
+						<BOUCLE_sites(SITES){id_rubrique=4}{recherche}{par points}{inverse}{pagination 5}>
+						<BOUCLE_mots_sites(MOTS){id_syndic}{doublons mots}{0,1}>
+						#SET{id_mot,#ID_MOT}
+						</BOUCLE_mots_sites>
+						<dt>
+							<a href="[(#ID_SYNDIC|generer_url_site)]">
+								#NOM_SITE
+							</a>
+						</dt>
+						[<dd class="extrait-recherche">(#DESCRIPTIF)</dd>]
+						<dd class="url"><p><a href="[(#URL_SITE)]">[(#URL_SITE)]</a></p></dd>
+						</BOUCLE_sites>
+					</dl>
+				</div>
+				</B_sites>
+				[(#SET{total,[(#GET{total}|moins{1})]})]
+				<//B_sites>
+
+				[(#REM) si aucun resultat ]
+				[(#GET{total}|=={0}|?{' '})
+				<div class="blocContenu">
+					<h2><:avis_aucun_resultat:></h2>
+				</div>
+				]
+
+			</div><!-- fin div colonnePrincipale -->
+		</div><!-- fin div corps -->
+		<div id="pied" class="clearfix">
+			
+			<INCLURE{fond=inclure/pied}>
+			
+		</div><!-- / div pied -->
+	</div><!-- fin div enveloppe -->
+
 </body>
 </html>
 </BOUCLE_p>

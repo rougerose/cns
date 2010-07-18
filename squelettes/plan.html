@@ -1,51 +1,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
-    <title><:plan_site:> / [(#NOM_SITE_SPIP|textebrut)]</title>
-    [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|textebrut)" />]
-    <INCLURE{fond=inc-head}>
+	<title><:plan_site:> / [(#NOM_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|textebrut)" />]
+	<INCLURE{fond=inclure/head}>
 </head>
 
 <body id="rubrique" class="plan">
-    <div id="enveloppe">
-        <div id="entete" class="clearfix">
-            [(#INCLURE{fond=inc-logo})]
+	<div id="enveloppe">
+		<div id="entete" class="clearfix">
+			
+			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuSecondaire}{lang}>
+			
+		</div><!-- fin div entete -->
+		<div id="corps">
+			<div id="colonnePrincipale" class="texte">
+				<div id="titre" class="blocContenu">
+					<h1><:plan_site:></h1>
+				</div>
 
-            <INCLURE{fond=inc-menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}>
+				<BOUCLE_secteurs(RUBRIQUES){racine}{par num titre, multi titre}>
+				<div class="blocContenu">
+					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
+					[<p class="descriptifRubrique">(#DESCRIPTIF|PtoBR)</p>]
+					<BOUCLE_rubriques(RUBRIQUES){id_parent}{par num titre, multi titre}>
+					<div class="colonneContenuRubrique">
+						<h3><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h3>
+						[<p>(#DESCRIPTIF|PtoBR)</p>]
+					</div>
+					</BOUCLE_rubriques>
+					[(#ID_RUBRIQUE|=={3}|?{' '})
+					<div class="colonneContenuRubrique">
+						<h3><a href="#URL_PAGE{index}"><:index:></a></h3>
+					</div>
+					]
+				</div>
+				</BOUCLE_secteurs>
 
-            <INCLURE{fond=inc-menuSecondaire}{lang}>
+			</div><!-- fin div colonnePrincipale -->
+		</div><!-- fin div corps -->
+		<div id="pied" class="clearfix">
 
-        </div><!-- fin div entete -->
-        <div id="corps">
-            <div id="colonnePrincipale" class="texte">
-                <div id="titre" class="blocContenu">
-                    <h1><:plan_site:></h1>
-                </div>
+			<INCLURE{fond=inclure/pied}>
 
-                <BOUCLE_secteurs(RUBRIQUES){racine}{par num titre, multi titre}>
-                <div class="blocContenu">
-                    <h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
-                    [<p class="descriptifRubrique">(#DESCRIPTIF|PtoBR)</p>]
-                    <BOUCLE_rubriques(RUBRIQUES){id_parent}{par num titre, multi titre}>
-                    <div class="colonneContenuRubrique">
-                        <h3><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h3>
-                        [<p>(#DESCRIPTIF|PtoBR)</p>]
-                    </div>
-                    </BOUCLE_rubriques>
-                    [(#ID_RUBRIQUE|=={3}|?{' '})
-                    <div class="colonneContenuRubrique">
-                        <h3><a href="#URL_PAGE{index}"><:index:></a></h3>
-                    </div>
-                    ]
-                </div>
-                </BOUCLE_secteurs>
+		</div><!-- / div pied -->
+	</div><!-- fin div enveloppe -->
 
-            </div><!-- fin div colonnePrincipale -->
-        </div><!-- fin div corps -->
-        [(#INCLURE{fond=inc-pied}{skel=#SQUELETTE})]
-    </div><!-- fin div enveloppe -->
-    
 </body>
 </html>

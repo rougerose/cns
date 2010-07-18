@@ -10,9 +10,11 @@
 <body id="rubrique" class="rubrique-#ID_RUBRIQUE">
 	<div id="enveloppe">
 		<div id="entete" class="clearfix">
-			<INCLURE{fond=inclure/logo}>
+			
+			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
 			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}>
 			<INCLURE{fond=inclure/menuSecondaire}{lang}>
+			
 		</div><!-- fin div entete -->
 		<div id="corps">
 			<div id="colonnePrincipale" class="texte clearfix">
