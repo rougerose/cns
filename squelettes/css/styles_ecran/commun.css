@@ -704,10 +704,10 @@ dd.iconeZoomImage {
 	background-color: white;
 	border: 1px solid red;
 	margin: 0 10px 0 0;
-	padding: 1px 4px 0;
+	padding: 0 4px 0;
 	position: absolute;
-	right: 0;
-	bottom:	10px;
+	left: -10px; top: -5px;
+	xbottom:	10px;
 }
 
 /* Divers */

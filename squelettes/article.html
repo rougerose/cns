@@ -102,7 +102,7 @@
 							<dl>
 								<BOUCLE_doc_joints(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{doublons documents}>
 								<dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
-								<dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+								<dd><p>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</p></dd>
 								</BOUCLE_doc_joints>
 							</dl>
 						</div>
@@ -115,7 +115,7 @@
 						<dl id="documents">
 							<BOUCLE_doc_joints2(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{doublons documents}>
 							<dt><a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
-							<dd>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+							<dd><p>[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</p></dd>
 							</BOUCLE_doc_joints2>
 						</dl>
 					</div><!-- fin div contexte -->
