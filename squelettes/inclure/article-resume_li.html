@@ -2,9 +2,11 @@
 <li id="article-#ID_ARTICLE" class="hentry">
 	[<p class="published"><span class="value-title" title="[(#DATE|date_iso)]"></span>(#DATE|affdate)</p>]
 	<div class="groupe">
-		[<p class="surtitre">(#SURTITRE)</p>]
-		<h3 class="entry-title"><a href="#URL_ARTICLE" rel="bookmark">[(#TITRE|supprimer_numero)]</a></h3>
-		[<p class="soustitre">(#SOUSTITRE)</p>]
+		<div class="titre">
+			[<p class="surtitre">(#SURTITRE)</p>]
+			<h3 class="entry-title"><a href="#URL_ARTICLE" rel="bookmark">[(#TITRE|supprimer_numero)]</a></h3>
+			[<p class="soustitre">(#SOUSTITRE)</p>]
+		</div>
 		<div class="texte entry-content">
 			[<div class="chapo">(#CHAPO)</div>]
 			[<div class="texte">(#TEXTE)</div>]

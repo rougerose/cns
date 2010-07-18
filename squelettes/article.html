@@ -123,19 +123,6 @@
 					</B_doc_joints2>
 					<//B_mots>
 					
-					<BOUCLE_rubrique_cns_medias(RUBRIQUES){id_rubrique}{id_rubrique IN 13}>
-					<B_articles_cns_medias>
-					<div class="contexte">
-						<h3>CNS medias autres (à modifier)</h3>
-						<ul class="hfeed">
-							<BOUCLE_articles_cns_medias(ARTICLES){id_rubrique}{!par date}{exclus}{0,5}>
-							<INCLURE{fond=inc-actus_recentes}{id_article}>
-							</BOUCLE_articles_cns_medias>
-						</ul>
-					</div>
-					</B_articles_cns_medias>
-					</BOUCLE_rubrique_cns_medias>
-					
 					#SET{rubrique,#ID_RUBRIQUE}
 					<BOUCLE_actus(RUBRIQUES){id_rubrique=23}>
 					<B_actus_recentes>
