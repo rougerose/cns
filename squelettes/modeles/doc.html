@@ -1,4 +1,7 @@
 <BOUCLE_doc (DOCUMENTS) {id_document} {tout}>
+<BOUCLE_extension(DOCUMENTS){id_document}{extension==jpg|png|git}>
+#SET{shadowbox,shadowbox}
+</BOUCLE_extension>
 [(#REM)
 
 	Modele pour <doc> en dl/dt/dd
@@ -21,13 +24,15 @@
 	[(#SET{width,[(#LOGO_DOCUMENT||extraire_attribut{width})]})]
 	[(#SET{height,[(#LOGO_DOCUMENT||extraire_attribut{height})]})]
 	#SET{url,#ENV{lien,#URL_DOCUMENT}}
-	#SET{shadowbox, shadowbox}
 ]
 [(#SET{largeur,[(#GET{width})]})]
 [(#ENV{align}|=={center}|?{' '})<div class="clearfix"[ style="width:(#GET{largeur}|min{450}|plus{10})px;"]>]
 <dl class="spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok"[ style="float:(#ENV{align}|match{left|right});"]>
-<dt>[<a href="(#GET{url})"[ class="(#ENV{lien_class})"] title="[(#TITRE|supprimer_numero|textebrut|sinon{document #ID_DOCUMENT})][ - (#DESCRIPTIF|textebrut)]"[ (#ENV{lien}|?{'',type="#MIME_TYPE"})][ rel="(#GET{shadowbox})"]>]<img class="spip_logos" src='#GET{fichier}' width='#GET{width}' height='#GET{height}' alt="[(#TITRE|supprimer_numero|textebrut|sinon{document #ID_DOCUMENT})]" />[(#GET{url}|?{</a>})]</dt>
-[<dd class="iconeZoomImage"><a href="(#GET{url})" title="[(#TITRE|supprimer_numero|textebrut|sinon{document #ID_DOCUMENT})][ - (#DESCRIPTIF|textebrut)]"[ rel="(#GET{shadowbox})"]>[<img src="(#CHEMIN{images/iconeZoomImage.png})" width="9" height="9" alt="Zoom">]</a></dd>][
+<dt>[<a href="(#GET{url})"[ class="(#ENV{lien_class})"] title="[(#TITRE|supprimer_numero|textebrut|sinon{document #ID_DOCUMENT})][ - (#DESCRIPTIF|textebrut)]"[ (#ENV{lien}|?{'',type="#MIME_TYPE"})][(#GET{shadowbox}|=={shadowbox}|?{' '}) rel="[(#GET{shadowbox})]"]>]<img class="spip_logos" src='#GET{fichier}' width='#GET{width}' height='#GET{height}' alt="[(#TITRE|supprimer_numero|textebrut|sinon{document #ID_DOCUMENT})]" />[(#GET{url}|?{</a>})]</dt>
+[(#GET{shadowbox}|=={shadowbox}|?{
+	<dd class="iconeZoomImage"><a href="[(#GET{url})]" title="[(#TITRE|supprimer_numero|textebrut|sinon{document #ID_DOCUMENT})][ - (#DESCRIPTIF|textebrut)]"[ rel="(#GET{shadowbox})"]>[<img src="(#CHEMIN{images/iconeZoomImage.png})" width="9" height="9" alt="Zoom">]</a></dd>
+})]
+[
 <dt class='#EDIT{titre} spip_doc_titre'[ style="width:(#GET{width}|min{450}|max{120})px;"]><strong>(#TITRE)</strong></dt>][
 <dd class="#EDIT{descriptif} spip_doc_descriptif"[ style="width:(#GET{width}|min{450}|max{120})px;"]>(#DESCRIPTIF|PtoBR)[(#NOTES|PtoBR)]</dd>]
 </dl>
