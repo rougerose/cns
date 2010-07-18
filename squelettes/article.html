@@ -24,9 +24,11 @@
 		<div id="corps">
 			<div id="colonnePrincipale" class="texte clearfix">
 				#DEBUT_SURLIGNE
-				[<p id="surtitre">(#SURTITRE)</p>]
-				<h1>[(#TITRE|supprimer_numero)]</h1>
-				[<p id="soustitre">(#SOUSTITRE)</p>]
+				<div class="titre">
+					[<p id="surtitre">(#SURTITRE)</p>]
+					<h1>[(#TITRE|supprimer_numero)]</h1>
+					[<p id="soustitre">(#SOUSTITRE)</p>]
+				</div>
 				[<p class="datePublication">
 					(#ID_RUBRIQUE|match{^(24)$}|?{'',[<:publie:> (#DATE|affdate)]})
 				</p>]
