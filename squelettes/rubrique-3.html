@@ -28,51 +28,21 @@
 					</div>]
 					#FIN_SURLIGNE
 				</div>
-
-				<BOUCLE_sous_rubriques(RUBRIQUES){id_parent}{par num titre, titre}>
+				[(#REM) quelle est la thématique de la rubrique ]
+				<BOUCLE_mot(MOTS){id_rubrique}{id_groupe=3}>#SET{id_mot,#ID_MOT}</BOUCLE_mot>
+				
+				[(#REM) tous les articles de cette thématiques publiés dans le secteur parent ]
+				<B_articles>
+				#ANCRE_PAGINATION
 				<div class="blocContenu">
-					<h2><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h2>
-					[<p class="descriptifRubrique">(#DESCRIPTIF|PtoBR)</p>]
-
-					<B_theme_rubrique>
-					<BOUCLE_theme_rubrique(MOTS){id_rubrique}{id_groupe=3}>
-					<B_articles_theme>
-					<div class="colonneContenuRubrique">
-						<BOUCLE_articles_theme(ARTICLES){id_mot}{id_secteur}{!par date}{0,2}{lang}>
-						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
-						</BOUCLE_articles_theme>
-						<BOUCLE_articles_supp(ARTICLES){lang}{id_rubrique}{1,1}>
-						<p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:_avis_tous:></a></p>
-						</BOUCLE_articles_supp>
-					</div>
-					</B_articles_theme>
-					<div class="colonneContenuRubrique">
-						<BOUCLE_articles_alter1(ARTICLES){id_rubrique}{!par date}{0,2}{lang}>
-						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
-						</BOUCLE_articles_alter1>
-						<BOUCLE_articles_supp1(ARTICLES){lang}{id_rubrique}{1,1}>
-						<p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:_avis_tous:></a></p>
-						</BOUCLE_articles_supp1>
-					</div>
-					<//B_articles_theme>
-					</BOUCLE_theme_rubrique>
-					</B_theme_rubrique>
-					<div class="colonneContenuRubrique">
-						<BOUCLE_articles_alter(ARTICLES){id_rubrique}{!par date}{0,2}{lang}{doublons theme}>
-						<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-						<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
-						</BOUCLE_articles_alter>
-						<BOUCLE_articles_supp2(ARTICLES){lang}{id_rubrique}{0,1}{doublons theme}>
-						<p class="lienTous"><a href="#URL_RUBRIQUE">[(#_sous_rubriques:TITRE|supprimer_numero) : ]<:_avis_tous:></a></p>
-						</BOUCLE_articles_supp2>
-					</div>
-					<//B_theme_rubrique>
-
+					[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+					<BOUCLE_articles(ARTICLES){id_secteur}{id_mot=#GET{id_mot}}{lang}{!par date}{pagination}>
+					[(#INCLURE{fond=inclure/article-resume}{lang}{id_article})]
+					</BOUCLE_articles>
+					[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
 				</div>
-				</BOUCLE_sous_rubriques>
-
+				</B_articles>
+				
 			</div><!-- fin div colonnePrincipale -->
 		</div><!-- fin div corps -->
 		<div id="pied" class="clearfix">
