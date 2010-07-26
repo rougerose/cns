@@ -1,0 +1,30 @@
+<B_avis><BOUCLE_avis(RUBRIQUES){id_rubrique}>
+[(#SET{titre_rubrique,[(#TITRE|supprimer_numero)]})]
+</BOUCLE_avis>
+[(#GET{titre_rubrique}|?{
+	[(#SET{titre_index,<:_index_chronologique:>})]
+	,
+	[(#SET{titre_index,<:index_chronologique:>})]
+})]
+<h1>
+	[(#GET{titre_rubrique}|?{[(#GET{titre_rubrique}|couper{8}|concat{'&hellip;'}) / ],''})]
+	[(#GET{titre_index})]
+	[(#ENV{annee}|?{[ / (#ENV{annee})],[(#DATE|annee)]})]
+</h1>
+<div id="index" class="chrono clearfix">
+	<dl>
+		<BOUCLE_articles(ARTICLES){id_secteur?}{lang}{!par date}>
+		[<dt>
+			[(#ENV{annee}|=={#DATE|annee}|?{<strong>,<a href="[(#SELF|parametre_url{annee,[(#DATE|annee)]})]">})]
+			(#DATE|annee|unique)
+			[(#ENV{annee}|=={#DATE|annee}|?{</strong>,</a>})]
+		</dt>
+		[(#DATE|annee|=={#ENV{annee}}|?{' '})
+		[<dd>
+			(#INCLURE{fond=inclure/index_chrono_articles}{lang}{id_secteur}{date}{self=#SELF})
+		</dd>]
+		]
+		]
+		</BOUCLE_articles>
+	</dl>
+</div>

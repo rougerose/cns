@@ -122,7 +122,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #pageIndex h1 { margin-bottom: 1.5em; }
 
-#pageIndex h1.thema { margin-bottom: 3em; }
+#rubrique .index h1, #pageIndex h1.thema { margin-bottom: 3em; }
 
 #sommaire h2, #rubrique .blocContenu h2, #recherche .blocContenu h2 { font-size: 2em; }
 
@@ -303,6 +303,9 @@ dl.faq { margin-bottom: 1.5em; border-bottom: 1px dotted #ddd; }
 	margin-left: 0; }
 
 .blocContenu div.colonneContenuRubrique { margin-left: 265px; margin-bottom: 3em; }
+/* exception pour la rubrique-3 -- avis, rapports et reco -- */
+.blocContenu .colonneContenuRubrique .colonneContenuRubrique { margin-left: 0; }
+
 
 .agenda .blocContenu .colonneContenuRubrique { margin-left: 159px; }
 
@@ -418,14 +421,14 @@ p#abecedaire strong, #index dt strong, #index dt a.on { color: #f00; }
 
 /* si javascript est actif, on positionne les elements plus joliment, et jquery fait le necessaire pour adapter la hauteur de la page en fonction du contenu mis en absolu (voir /javascript/configuration.js) */
 
-.jquery-on #index dd {
+#index.jquery-on dd {
 	float: none;
 	margin-left: 212px;
 	position: absolute; }
 
-.jquery-on #index dd#tabs { top: -5em; }
+#index.jquery-on dd#tabs { top: -5em; }
 
-.jquery-on #index.chrono dd { margin-left: 265px; }
+#index.chrono.jquery-on dd { margin-left: 265px; }
 
 /* squelette Mot */
 

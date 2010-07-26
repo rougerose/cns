@@ -1,0 +1,60 @@
+<dd id="tabs">
+	<ul>
+		<B_titre_articles>
+		<BOUCLE_titre_articles(ARTICLES){id_mot=#ENV{mot}}{lang}> </BOUCLE_titre_articles>
+		<li><a href="#articles"><:articles_maj:></a></li>
+		</B_titre_articles>
+		
+		<B_titre_rubriques>
+		<BOUCLE_titre_rubriques(RUBRIQUES){id_mot=#ENV{mot}}{lang}> </BOUCLE_titre_rubriques>
+		<li><a href="#rubriques"><:rubriques_maj:></a></li>
+		</B_titre_rubriques>
+		
+		<B_titre_sites>
+		<BOUCLE_titre_sites(SITES){id_mot=#ENV{mot}}> </BOUCLE_titre_sites>
+		<li><a href="#sites"><:sites_web_maj:></a></li>
+		</B_titre_sites>
+	</ul>
+	
+	<B_articles>
+	<div id="articles">
+		<h2><:articles_maj:></h2>
+		#ANCRE_PAGINATION
+		[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+		<div class="blocContenu">
+			<BOUCLE_articles(ARTICLES){id_mot=#ENV{mot}}{lang}{!par date}{pagination}>
+			<h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+			<p>[(#DESCRIPTIF|PtoBR)][<span class="separateur"> | </span><strong><:publie:> (#DATE|affdate)]</strong></p>
+			</BOUCLE_articles>
+		</div>
+	</div>
+	</B_articles>
+
+	<B_rubriques>
+	<div id="rubriques">
+		<h2><:rubriques_maj:></h2>
+		#ANCRE_PAGINATION
+		[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+		<div class="blocContenu">
+			<BOUCLE_rubriques(RUBRIQUES){id_mot=#ENV{mot}}{lang}{par multi titre}{pagination}>
+			<h3><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h3>
+			<p>[(#DESCRIPTIF|PtoBR)]</p>
+			</BOUCLE_rubriques>
+		</div>
+	</div>
+	</B_rubriques>
+
+	<B_sites>
+	<div id="sites">
+		<h2><:sites_web_maj:></h2>
+		#ANCRE_PAGINATION
+		[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
+		<div class="blocContenu">
+			<BOUCLE_sites(SITES){id_mot=#ENV{mot}}{par multi nom_site}{pagination}>
+			<h3><a href="#URL_SITE">[(#NOM_SITE|supprimer_numero)]</a></h3>
+			<p>[(#DESCRIPTIF|PtoBR)]</p>
+			</BOUCLE_sites>
+		</div>
+	</div>
+	</B_sites>
+</dd>

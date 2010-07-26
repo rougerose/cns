@@ -16,15 +16,16 @@
 		<div id="entete" class="clearfix">
 			
 			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
-			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique=3}{skel=#SQUELETTE}{page=#ENV{page}}{annee=#ENV{annee}}>
+			<INCLURE{fond=inclure/menuPrincipal}{lang}{skel=#SQUELETTE}{page=#ENV{page}}{annee=#ENV{annee}}>
 			<INCLURE{fond=inclure/menuSecondaire}{lang}>
 			
 		</div><!-- fin div entete -->
 		<div id="corps">
 			<div id="colonnePrincipale" class="clearfix">
-				<h1 class="thema"><:index_thematique:>[ / (#GET{titre})][ / (#TITRE|supprimer_numero)]</h1>
 				
-				[(#INCLURE{fond=inc-indexThemaMots}{id_mot}{lang}{titre=#GET{titre}}{lettre=#ENV{lettre}}{self=#SELF})]
+				<INCLURE{fond=contenu/index}{lang}{id_mot}{index}{lettre=#GET{titre}}{mot=#ID_MOT}>
+				
+				
 				
 			</div><!-- fin div colonnePrincipale -->
 		</div><!-- fin div corps -->

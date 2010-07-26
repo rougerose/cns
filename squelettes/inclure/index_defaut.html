@@ -1,0 +1,70 @@
+[(#REM)
+	- fichier inclus depuis contenu/index.html
+	- définition de l'url : hypothèse 1 on est dans l'index général. Au fil des tests suivants, on modifie éventuellement en fonction du contexte
+	- Test : on est dans la rubrique 3 (avis, rapports...) ? ou bien dans l'index général ?
+	- Dans les deux cas, on ne récupère que les mots-clés "utiles" (ceux liés aux articles de la rubrique ou ceux qui sont liés à au moins un article publiés dans le site)
+]
+[(#SET{url,[(#URL_PAGE{index})]})]
+<B_avis><BOUCLE_avis(RUBRIQUES){id_rubrique}>
+[(#SET{titre_rubrique,[(#TITRE|supprimer_numero)]})]
+[(#SET{url,[(#URL_RUBRIQUE|parametre_url{index,#ENV{index}})]})]
+<BOUCLE_articles(ARTICLES){id_secteur}>
+<BOUCLE_mots_articles(MOTS){id_article}{doublons mots}{id_groupe!=1}></BOUCLE_mots_articles>
+</BOUCLE_articles>
+</BOUCLE_avis>
+</B_avis>
+<BOUCLE_mots_avec_articles(spip_mots_articles)><BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises></BOUCLE_mots_avec_articles>
+<//B_avis>
+
+<BOUCLE_variables_mot(MOTS){id_mot=#ENV{mot}}>
+[(#SET{titre_mot,[(#TITRE|supprimer_numero)]})]
+[(#GET{titre_rubrique}|?{
+	'',[(#SET{url,[(#URL_PAGE{index})]})]
+})]
+</BOUCLE_variables_mot>
+
+[(#GET{titre_rubrique}|?{
+	[(#SET{titre_index,<:_index_thematique:>})]
+	,
+	[(#SET{titre_index,<:index_thematique:>})]
+})]
+
+<h1 class="thema">
+	[(#GET{titre_rubrique}|?{[(#GET{titre_rubrique}|couper{8}|concat{'&hellip;'}) / ],''})]
+	[(#GET{titre_index})]
+	[(#ENV{lettre}|?{[ / (#ENV{lettre})],' / A'})]
+	[ / (#GET{titre_mot})]
+</h1>
+
+<div id="index" class="thema clearfix texte">
+	<p id="abecedaire">
+		<BOUCLE_mot(MOTS){par multi titre}{!doublons mots}>
+		[(#COMPTEUR_BOUCLE|=={1}|?{[(#SET{premier,[(#TITRE|supprimer_numero|mb_strtoupper|initiale)]})]})]
+		[(#REM) un tableau des mots-cles de la forme : "initiale du mot" => "id du mot" ]
+		[(#SET{initiale[(#TITRE|supprimer_numero|mb_strtoupper|initiale)],
+			[(#GET{initiale[(#TITRE|supprimer_numero|mb_strtoupper|initiale)]}
+			|array_merge_{#ARRAY{#COMPTEUR_BOUCLE,#ID_MOT}}
+			)]}
+			)]
+			[(#SET{initiale_titre,[(#TITRE|supprimer_numero|mb_strtoupper|initiale)]})]
+			[[(#GET{initiale_titre}|=={[(#ENV{lettre,#GET{premier}})]}|?{<strong>,<a href="[(#GET{url}|parametre_url{lettre,#GET{initiale_titre}})]">})](#GET{initiale_titre}|unique)[(#GET{initiale_titre}|=={[(#ENV{lettre,#GET{premier}})]}|?{</strong>,</a>})]]
+		</BOUCLE_mot>
+	</p>
+
+	<dl>
+		<BOUCLE_afficher_mots(MOTS){id_mot IN #GET{initiale#ENV{lettre,#GET{premier}}}}{par multi titre}{doublons a}>
+		[<dt>
+			[(#ID_MOT|=={#ENV{mot}}|?{<strong>,<a href="[(#GET{url}|parametre_url{lettre,[(#TITRE|supprimer_numero|mb_strtoupper|initiale)]}|parametre_url{mot,#ID_MOT})]">})]
+				(#TITRE|supprimer_numero)
+				[(#ID_MOT|=={#ENV{mot}}|?{</strong>,</a>})]
+		</dt>]
+			[(#ID_MOT|=={#ENV{mot}}|?{' '})
+			[(#GET{titre_rubrique}|?{
+				[(#INCLURE{fond=inclure/index_mots_articles}{id_rubrique}{self=#SELF}{mot=#ENV{mot}}{lang}{unique})],
+				[(#INCLURE{fond=inclure/index_mots}{self=#SELF}{mot=#ENV{mot}}{lang}{unique})]
+			})]
+			
+			]
+		</BOUCLE_afficher_mots>
+	</dl>
+</div>

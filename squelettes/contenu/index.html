@@ -1,0 +1,16 @@
+
+<BOUCLE_rubrique_avis(RUBRIQUES){id_rubrique}>
+	[(#SET{titre_rubrique,[(#TITRE|supprimer_numero)]})]
+</BOUCLE_rubrique_avis>
+
+[(#REM) variable annee pour l'index chrono ]
+[(#SET{annee,[(#ENV{annee,[(#DATE|annee)]})]})]
+
+[(#SET{type_index,[(#ENV{index,index_defaut})]})]
+[(#GET{type_index}|=={chrono}|?{
+	#SET{type_index,index_chrono}
+	,
+	#SET{type_index,index_defaut}
+})]
+
+<INCLURE{fond=inclure/#GET{type_index}}{id_secteur=#ENV{id_rubrique}}{id_rubrique}{id_mot}{lang}{annee=#GET{annee}}{lettre}{mot}{index}>

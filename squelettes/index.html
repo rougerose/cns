@@ -3,19 +3,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
-	<BOUCLE_mots_avec_articles(spip_mots_articles)><BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises></BOUCLE_mots_avec_articles>
-	<BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>
-	[(#SET{premier,[(#TITRE|supprimer_numero|initiale)]})]
-	</BOUCLE_premier_mot>
-	
-	[(#REM) variable ]
-	[(#SET{typeIndex,[(#ENV{annee}|?{chrono,thema})]})]
 	<title>
-		[(#GET{typeIndex}|=={chrono}|?{
-			<:index_chronologique:>[ / (#ENV{date}|annee)]
-			,
-			<:index_thematique:>[ / (#ENV{lettre,#GET{premier}})]
-		})]
+		<:index_thematique:>
+		[ / (#ENV{lettre}|?{#ENV{lettre},A})]
 		[ | (#NOM_SITE_SPIP|textebrut)]
 	</title>
 	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
@@ -27,24 +17,15 @@
 		<div id="entete" class="clearfix">
 			
 			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
-			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique=3}{skel=#SQUELETTE}{page=#ENV{page}}{annee=#ENV{annee}}>
+			<INCLURE{fond=inclure/menuPrincipal}{lang}{skel=#SQUELETTE}{page=#ENV{page}}{annee=#ENV{annee}}>
 			<INCLURE{fond=inclure/menuSecondaire}{lang}>
 			
 		</div><!-- fin div entete -->
 		<div id="corps">
 			<div id="colonnePrincipale" class="texte clearfix">
-				<h1[(#GET{typeIndex}|=={thema}|?{' class="thema"'})]>
-					[(#GET{typeIndex}|=={chrono}|?{
-						<:index_chronologique:>[ / (#ENV{date}|annee)]
-						,
-						<:index_thematique:>[ / (#ENV{lettre,#GET{premier}})]
-					})]
-				</h1>
-				[(#GET{typeIndex}|=={chrono}|?{
-					[(#INCLURE{fond=inc-indexChrono}{lang}{annee=#ENV{annee}}{id_secteur=3}{self=#SELF})]
-					,
-					[(#INCLURE{fond=inc-indexThema}{lang}{lettre=#ENV{lettre}}{premier=#GET{premier}}{mot=#ENV{mot}})]
-				})]
+				
+				<INCLURE{fond=contenu/index}{lang}{index}{annee}{lettre}{mot}>
+				
 			</div><!-- fin div colonnePrincipale -->
 		</div><!-- fin div corps -->
 		<div id="pied" class="clearfix">

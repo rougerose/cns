@@ -1,4 +1,5 @@
 #SET{courante, #ENV{rubrique_courante}}
+<BOUCLE_url_rubrique3(RUBRIQUES){id_rubrique}>#SET{url,#URL_RUBRIQUE}</BOUCLE_url_rubrique3>
 <ul>
 	<BOUCLE_sousrubriques(RUBRIQUES){id_parent}{par num titre, multi titre}>
 	<li[ (#GET{courante}|=={#ID_RUBRIQUE}|?{' '})class="on"]>
@@ -8,19 +9,13 @@
 	</BOUCLE_sousrubriques>
 	[(#REM) pour la rubrique FR et EN "rapports, avis..." on ajoute l'index des mots-clés]
 	[(#ENV{id_secteur}|=={3}|?{' '})
-	<li[ (#ENV{skel}|match{squelettes\/mot}|?{'class="on"'})][ (#ENV{page}|=={index}|?{'class="on"'})]>
-		<a href="#URL_PAGE{index}"><:index:></a>
-		[(#ENV{skel}|match{squelettes\/mot}|?{' '})
-		<ul>
-			<li[ (#ENV{skel}|match{squelettes\/mot}|?{'class="on"'})][(#ENV{lettre}|?{'class="on"'})]><a href="[(#URL_PAGE{index})]"><:index_thematique:></a></li>
-			<li[ (#ENV{annee}|?{'class="on"'})]><a href="[(#URL_PAGE{index}|parametre_url{'annee',[(#DATE|annee)]})]"><:index_chronologique:></a></li>
+	<li[ (#ENV{index}|?{'class="on"'})]>
+		<a href="[(#GET{url}|parametre_url{index,thema})]"><:index:></a>
+	[(#ENV{index}|?{' '})
+		<ul>#GET{rubrique_courante}
+			<li[(#ENV{index}|=={thema}|?{' class="on"'})]><a href="[(#GET{url}|parametre_url{index,thema})]"><:index_thematique:></a></li>
+			<li[ (#ENV{index}|=={chrono}|?{'class="on"'})]><a href="[(#GET{url}|parametre_url{index,chrono})]"><:index_chronologique:></a></li>
 		</ul>
-	]
-	[(#ENV{page}|=={index}|?{' '})
-	<ul>
-		<li[(#ENV{page}|=={index}|?{' '})[(#ENV{annee}|?{'',' '}) class="on"]]><a href="[(#URL_PAGE{index})]"><:index_thematique:></a></li>
-		<li[ (#ENV{annee}|?{'class="on"'})]><a href="[(#URL_PAGE{index}|parametre_url{'annee',[(#DATE|annee)]})]"><:index_chronologique:></a></li>
-	</ul>
 	]
 	</li>
 ]

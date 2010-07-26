@@ -1,0 +1,55 @@
+<BOUCLE_p(RUBRIQUES){id_rubrique}>[(#REM) rubriques rapports, avis et reco ]
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+	<title>
+		[(#TITRE|supprimer_numero|textebrut)]
+		[ / (#ENV{index}|=={thema}|?{<:_index_thematique:>})[ / (#ENV{lettre}|?{#ENV{lettre},A})]]
+		[ / (#ENV{index}|=={chrono}|?{<:_index_chronologique:>})[ / (#ENV{annee}|?{#ENV{annee},[(#DATE|annee)]})]]
+		[ | (#NOM_SITE_SPIP|textebrut)]
+	</title>
+	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
+	<INCLURE{fond=inclure/head}>
+</head>
+
+<body id="rubrique">
+	<div id="enveloppe">
+		<div id="entete" class="clearfix">
+			
+			<INCLURE{fond=inclure/logo}{skel=#SQUELETTE}>
+			<INCLURE{fond=inclure/menuPrincipal}{lang}{id_rubrique}{id_secteur}{skel=#SQUELETTE}{index}{annee}>
+			<INCLURE{fond=inclure/menuSecondaire}{lang}>
+			
+		</div><!-- fin div entete -->
+		[(#REM) 
+			deux hypothèses : 
+				- ou bien on est dans la rubrique de premier niveau (rubrique 3)
+				- ou bien on est dans l'index général (accessible depuis le pied de page)
+		]
+		[(#SET{hypothese,[(#ENV{index,rubrique})]})]
+		[(#GET{hypothese}|=={rubrique}|?{
+			[(#SET{contenu,rubrique-3})]
+			,
+			[(#SET{contenu,index})]
+		})]
+		
+		<div id="corps">
+			<div id="colonnePrincipale" class="[(#GET{contenu}) ]texte">
+				
+				<INCLURE{fond=contenu/#GET{contenu}}{lang}{id_rubrique}{index}{annee}{lettre}{mot}>
+				
+				
+			</div><!-- fin div colonnePrincipale -->
+		</div><!-- fin div corps -->
+		<div id="pied" class="clearfix">
+			
+			<INCLURE{fond=inclure/pied}>
+			
+		</div><!-- / div pied -->
+	</div><!-- fin div enveloppe -->
+
+</body>
+</html>
+</BOUCLE_p>

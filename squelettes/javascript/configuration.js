@@ -24,7 +24,7 @@ $(document).ready(function(){
 	// on est bien dans la page index avec une liste d'articles ?
 	if ($("#index dd").length > 0) {
 		// ajout d'une classe specifique
-		$("#pageIndex").addClass("jquery-on");
+		$("#index").addClass("jquery-on");
 		var blocArticles = $("#index dl dd").height(),
 			blocIndex = $("#index dl").height(),
 			// taille du blocContenu et tri du tableau obtenu en ordre décroissant
