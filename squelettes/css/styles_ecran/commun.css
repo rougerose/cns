@@ -430,6 +430,7 @@ p#abecedaire strong, #index dt strong, #index dt a.on { color: #f00; }
 
 #index.chrono.jquery-on dd { margin-left: 265px; }
 
+.annuaireLiens #index.jquery-on dd { position: static; }
 /* squelette Mot */
 
 #objetsMots {
