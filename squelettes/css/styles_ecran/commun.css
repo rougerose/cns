@@ -399,17 +399,16 @@ a.sommaire_ancre { display: none; }
 #index dl dt {
 	clear: left;
 	float: left;
-	font-size: 18px; line-height: 20px;
+	font-size: 16px; line-height: 20px;
 	margin-bottom: 9px;
 	width: 190px;
 	padding-right: 20px; }
 
-#index dl dt:first-child { /*padding-top: .3em;*/ }
+#index.chrono dt {  }
 
-#index.chrono dt { width: 265px; }
 #index.thema dd, #index.alpha dd { float: right; }
 
-#index dd { width: 470px; }
+#index dd {  }
 
 #index dd#tabs h2 { display: none; }
 
@@ -431,6 +430,7 @@ p#abecedaire strong, #index dt strong, #index dt a.on { color: #f00; }
 #index.chrono.jquery-on dd { margin-left: 265px; }
 
 .annuaireLiens #index.jquery-on dd { position: static; }
+
 /* squelette Mot */
 
 #objetsMots {
