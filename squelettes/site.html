@@ -10,7 +10,7 @@
 	</BOUCLE_titre_rubrique5>
 
 	<title>
-		[(#GET{titre_rubrique}) / ]<:_index_alpha:>[ / (#GET{initiale_site})][ / (#NOM_SITE|supprimer_numero|textebrut)][ | (#NOM_SITE_SPIP|textebrut)]
+		[(#GET{titre_rubrique}) / ]<:index_alpha:>[ / (#GET{initiale_site})][ / (#NOM_SITE|supprimer_numero|textebrut)][ | (#NOM_SITE_SPIP|textebrut)]
 	</title>
 	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
 	<INCLURE{fond=inclure/head}>
@@ -29,7 +29,7 @@
 			<div id="colonnePrincipale" class="texte clearfix">
 				<div id="titre" class="blocContenu">
 					<h1>
-						[(#GET{titre_rubrique}) / <:_index_alpha:>[ / (#GET{initiale_site})][ / (#NOM_SITE|supprimer_numero)]]
+						[(#GET{titre_rubrique}) / <:index_alpha:>[ / (#GET{initiale_site})][ / (#NOM_SITE|supprimer_numero)]]
 					</h1>
 				</div>
 				

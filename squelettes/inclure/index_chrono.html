@@ -2,9 +2,9 @@
 [(#SET{titre_rubrique,[(#TITRE|supprimer_numero)]})]
 </BOUCLE_avis>
 [(#GET{titre_rubrique}|?{
-	[(#SET{titre_index,<:_index_chronologique:>})]
-	,
 	[(#SET{titre_index,<:index_chronologique:>})]
+	,
+	[(#SET{titre_index,<:_index_chronologique:>})]
 })]
 <h1>
 	[(#GET{titre_rubrique}|?{[(#GET{titre_rubrique}|couper{8}|concat{'&hellip;'}) / ],''})]

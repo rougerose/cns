@@ -2,23 +2,23 @@
 	<ul>
 		<B_titre_articles>
 		<BOUCLE_titre_articles(ARTICLES){id_mot=#ENV{mot}}{lang}> </BOUCLE_titre_articles>
-		<li><a href="#articles"><:articles_maj:></a></li>
+		<li><a href="#articles"><:_articles:></a></li>
 		</B_titre_articles>
 		
 		<B_titre_rubriques>
 		<BOUCLE_titre_rubriques(RUBRIQUES){id_mot=#ENV{mot}}{lang}> </BOUCLE_titre_rubriques>
-		<li><a href="#rubriques"><:rubriques_maj:></a></li>
+		<li><a href="#rubriques"><:_rubriques:></a></li>
 		</B_titre_rubriques>
 		
 		<B_titre_sites>
 		<BOUCLE_titre_sites(SITES){id_mot=#ENV{mot}}> </BOUCLE_titre_sites>
-		<li><a href="#sites"><:sites_web_maj:></a></li>
+		<li><a href="#sites"><:_sites_web:></a></li>
 		</B_titre_sites>
 	</ul>
 	
 	<B_articles>
 	<div id="articles">
-		<h2><:articles_maj:></h2>
+		<h2><:_articles:></h2>
 		#ANCRE_PAGINATION
 		[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
 		<div class="blocContenu">
@@ -32,7 +32,7 @@
 
 	<B_rubriques>
 	<div id="rubriques">
-		<h2><:rubriques_maj:></h2>
+		<h2><:_rubriques:></h2>
 		#ANCRE_PAGINATION
 		[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
 		<div class="blocContenu">
@@ -46,7 +46,7 @@
 
 	<B_sites>
 	<div id="sites">
-		<h2><:sites_web_maj:></h2>
+		<h2><:_sites_web:></h2>
 		#ANCRE_PAGINATION
 		[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
 		<div class="blocContenu">

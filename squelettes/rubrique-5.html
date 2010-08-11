@@ -12,7 +12,7 @@
 [(#REM) index par défaut est thématique ]
 [(#SET{typeIndex,[(#ENV{index,thema})]})]
 
-[(#SET{typeIndexTitre,[(#GET{typeIndex}|=={thema}|?{<:_index_thematique:>,<:_index_alpha:>})]})]
+[(#SET{typeIndexTitre,[(#GET{typeIndex}|=={thema}|?{<:index_thematique:>,<:index_alpha:>})]})]
 [(#GET{typeIndex}|=={thema}|?{
 	[(#SET{lettre,[(#ENV{lettre,[(#GET{premier_mot})]})]})]
 	,

@@ -6,8 +6,8 @@
 <head>
 	<title>
 		[(#TITRE|supprimer_numero|textebrut)]
-		[ / (#ENV{index}|=={thema}|?{<:_index_thematique:>})[ / (#ENV{lettre}|?{#ENV{lettre},A})]]
-		[ / (#ENV{index}|=={chrono}|?{<:_index_chronologique:>})[ / (#ENV{annee}|?{#ENV{annee},[(#DATE|annee)]})]]
+		[ / (#ENV{index}|=={thema}|?{<:index_thematique:>})[ / (#ENV{lettre}|?{#ENV{lettre},A})]]
+		[ / (#ENV{index}|=={chrono}|?{<:index_chronologique:>})[ / (#ENV{annee}|?{#ENV{annee},[(#DATE|annee)]})]]
 		[ | (#NOM_SITE_SPIP|textebrut)]
 	</title>
 	[<meta name="description" content="(#DESCRIPTIF|couper{150}|textebrut)" />]
