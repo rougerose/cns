@@ -1,4 +1,4 @@
-<BOUCLE_p(RUBRIQUES){id_rubrique}>[(#REM) squelette par défaut pour les rubriques avec un traitement particulier pour la rubrique contact -- secteur 24 en version test -- ]
+<BOUCLE_p(RUBRIQUES){id_rubrique}>[(#REM) squelette par défaut pour les rubriques avec un traitement particulier pour la rubrique contact -- secteur 22 en version production -- ]
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -30,9 +30,9 @@
 				[(#REM) 
 					affichage différent des articles de la rubrique
 					s'il s'agit de la rubrique contact 
-					(numéro 24 en test, à corriger pour la version prod)
+					(numéro 22)
 				]
-				[(#ID_RUBRIQUE|=={24}|?{
+				[(#ID_RUBRIQUE|=={22}|?{
 					[(#INCLURE{fond=inclure/articles_par_numero}{id_rubrique}{lang}{self=#SELF}{env}{ajax})]
 					,
 					[(#INCLURE{fond=inclure/articles_par_date}{id_rubrique}{lang}{self=#SELF}{env}{ajax})]
