@@ -1,11 +1,12 @@
 <?php
 $GLOBALS[$GLOBALS['idx_lang']] = array(
+	// A
 	'a' => 'to',
 	'abonnement_liste_gestion' => 'Manage your subscription',
 	'accueil' => 'Home',
-	'actus_consulter' => '!! Consulter les actualit&eacute;s !!',
+	'actus_consulter' => 'Check the news',
 	'actus_toutes' => 'All the news',
-	'actus_recentes' => 'Lastest news',
+	'actus_recentes' => 'Latest news',
 	'affiche_reponse' => 'Click to see the answer',
 	'agenda' => 'Agenda',
 	'ajouter_calendrier' => 'add to calendar (.ics file)',
@@ -17,15 +18,23 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'aucun_evenement' => 'Agenda is empty.',
 	'avis_tous' => 'all opinions',
 	'_avis_tous' => 'All opinions',
+	
+	// C
 	'contratcc_court' => 'Creative Commons licence',
 	'contratcc_long' => 'content on this site is under a Creative Commons licence',
 	'cp_tous' => 'All press releases',
 	'credits' => 'Credits',
+	
+	// D
 	'document' => 'document',
 	'_document' => 'Document',
 	'documents' => 'documents',
 	'_documents' => 'Documents',
+	
+	// E
 	'email_indisponible' => 'e-mail address is unavailable.',
+	
+	// I
 	'index' => 'Index',
 	'_index_alpha' => 'Alphabetical index',
 	'index_alpha' => 'alphabetical index',
@@ -34,27 +43,41 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'_index_thematique' => 'Subject index',
 	'index_thematique' => 'subject index',
 	'informations' => 'Informations',
+	
+	// M
 	'mentions' => 'Legal',
 	'message_404' => 'The page cannot be found.',
 	'mot_clef' => 'keyword',
 	'mots_clefs' => 'keywords',
 	'_mots_clefs' => 'Keywords',
+	
+	// O
 	'ou' => 'Where',
+	
+	// P
 	'page' => 'page',
 	'postscriptum' => 'Postscript',
 	'prochains_rendezvous' => 'Upcoming events',
 	'publie' => 'Published',
 	'publie_enligne' => 'Published online',
+	
+	// Q
 	'quand' => 'When',
+	
+	// R
 	'rubrique' => 'section',
 	'_rubrique' => 'Section',
 	'_rubriques' => 'sections',
 	'_rubriques' => 'Sections',
+	
+	// S
 	'site_web' => 'web site',
 	'_site_web' => 'Web site',
 	'sites_web' => 'web sites',
 	'_sites_web' => 'Web sites',
 	'sommaire_page' => '&nbsp;[page&nbsp;@page@]',
+	
+	// T
 	'telecharger_page_pdf' => 'Download as PDF',
 	'tous_les_rendezvous' => 'All events',
 	'traduction_disponible' => 'Translation available',
