@@ -89,9 +89,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'format_reception' => "Format:"
 	, 'texte' => 'Text'
 	, 'html' => 'HTML'
-	, 'desabonnement' => 'Unsubscribe'
+	, 'desabonnement' => 'Unsubscribe',
 	// formulaires, patrons, etc.
-, 'abo_1_lettre' => 'Newsletter'
+	'abo_1_lettre' => 'Newsletter'
 	, 'abonnement_seule_liste_dispo' => "Subscribe to the newsletter"
 	, 'abo_listes' => 'Subscribe'
 	, 'abonnement_0' => 'Subscribe'
@@ -101,8 +101,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	, 'jour' => 'day'
 	, 'jours' => 'days'
 	, 'abonnement_bouton'=>'Modify your subscription'
-	, 'abonnement_cdt' => "<a href='http://bloog.net/spip-listes/'>SPIP-Listes</a>"
-, 'abonnement_change_format' => "You can change the format in which you will receive the newsletter or cancel your subscription: "
+	, 'abonnement_cdt' => "<a href='http://bloog.net/spip-listes/'>SPIP-Listes</a>",
+	'abonnement_change_format' => "You can change the format in which you will receive the newsletter or cancel your subscription: "
 	, 'abonnement_texte_mail' => '    Please specify which e-mail address you used when signing up previously. 
 	You will receive an e-mail with a link to the page where you can modify your subscription.'
 	, 'article_entier' => 'Read the whole article'
