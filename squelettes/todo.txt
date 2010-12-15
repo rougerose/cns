@@ -1,3 +1,6 @@
+TODO liens > index alphabétique : si clique sur une lettre de l'abécédaire, on bascule sur l'index thématique. Il faut ajouter le choix de l'index dans les paramètres de l'url.
+
+
 DONE traduction divers = miscellaneous
 DONE demande de créer un mot-clé "divers" pour les communiqués de presse. A priori, pas de problème pour ajouter les mots-clés que le CNS souhaite à condition qu'ils soient classés dans le groupe de mots-clés "thématiques". S'il s'agit de considérer que le mot-clé "divers" doit être une catégorie comme "dépistage", "prévention", etc. qui sont utilisées pour les rapports, alors, il s'agit simplement d'ajouter un mot-clé dans la catégorie de mots-clés "thématique rubrique" qui existe déjà. Avec une limite posée par la charte graphique du site : ces catégories sont utilisées pour la navigation dans la rubrique Rapports et il ne peut y avoir 6 à 7 entrées. Le mot/catégorie "divers" est créé et peut-être utilisé pour les avis, rapports comme pour les CP.
 DONE icone spip-out
