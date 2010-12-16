@@ -1,6 +1,6 @@
-[(#REM) fichier inclus depuis le squelette site.html ]
+[(#CACHE{0})][(#REM) fichier inclus depuis le squelette site.html ]
 <div id="index" class="alpha clearfix">
-	<p id="abecedaire">
+	<ul id="abecedaire">
 		<BOUCLE_sites(SITES){id_rubrique}{par multi nom_site}>
 		[(#REM) un tableau des sites de la forme : "initiale du nom du site" => "id du site" ]
 		[(#SET{initiale[(#NOM_SITE|supprimer_numero|mb_strtoupper|initiale)],
@@ -8,9 +8,9 @@
 			|array_merge_{#ARRAY{#COMPTEUR_BOUCLE,#ID_SYNDIC}})]}
 			)]
 			[(#SET{initiale_nom,[(#NOM_SITE|supprimer_numero|mb_strtoupper|initiale)]})]
-			[[(#GET{initiale_nom}|=={#ENV{initiale_site}}|?{<strong>,<a href="[(#URL_RUBRIQUE|parametre_url{lettre,#GET{initiale_nom}})]">})](#GET{initiale_nom}|unique)[(#GET{initiale_nom}|=={#ENV{initiale_site}}|?{'</strong>','</a>'})] ]
+			[<li>[(#GET{initiale_nom}|=={#ENV{initiale_site}}|?{<strong>,<a href="[(#URL_RUBRIQUE|parametre_url{lettre,#GET{initiale_nom}})]">})](#GET{initiale_nom}|unique)[(#GET{initiale_nom}|=={#ENV{initiale_site}}|?{'</strong>','</a>'})]</li> ]
 		</BOUCLE_sites>
-	</p>
+	</ul>
 
 	<B_s>
 	<dl>
