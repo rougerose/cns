@@ -423,15 +423,16 @@ p#abecedaire strong, #index dt strong, #index dt a.on { color: #f00; }
 #index.jquery-on dd, #index.jquery-on dl > .fragment {
 	float: none;
 	margin-left: 212px;
-	position: absolute; }
+	position: absolute;
+	width: 470px; }
 
 #index.jquery-on dl .fragment dd { margin-left: 0; position:static; }
 
 #index.jquery-on dd#tabs { top: -5em; }
 
-#index.chrono.jquery-on dd { margin-left: 265px; }
+#index.chrono.jquery-on dd {  }
 
-.annuaireLiens #index.jquery-on dd { xposition: static; }
+.annuaireLiens #index.jquery-on dd {  }
 
 /* squelette Mot */
 
