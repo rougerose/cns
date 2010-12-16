@@ -3,11 +3,13 @@
 <dd>
     #ANCRE_PAGINATION
     [<p class="pagination"><:page:> (#PAGINATION{page})</p>]
-    <BOUCLE_afficher_sites(SITES){id_mot=#ENV{mot}}{par nom_site}{pagination}>
-    [<h2>(#NOM_SITE)</h2>]
-    [<p>(#DESCRIPTIF|PtoBR)</p>]
-    [<p class="url"><a href="#URL_SITE">(#URL_SITE)</a></p>]
-    </BOUCLE_afficher_sites>
+	<div class="blocContenu">
+		<BOUCLE_afficher_sites(SITES){id_mot=#ENV{mot}}{par multi nom_site}{pagination}>
+	    [<h2>(#NOM_SITE)</h2>]
+	    [<p class="descriptif">(#DESCRIPTIF|PtoBR)</p>]
+	    [<p class="url"><a href="#URL_SITE">(#URL_SITE)</a></p>]
+	    </BOUCLE_afficher_sites>
+	</div>
 	[<p class="pagination"><:page:> (#PAGINATION{page})</p>]
 </dd>
 </B_afficher_sites>

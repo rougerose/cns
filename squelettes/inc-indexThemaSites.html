@@ -17,7 +17,7 @@
             )]}
         )]
         [(#SET{initiale_titre,[(#TITRE|supprimer_numero|initiale)]})]
-        [[(#GET{initiale_titre}|=={[(#ENV{initiale,#GET{premier_mot}})]}|?{<strong>,<a href="[(#URL_RUBRIQUE|parametre_url{index,t}|parametre_url{i,#GET{initiale_titre}})]">})](#GET{initiale_titre}|unique)[(#GET{initiale_titre}|=={[(#ENV{initiale,#GET{premier_mot}})]}|?{</strong>,</a>})]]
+        [[(#GET{initiale_titre}|=={[(#ENV{lettre,#GET{premier_mot}})]}|?{<strong>,<a href="[(#URL_RUBRIQUE|parametre_url{index,t}|parametre_url{lettre,#GET{initiale_titre}})]">})](#GET{initiale_titre}|unique)[(#GET{initiale_titre}|=={[(#ENV{lettre,#GET{premier_mot}})]}|?{</strong>,</a>})]]
         </BOUCLE_mot>
     </p>
     <dl>

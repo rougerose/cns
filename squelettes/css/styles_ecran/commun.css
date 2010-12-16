@@ -378,7 +378,7 @@ a.sommaire_ancre { display: none; }
 
 /* index (liens et mots-clés) */
 
-#index dd p.descriptif { margin-bottom: 1em; }
+#index dd p.descriptif { margin-bottom: 0.5em; }
 
 #index p#abecedaire {
 	float: left;
@@ -420,10 +420,12 @@ p#abecedaire strong, #index dt strong, #index dt a.on { color: #f00; }
 
 /* si javascript est actif, on positionne les elements plus joliment, et jquery fait le necessaire pour adapter la hauteur de la page en fonction du contenu mis en absolu (voir /javascript/configuration.js) */
 
-#index.jquery-on dd {
+#index.jquery-on dd, #index.jquery-on dl > .fragment {
 	float: none;
 	margin-left: 212px;
 	position: absolute; }
+
+#index.jquery-on dl .fragment dd { margin-left: 0; position:static; }
 
 #index.jquery-on dd#tabs { top: -5em; }
 

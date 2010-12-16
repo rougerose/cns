@@ -12,7 +12,7 @@
 		[(#GET{initiale_nom}|=={[(#ENV{lettre,#ENV{premier_site}})]}|?{
 			<strong>
 			,
-			<a href="[(#URL_RUBRIQUE|parametre_url{lettre,#GET{initiale_nom}})]">})]
+			<a href="[(#URL_RUBRIQUE|parametre_url{index,a}|parametre_url{lettre,#GET{initiale_nom}})]">})]
 			(#GET{initiale_nom}|unique)
 		[(#GET{initiale_nom}|=={[(#ENV{lettre,#ENV{premier_site}})]}|?{
 			</strong>

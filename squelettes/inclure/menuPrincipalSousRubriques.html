@@ -22,12 +22,12 @@
 
 [(#REM) pour la rubrique FR et EN "Liens" on ajoute annuaire thematique et alphabetique ]
 [(#ENV{id_secteur}|=={5}|?{' '})
-	[(#SET{typeIndex,#ENV{index,thema}})]
-	<li[ (#GET{typeIndex}|=={thema}|?{class="on"})]>
-		<a href="[(#URL_RUBRIQUE|parametre_url{index,thema})]"><:index_thematique:></a>
+	[(#SET{typeIndex,#ENV{index,t}})]
+	<li[ (#GET{typeIndex}|=={t}|?{class="on"})]>
+		<a href="[(#URL_RUBRIQUE|parametre_url{index,t})]"><:index_thematique:></a>
 	</li>
-	<li[ (#GET{typeIndex}|=={alpha}|?{[(#ID_RUBRIQUE|=={5}|?{class="on"})]})]>
-		<a href="[(#URL_RUBRIQUE|parametre_url{index,alpha})]"><:index_alpha:></a>
+	<li[ (#GET{typeIndex}|=={a}|?{[(#ID_RUBRIQUE|=={5}|?{class="on"})]})]>
+		<a href="[(#URL_RUBRIQUE|parametre_url{index,a})]"><:index_alpha:></a>
 	</li>
 ]
 [(#REM) rubrique Contact ? On liste les articles de la rubrique ]

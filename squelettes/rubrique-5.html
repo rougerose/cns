@@ -14,20 +14,17 @@
 		<BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}> </BOUCLE_mots_utilises>
 	</BOUCLE_mots_avec_sites>
 
-[(#REM) lettre du premier site à afficher par défaut, id du premier site, titre premier site ]
-#SET{l_premier_site,''} #SET{idsite,''} #SET{titreSite,''}
+[(#REM) lettre du premier site à afficher par défaut ]
+#SET{l_premier_site,''}
 	<BOUCLE_premier_site(SITES){id_rubrique}{par multi nom_site}{0,1}>
 		[(#SET{l_premier_site,[(#NOM_SITE|supprimer_numero|initiale)]})]
-		#SET{idsite,#ID_SITE} #SET{titreSite,#NOM_SITE}
 	</BOUCLE_premier_site>
 	
-	
 
-[(#REM) lettre du premier mot à afficher par défaut, id du premier mot, titre du premier mot ]
-#SET{l_premier_mot,''} #SET{idmot,''} #SET{titreMot,''}
+[(#REM) lettre du premier mot à afficher par défaut ]
+#SET{l_premier_mot,''}
 	<BOUCLE_premier_mot(MOTS){par multi titre}{!doublons mots}{0,1}>
 		[(#SET{l_premier_mot,[(#TITRE|supprimer_numero|initiale)]})]
-		#SET{idmot,#ID_MOT} #SET{titreMot, #TITRE}
 	</BOUCLE_premier_mot>
 
 [(#REM) l'index par defaut est thematique / t = thematique / a = alphabetique ]
@@ -54,7 +51,7 @@
 		[ / (#GET{titreIndex})]
 		[ / (#GET{lettre})]
 		<BOUCLE_mot_select(MOTS){id_mot=#ENV{mot}}>
-		[ / (#TITRE|supprimer_numero|textebrut)]
+		[ / (#TITRE|supprimer_numero|textebrut)] [(#SET{titre_mot_select,[(#TITRE|supprimer_numero)]})]
 		</BOUCLE_mot_select>
 		[ | (#NOM_SITE_SPIP|textebrut)]
 	</title>
@@ -74,7 +71,7 @@
 			<div id="colonnePrincipale" class="texte clearfix">
 				<div id="titre" class="blocContenu">
 					<h1>
-						[(#TITRE|supprimer_numero)[ / (#GET{titreIndex})][ / (#GET{lettre})]]
+						[(#TITRE|supprimer_numero)[ / (#GET{titreIndex})][ / (#GET{lettre})]][ / (#GET{titre_mot_select})]
 					</h1>
 					[<div class="colonneContenuRubrique">
 						(#DESCRIPTIF)
