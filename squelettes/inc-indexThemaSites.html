@@ -1,4 +1,3 @@
-#CACHE{0}
 [(#REM) on récupère uniquement les mots-clés liés au moins à un site ]
 <BOUCLE_mots_avec_sites(spip_mots_syndic)>
     <BOUCLE_mots_utilises(MOTS){id_mot}{id_groupe!=1}{doublons mots}></BOUCLE_mots_utilises>
@@ -27,7 +26,9 @@
             [(#ENV{mot}|=={#ID_MOT}|?{'</strong>',</a>})]
         </dt>
 		[(#ENV{mot}|=={#ID_MOT}|?{
-			[(#INCLURE{fond=inc-indexThemaSitesListe}{id_mot}{mot=#ENV{mot}}{self=#SELF})]
+			[<dd>
+			(#INCLURE{fond=inc-indexThemaSitesListe}{id_mot}{mot=#ENV{mot}}{self=#SELF})
+			</dd>]
 		})]
         </BOUCLE_afficher_mots>
     </dl>
