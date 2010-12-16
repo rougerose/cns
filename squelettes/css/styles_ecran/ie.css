@@ -18,8 +18,9 @@
 
 }
 
-.jquery-on #index dd {
+.jquery-on dd {
 	margin-left: 0;
+	left: 0;
 }
 
 .jquery-on #index.chrono dd {
