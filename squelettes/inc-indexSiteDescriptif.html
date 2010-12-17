@@ -2,7 +2,9 @@
 <dd class="clearfix">
 	[<p class="descriptif">(#DESCRIPTIF|PtoBR)</p>]
 	<B_mots>
-	<p>#PUCE <:mots_clefs:> <BOUCLE_mots(MOTS){id_syndic}{","}><a href="[(#URL_PAGE{rubrique}|parametre_url{id_rubrique,5}|parametre_url{index,t}|parametre_url{mot,#ID_MOT})]" rel="tag">[(#TITRE|supprimer_numero)]</a></BOUCLE_mots></p>
+	<p>#PUCE <:mots_clefs:> <BOUCLE_mots(MOTS){id_syndic}{","}>[(#SET{initiale_mot,[(#TITRE|supprimer_numero|mb_strtoupper|initiale)]})]
+		<a href="[(#URL_PAGE{rubrique}|parametre_url{id_rubrique,5}|parametre_url{index,t}|parametre_url{mot,#ID_MOT}|parametre_url{lettre,#GET{initiale_mot}})]" rel="tag">[(#TITRE|supprimer_numero)]</a></BOUCLE_mots>
+	</p>
 	</B_mots>
 	[<p>#PUCE <:voir_en_ligne:> <a href="#URL_SITE">(#URL_SITE)</a></p>]
 </dd>
